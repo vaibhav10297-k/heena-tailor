@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Book Your Master Tailor | Heena Tailor</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="../shared.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&amp;family=Montserrat:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#ffdad4",
+                        "tertiary-container": "#4d3829",
+                        "on-surface": "#1b1b1b",
+                        "secondary-fixed-dim": "#e9c349",
+                        "primary": "#570000",
+                        "primary-container": "#800000",
+                        "inverse-surface": "#303030",
+                        "surface-container-low": "#f3f3f3",
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#dfc1ac",
+                        "secondary-fixed": "#ffe088",
+                        "surface-container-lowest": "#ffffff",
+                        "background": "#f9f9f9",
+                        "on-primary-fixed-variant": "#8f0f07",
+                        "on-secondary-fixed": "#241a00",
+                        "tertiary": "#352315",
+                        "on-primary-fixed": "#410000",
+                        "surface": "#f9f9f9",
+                        "inverse-on-surface": "#f1f1f1",
+                        "surface-tint": "#b22b1d",
+                        "on-secondary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-surface-variant": "#5a413d",
+                        "error": "#ba1a1a",
+                        "on-primary-container": "#ff8371",
+                        "inverse-primary": "#ffb4a8",
+                        "surface-dim": "#dadada",
+                        "secondary-container": "#fed65b",
+                        "on-error-container": "#93000a",
+                        "primary-fixed-dim": "#ffb4a8",
+                        "surface-variant": "#e2e2e2",
+                        "surface-container-highest": "#e2e2e2",
+                        "secondary": "#735c00",
+                        "surface-container-high": "#e8e8e8",
+                        "surface-container": "#eeeeee",
+                        "on-tertiary-fixed-variant": "#584233",
+                        "outline": "#8e706c",
+                        "on-background": "#1b1b1b",
+                        "on-tertiary-fixed": "#28180b",
+                        "tertiary-fixed": "#fddcc7",
+                        "surface-bright": "#f9f9f9",
+                        "on-tertiary-container": "#bea18e",
+                        "on-secondary-container": "#745c00",
+                        "on-secondary-fixed-variant": "#574500",
+                        "outline-variant": "#e2bfb9",
+                        "on-primary": "#ffffff",
+                        "gold-accent": "#F2D2BD"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "container-max": "1280px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "unit": "8px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Montserrat"],
+                        "headline-md": ["Playfair Display"],
+                        "body-lg": ["Montserrat"],
+                        "headline-sm": ["Playfair Display"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "body-md": ["Montserrat"],
+                        "display-lg": ["Playfair Display"],
+                        "button": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "button": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-nav {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .custom-dashed-border {
+            background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='12' ry='12' stroke='%23F2D2BDFF' stroke-width='2' stroke-dasharray='8%2c 12' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+            border-radius: 12px;
+        }
+        .grain-texture {
+            background-image: url("https://www.transparenttextures.com/patterns/felt.png");
+        }
+        .active-card {
+            border-color: #570000 !important;
+            box-shadow: 0 10px 30px rgba(87, 0, 0, 0.1);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary-fixed selection:text-primary">
+<!-- TopAppBar -->
+<header id="main-header" class="fixed top-0 w-full z-50 bg-[#111111]/95 backdrop-blur-md text-white border-b border-white/10 shadow-lg h-20">
+    <nav class="flex justify-between items-center px-6 md:px-16 h-full w-full max-w-[1280px] mx-auto relative">
+        <!-- Logo -->
+        <a class="font-headline-sm text-headline-sm tracking-[0.2em] text-[#ffdad4] uppercase font-bold" href="../home_heena_tailor/code.html">HEENA TAILOR</a>
+        
+        <!-- Desktop Menu Links -->
+        <div class="hidden lg:flex items-center gap-8">
+            <a id="nav-home" class="font-label-caps text-label-caps text-[#eeeeee] hover:text-[#ffdad4] transition-colors py-2 uppercase" href="../home_heena_tailor/code.html">HOME</a>
+            <a id="nav-services" class="font-label-caps text-label-caps text-[#eeeeee] hover:text-[#ffdad4] transition-colors py-2 uppercase" href="../book_a_service/code.html">SERVICES</a>
+            <a id="nav-shop" class="font-label-caps text-label-caps text-[#eeeeee] hover:text-[#ffdad4] transition-colors py-2 uppercase" href="../materials_store/code.html">SHOP</a>
+            <a id="nav-gallery" class="font-label-caps text-label-caps text-[#eeeeee] hover:text-[#ffdad4] transition-colors py-2 uppercase" href="../designer_gallery/code.html">GALLERY</a>
+            <a id="nav-reviews" class="font-label-caps text-label-caps text-[#eeeeee] hover:text-[#ffdad4] transition-colors py-2 uppercase" href="../home_heena_tailor/code.html#reviews">REVIEWS</a>
+            <a id="nav-about" class="font-label-caps text-label-caps text-[#eeeeee] hover:text-[#ffdad4] transition-colors py-2 uppercase" href="../home_heena_tailor/code.html#about">ABOUT</a>
+            <a id="nav-contact" class="font-label-caps text-label-caps text-[#eeeeee] hover:text-[#ffdad4] transition-colors py-2 uppercase" href="../home_heena_tailor/code.html#contact">CONTACT</a>
+        </div>
+        
+        <!-- Right side actions -->
+        <div class="flex items-center gap-4">
+            <!-- Theme Toggle -->
+            <button id="theme-toggle-btn" onclick="toggleTheme()" class="text-[#eeeeee] hover:text-[#ffdad4] active:scale-95 transition-all p-2 rounded-full">
+                <span class="material-symbols-outlined text-2xl" id="theme-toggle-icon">dark_mode</span>
+            </button>
+            
+            <!-- Wishlist -->
+            <button class="text-[#eeeeee] hover:text-[#ffdad4] active:scale-95 transition-all p-2 rounded-full hidden sm:block">
+                <span class="material-symbols-outlined text-2xl">favorite</span>
+            </button>
+            
+            <!-- Shopping Bag -->
+            <button class="text-[#eeeeee] hover:text-[#ffdad4] active:scale-95 transition-all p-2 rounded-full relative">
+                <span class="material-symbols-outlined text-2xl">shopping_bag</span>
+                <span class="absolute top-1 right-1 bg-[#ffdad4] text-[#111111] text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">2</span>
+            </button>
+            
+            <!-- Book Appointment CTA -->
+            <a href="../book_a_service/code.html" class="hidden md:flex items-center gap-2 bg-[#800000] hover:bg-[#570000] text-white font-button text-button px-5 py-3 rounded-lg transition-all uppercase tracking-wider font-semibold active:scale-95">
+                <span class="material-symbols-outlined text-lg">calendar_today</span>
+                <span>BOOK APPOINTMENT</span>
+            </a>
+            
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-toggle" onclick="toggleMobileMenu()" class="lg:hidden text-[#eeeeee] hover:text-[#ffdad4] active:scale-95 transition-all p-2 rounded-full">
+                <span class="material-symbols-outlined text-2xl" id="menu-btn-icon">menu</span>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- Mobile Side Drawer -->
+    <div id="mobile-drawer" class="fixed inset-y-0 right-0 z-50 w-64 bg-[#111111] text-white shadow-2xl border-l border-white/10 transform translate-x-full transition-transform duration-300 ease-in-out lg:hidden flex flex-col p-6 gap-6">
+        <div class="flex justify-between items-center border-b border-white/10 pb-4">
+            <span class="font-headline-sm text-[18px] tracking-[0.1em] text-[#ffdad4] uppercase font-bold">MENU</span>
+            <button onclick="toggleMobileMenu()" class="text-[#eeeeee] hover:text-[#ffdad4]">
+                <span class="material-symbols-outlined text-2xl">close</span>
+            </button>
+        </div>
+        
+        <div class="flex flex-col gap-4 font-label-caps text-label-caps text-lg">
+            <a class="py-2 text-[#eeeeee] hover:text-[#ffdad4] transition-colors border-b border-white/5" href="../home_heena_tailor/code.html" onclick="toggleMobileMenu()">HOME</a>
+            <a class="py-2 text-[#eeeeee] hover:text-[#ffdad4] transition-colors border-b border-white/5" href="../book_a_service/code.html" onclick="toggleMobileMenu()">SERVICES</a>
+            <a class="py-2 text-[#eeeeee] hover:text-[#ffdad4] transition-colors border-b border-white/5" href="../materials_store/code.html" onclick="toggleMobileMenu()">SHOP</a>
+            <a class="py-2 text-[#eeeeee] hover:text-[#ffdad4] transition-colors border-b border-white/5" href="../designer_gallery/code.html" onclick="toggleMobileMenu()">GALLERY</a>
+            <a class="py-2 text-[#eeeeee] hover:text-[#ffdad4] transition-colors border-b border-white/5" href="../home_heena_tailor/code.html#reviews" onclick="toggleMobileMenu()">REVIEWS</a>
+            <a class="py-2 text-[#eeeeee] hover:text-[#ffdad4] transition-colors border-b border-white/5" href="../home_heena_tailor/code.html#about" onclick="toggleMobileMenu()">ABOUT</a>
+            <a class="py-2 text-[#eeeeee] hover:text-[#ffdad4] transition-colors border-b border-white/5" href="../home_heena_tailor/code.html#contact" onclick="toggleMobileMenu()">CONTACT</a>
+        </div>
+        
+        <div class="mt-auto flex flex-col gap-4">
+            <!-- Wishlist for mobile -->
+            <a href="#" class="flex items-center gap-3 py-2 text-[#eeeeee] hover:text-[#ffdad4] transition-colors border-b border-white/5 sm:hidden">
+                <span class="material-symbols-outlined">favorite</span>
+                <span>WISHLIST</span>
+            </a>
+            <!-- Book Appointment button inside drawer -->
+            <a href="../book_a_service/code.html" class="flex items-center justify-center gap-2 bg-[#800000] hover:bg-[#570000] text-white font-button text-button py-4 rounded-lg transition-all uppercase tracking-wider font-bold">
+                <span class="material-symbols-outlined text-lg">calendar_today</span>
+                <span>BOOK APPOINTMENT</span>
+            </a>
+        </div>
+    </div>
+    
+    <!-- Mobile Drawer Overlay -->
+    <div id="mobile-overlay" onclick="toggleMobileMenu()" class="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 lg:hidden"></div>
+</header>
+<main class="pt-24 pb-32 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<!-- Hero Section -->
+<div class="mb-12">
+<span class="font-label-caps text-label-caps text-secondary mb-2 block uppercase tracking-widest">Digital Atelier Experience</span>
+<h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary-container leading-tight mb-4">Book Your Master Tailor</h2>
+<div class="w-24 h-1 bg-secondary-fixed"></div>
+</div>
+<form class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start" onsubmit="handleBookingSubmit(event)">
+<!<!-- Left Column: Selection -->
+<div class="lg:col-span-8 space-y-12">
+<!-- Blouse Style Selection -->
+<section>
+<div class="flex justify-between items-end mb-6">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Choose Your Custom Style</h3>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Step 1 of 4</span>
+</div>
+<h4 class="font-label-caps text-[#800000] mb-4 uppercase tracking-widest font-bold">Blouse Designs</h4>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Card 1 -->
+<div class="group cursor-pointer bg-white rounded-xl border border-gold-accent overflow-hidden transition-all duration-300 hover:shadow-xl active-card" onclick="selectStyle(this, 'Princess Cut Blouse', 1200)">
+<div class="aspect-[3/4] relative">
+<img class="w-full h-full object-cover" data-alt="High-end fashion editorial photography of a luxury silk princess-cut blouse with intricate hand-stitched detailing." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEyDFGlc8dvyzaGDJMBL16Geqr1lYqURrbJzPfCxOypf5Oa8Y_HJBn3ld8fFgquyZAKghCHE6hwP4dC3A0lLz818hVciCfX7Cscl4BrDjf98qH3Q6C2N4bmyz53O7g2JnbhDM9vlymkQtapZuB-vjIU-Df4kRSC6DFLPHhkaMrJj7D2CbLgFGpuD9tmOFgtAstGm6AJECxG8l0jOWZg4eSkcc4z8fY5YuGhsUlMNuImHUmEVZAakrMAHfLluAp4sl1mNdgZaHSNsw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<div class="p-4">
+<p class="font-label-caps text-label-caps text-secondary mb-1">MOST POPULAR</p>
+<h4 class="font-headline-sm text-[20px] text-primary">Princess Cut</h4>
+<p class="text-body-md text-on-surface-variant mt-2">Starting from ₹1,200</p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group cursor-pointer bg-white rounded-xl border border-gold-accent overflow-hidden transition-all duration-300 hover:shadow-xl" onclick="selectStyle(this, 'Padded Classic Blouse', 1500)">
+<div class="aspect-[3/4] relative">
+<img class="w-full h-full object-cover" data-alt="Close-up luxury fashion photography of a padded designer blouse in deep maroon velvet." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvdqBal2pJkkmHUxsNkhVv-AEvxmTsxNIdTHOSKVmsZ_e6eprASUnhUp50Fm_Jq8VKNXnjs8q5E_VSzlUMfPyIWKRla2Ugrsg2eAZg-QB-mchVbcwGhql-UFFzng3eBzm9TLYENYxDrTSHvxfvwe7g7Wyhn52ok8aEQLwpZuqlPKe9yZyjofhfqcLscfbg2YEOwloI39Qsv2IciBOJrt6Wk-dE_wNt1pnmExu7BL5-1ZbmnzuOBLHcGbzcAw-OQchZ2HyOrSC63hQ"/>
+</div>
+<div class="p-4">
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-1">EXTRA COMFORT</p>
+<h4 class="font-headline-sm text-[20px] text-primary">Padded Classic</h4>
+<p class="text-body-md text-on-surface-variant mt-2">Starting from ₹1,500</p>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group cursor-pointer bg-white rounded-xl border border-gold-accent overflow-hidden transition-all duration-300 hover:shadow-xl" onclick="selectStyle(this, 'Bridal Couture Blouse', 4500)">
+<div class="aspect-[3/4] relative">
+<img class="w-full h-full object-cover" data-alt="Exquisite bridal tailoring showcase featuring a heavily embellished gold and red wedding blouse." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-U2v4kLLOrz8kYOkMGKOZb50EhuE8PP8vipcWH6z4I8IJPwCxKs6QvHDgqfBAixtYdFg0iSUTpyi9cgzzQmMBJnzdYfrcp-01taWrCLZsP8Z5f9gisregLnfJJVba50z7rsq1Zta_AgpDSxgAKvIAxmNiKQHwPeiedX4jj1mIzKhs-6QVKi5vx-gqEu_h3GV8HObtDoJE1brv_ZU989e7vZMTFKh5ytDed_qJZfsa_8zBagAdsNSum1EdZmcCRg27y9VemayZgZk"/>
+</div>
+<div class="p-4">
+<p class="font-label-caps text-label-caps text-error mb-1">SIGNATURE STYLE</p>
+<h4 class="font-headline-sm text-[20px] text-primary">Bridal Couture</h4>
+<p class="text-body-md text-on-surface-variant mt-2">Starting from ₹4,500</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Kurti Styles -->
+<section>
+<h4 class="font-label-caps text-[#800000] mb-4 uppercase tracking-widest font-bold">Kurti Designs</h4>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="flex items-center gap-4 p-4 bg-white rounded-xl border border-gold-accent/30 group hover:border-primary hover:shadow-md transition-all cursor-pointer" onclick="selectStyle(this, 'Straight Cut Kurti', 800)">
+<div class="w-20 h-20 rounded-lg overflow-hidden shrink-0 bg-slate-50">
+<img class="w-full h-full object-cover" data-alt="A minimalist line of elegantly tailored long kurtis in soft linen fabrics." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-L2m8Ac5eJ0S6pL_hB4gBC4-JUbqALtDyeEd1dRnKToj55YCDQo_vVL-P9ANvk0MLAviH_xnb3TMpI9bJoyl_5J6AhMS2qXM22OyQmSXiJ7nZNWEGV_S4eFWqDArSDqQr4P20-tHsOm98IZKx9IjeIzUBHUAJOnW3qBBNfpKr342feMCZPBBlYaXTbAW5bwPqbrwOx1pvcZS5PHnogI7Tz_RnItdiXQ3RtjLF9qQSwm-Ib_jbOKp6xxOdhC2l_sUYHj1wH5bA6YI"/>
+</div>
+<div>
+<h4 class="font-headline-sm text-[18px] text-primary font-bold">Straight Cut Kurti</h4>
+<p class="text-body-md text-on-surface-variant">Classic silhouette starting from ₹800</p>
+</div>
+</div>
+<div class="flex items-center gap-4 p-4 bg-white rounded-xl border border-gold-accent/30 group hover:border-primary hover:shadow-md transition-all cursor-pointer" onclick="selectStyle(this, 'Anarkali Flare Kurti', 2200)">
+<div class="w-20 h-20 rounded-lg overflow-hidden shrink-0 bg-slate-50">
+<img class="w-full h-full object-cover" data-alt="Flowing Anarkali style garment with heavy volume and delicate pleats." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvy0GNCIfsIB2ULOXREk1kQQBvKObTxo4sQI5l9H29rpa9OVXkbnv52MJXI-kNFvT1IofAuSummcj69iWIQogZTbJ3AO1lrshr2iDy-4zB5dvT2MMl3L-jnVoAAr-5jFBt360guUN0CYxbow3R7JDCtCpCq7pScw81SfvkgPadqVaba6yXb-fOQbWs6CBhim0TnTyIpjgbXdU7pZ3bpkQTpqHnP2OqWTGrVdj_LBMJ5w6UwMl2fPn3cFRUTd9s8DAn3p_2fmp2RAo"/>
+</div>
+<div>
+<h4 class="font-headline-sm text-[18px] text-primary font-bold">Anarkali Flare</h4>
+<p class="text-body-md text-on-surface-variant">Regal volume starting from ₹2,200</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Repairing & Alterations -->
+<section>
+<h4 class="font-label-caps text-[#800000] mb-4 uppercase tracking-widest font-bold">Repairing & Alterations</h4>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="flex items-center gap-4 p-4 bg-white rounded-xl border border-gold-accent/30 group hover:border-primary hover:shadow-md transition-all cursor-pointer" onclick="selectStyle(this, 'Blouse Alteration', 300)">
+<div class="w-20 h-20 rounded-lg bg-[#800000]/5 flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined text-3xl">content_cut</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-[18px] text-primary font-bold">Blouse Alteration & Fitting</h4>
+<p class="text-body-md text-on-surface-variant">Sleeve, shoulder, side fitting starting from ₹300</p>
+</div>
+</div>
+<div class="flex items-center gap-4 p-4 bg-white rounded-xl border border-gold-accent/30 group hover:border-primary hover:shadow-md transition-all cursor-pointer" onclick="selectStyle(this, 'Dress/Kurti fitting', 350)">
+<div class="w-20 h-20 rounded-lg bg-[#800000]/5 flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined text-3xl">checkroom</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-[18px] text-primary font-bold">Dress & Kurti Alteration</h4>
+<p class="text-body-md text-on-surface-variant">Neck redesign, height adjustment starting from ₹350</p>
+</div>
+</div>
+<div class="flex items-center gap-4 p-4 bg-white rounded-xl border border-gold-accent/30 group hover:border-primary hover:shadow-md transition-all cursor-pointer" onclick="selectStyle(this, 'Zip/Hook replacement', 200)">
+<div class="w-20 h-20 rounded-lg bg-[#800000]/5 flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined text-3xl">lock_open</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-[18px] text-primary font-bold">Zip & Hook Replacement</h4>
+<p class="text-body-md text-on-surface-variant">Concealed zip & hand hooks starting from ₹200</p>
+</div>
+</div>
+<div class="flex items-center gap-4 p-4 bg-white rounded-xl border border-gold-accent/30 group hover:border-primary hover:shadow-md transition-all cursor-pointer" onclick="selectStyle(this, 'General Garment Alteration', 250)">
+<div class="w-20 h-20 rounded-lg bg-[#800000]/5 flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined text-3xl">construction</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-[18px] text-primary font-bold">General Garment Repair</h4>
+<p class="text-body-md text-on-surface-variant">Lining fixes, darning, general alterations from ₹250</p>
+</div>
+</div>
+</div>
+</section></section>
+<!-- Reference Upload Area -->
+<section>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-6">Design Inspiration</h3>
+<div class="custom-dashed-border p-12 bg-surface-container-lowest flex flex-col items-center justify-center text-center group cursor-pointer hover:bg-primary/5 transition-colors">
+<span class="material-symbols-outlined text-4xl text-secondary-fixed-dim mb-4 group-hover:scale-110 transition-transform">cloud_upload</span>
+<p class="font-headline-sm text-[20px] text-primary mb-2">Upload Reference Design</p>
+<p class="text-body-md text-on-surface-variant max-w-sm">Share sketches, screenshots, or fabric photos to help our masters understand your vision.</p>
+<input class="hidden" type="file"/>
+<button class="mt-6 px-6 py-2 border border-secondary text-secondary font-button text-button rounded-full hover:bg-secondary hover:text-white transition-colors uppercase" type="button">Select Files</button>
+</div>
+</section>
+<!-- Measurements Selection -->
+<section>
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Measurement Profile</h3>
+<div class="flex bg-surface-variant rounded-full p-1">
+<button class="px-6 py-2 rounded-full bg-white shadow-sm text-primary font-button text-button" type="button">USE SAVED</button>
+<button class="px-6 py-2 rounded-full text-on-surface-variant font-button text-button" type="button">ADD NEW</button>
+</div>
+</div>
+<div class="bg-surface-container p-6 rounded-xl border border-secondary-fixed/20 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-primary-container/10 rounded-full flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">person</span>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface">Primary Measurements</p>
+<p class="text-body-md text-on-surface-variant">Last updated: Oct 12, 2023</p>
+</div>
+</div>
+<button class="text-primary font-button text-button underline" type="button">EDIT</button>
+</div>
+</section>
+</div>
+<!-- Right Column: Form details & Pricing -->
+<aside class="lg:col-span-4 sticky top-24 space-y-8">
+<!-- Date Picker & Details -->
+<div class="bg-white p-8 rounded-xl shadow-[0_4px_30px_rgba(0,0,0,0.05)] border border-secondary-fixed/30">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-6">Schedule Fitting</h3>
+<div class="space-y-6">
+<div>
+<label class="font-label-caps text-label-caps text-on-surface-variant mb-2 block uppercase">Preferred Delivery Date</label>
+<div class="relative">
+<input class="w-full border-0 border-b border-gold-accent py-3 px-0 focus:ring-0 focus:border-primary bg-transparent text-body-md" type="date"/>
+<span class="material-symbols-outlined absolute right-0 top-3 text-secondary-fixed-dim">calendar_today</span>
+</div>
+</div>
+<div>
+<label class="font-label-caps text-label-caps text-on-surface-variant mb-2 block uppercase">Urgency</label>
+<div class="flex gap-4">
+<label class="flex-1 cursor-pointer">
+<input checked="" class="hidden peer" name="urgency" type="radio"/>
+<div class="text-center p-3 border border-gold-accent rounded-lg peer-checked:bg-primary-container peer-checked:text-white peer-checked:border-primary-container transition-all">
+<span class="text-button font-button">STANDARD</span>
+</div>
+</label>
+<label class="flex-1 cursor-pointer">
+<input class="hidden peer" name="urgency" type="radio"/>
+<div class="text-center p-3 border border-gold-accent rounded-lg peer-checked:bg-primary-container peer-checked:text-white peer-checked:border-primary-container transition-all">
+<span class="text-button font-button">EXPRESS</span>
+</div>
+</label>
+</div>
+</div>
+</div>
+<hr class="my-8 border-secondary-fixed/20"/>
+<!-- Pricing Guide -->
+<div class="space-y-4">
+<div class="flex justify-between items-center text-sm sm:text-base">
+<span class="text-body-md text-on-surface-variant" id="pricing-style-name">Base Tailoring (Princess Cut)</span>
+<span class="text-body-md font-bold text-primary" id="pricing-style-cost">₹1,200</span>
+</div>
+<div class="flex justify-between items-center text-sm sm:text-base">
+<span class="text-body-md text-on-surface-variant">Atelier Fitting Consultation</span>
+<span class="text-body-md font-bold text-primary">₹350</span>
+</div>
+<div class="flex justify-between items-center text-primary border-t border-[#F2D2BD]/20 pt-3">
+<span class="font-label-caps text-label-caps uppercase font-bold">Estimated Total</span>
+<span class="font-headline-sm text-headline-sm text-2xl font-bold" id="pricing-total-cost">₹1,550</span>
+</div>
+<p class="text-[10px] text-on-surface-variant italic mt-4">* Final price depends on fabric complexity and custom embroidery choice.</p>
+</div>
+<button class="w-full mt-8 bg-primary text-white font-button text-button py-5 rounded-lg tracking-[0.2em] uppercase hover:opacity-90 active:scale-[0.98] transition-all shadow-lg flex items-center justify-center gap-2" type="submit">
+                        Book Consultation fitting
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<!-- Tailor's Note Component -->
+<div class="grain-texture p-6 border border-gold-accent bg-surface-container-low rounded-xl relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-gold-accent via-primary to-gold-accent"></div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-primary text-3xl">history_edu</span>
+<div>
+<h4 class="font-headline-sm text-[18px] text-primary mb-2">Tailor’s Note</h4>
+<p class="text-body-md text-on-surface-variant leading-relaxed">
+                                "A Princess Cut is our signature recommendation for heavy silks. It provides the most architectural support while maintaining a sleek, modern profile that flatters all body types."
+                            </p>
+</div>
+</div>
+</div>
+</aside>
+</form>
+</main>
+<!-- Footer -->
+<footer class="w-full pt-12 pb-24 md:pb-12 bg-surface-container-lowest border-t border-secondary-fixed/20">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="col-span-1">
+<h3 class="font-headline-sm text-headline-sm text-primary uppercase tracking-widest mb-4">HEENA TAILOR</h3>
+<p class="text-body-md text-on-surface-variant mb-6">Masterfully Crafted since 1984. Bespoke tailoring redefined for the modern era.</p>
+</div>
+<div class="col-span-1">
+<h4 class="font-label-caps text-label-caps text-on-surface mb-4">SERVICES</h4>
+<ul class="space-y-2">
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Custom Stitching</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Material Store</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Designer Gallery</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Alterations</a></li>
+</ul>
+</div>
+<div class="col-span-1">
+<h4 class="font-label-caps text-label-caps text-on-surface mb-4">RESOURCES</h4>
+<ul class="space-y-2">
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Measurement Guide</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Fabric Care</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Our Heritage</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">FAQs</a></li>
+</ul>
+</div>
+<div class="col-span-1">
+<h4 class="font-label-caps text-label-caps text-on-surface mb-4">CONNECT</h4>
+<div class="flex gap-4 mb-6">
+<a class="w-10 h-10 flex items-center justify-center rounded-full border border-gold-accent text-primary hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-lg">public</span>
+</a>
+<a class="w-10 h-10 flex items-center justify-center rounded-full border border-gold-accent text-primary hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-lg">mail</span>
+</a>
+</div>
+<p class="text-[12px] text-on-surface-variant/70">© 2024 Heena Tailor. Masterfully Crafted.</p>
+</div>
+</div>
+</footer>
+<script>
+    let selectedStyleName = 'Princess Cut Blouse';
+    let selectedPrice = 1200;
+
+    // Theme toggle functions
+    function initTheme() {
+        const theme = localStorage.getItem('theme') || 'light';
+        if (theme === 'dark') {
+            document.documentElement.classList.add('dark');
+            const icon = document.getElementById('theme-toggle-icon');
+            if (icon) icon.innerText = 'light_mode';
+        } else {
+            document.documentElement.classList.remove('dark');
+            const icon = document.getElementById('theme-toggle-icon');
+            if (icon) icon.innerText = 'dark_mode';
+        }
+    }
+
+    function toggleTheme() {
+        if (document.documentElement.classList.contains('dark')) {
+            document.documentElement.classList.remove('dark');
+            localStorage.setItem('theme', 'light');
+            const icon = document.getElementById('theme-toggle-icon');
+            if (icon) icon.innerText = 'dark_mode';
+        } else {
+            document.documentElement.classList.add('dark');
+            localStorage.setItem('theme', 'dark');
+            const icon = document.getElementById('theme-toggle-icon');
+            if (icon) icon.innerText = 'light_mode';
+        }
+        if (window.syncHeaderDOM) window.syncHeaderDOM();
+    }
+
+    // Mobile Menu Functions
+    function toggleMobileMenu() {
+        const drawer = document.getElementById('mobile-drawer');
+        const overlay = document.getElementById('mobile-overlay');
+        const isClosed = drawer.classList.contains('translate-x-full');
+        if (isClosed) {
+            drawer.classList.remove('translate-x-full');
+            overlay.classList.remove('opacity-0', 'pointer-events-none');
+            overlay.classList.add('opacity-100');
+        } else {
+            drawer.classList.add('translate-x-full');
+            overlay.classList.add('opacity-0', 'pointer-events-none');
+            overlay.classList.remove('opacity-100');
+        }
+    }
+
+    // Dynamic Active Menu Underlining
+    function highlightActiveNav() {
+        const path = window.location.pathname;
+        const hash = window.location.hash;
+        
+        const ids = ['nav-home', 'nav-services', 'nav-shop', 'nav-gallery', 'nav-reviews', 'nav-about', 'nav-contact'];
+        ids.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) {
+                el.classList.remove('border-b-2', 'border-[#ffdad4]', 'text-[#ffdad4]');
+                el.classList.add('text-[#eeeeee]');
+            }
+        });
+
+        let activeId = 'nav-services'; // default for services page
+        const activeEl = document.getElementById(activeId);
+        if (activeEl) {
+            activeEl.classList.add('border-b-2', 'border-[#ffdad4]', 'text-[#ffdad4]');
+            activeEl.classList.remove('text-[#eeeeee]');
+        }
+    }
+
+    window.addEventListener('hashchange', highlightActiveNav);
+    window.addEventListener('DOMContentLoaded', () => {
+        initTheme();
+        highlightActiveNav();
+    });
+
+    function selectStyle(element, styleName, price) {
+        // Clear active-card from all style cards globally
+        const allCards = document.querySelectorAll('.active-card, [onclick*="selectStyle"]');
+        allCards.forEach(card => {
+            card.classList.remove('active-card');
+        });
+        element.classList.add('active-card');
+        
+        selectedStyleName = styleName;
+        selectedPrice = price;
+        
+        // Update pricing guide UI
+        const nameEl = document.getElementById("pricing-style-name");
+        const costEl = document.getElementById("pricing-style-cost");
+        const totalEl = document.getElementById("pricing-total-cost");
+        
+        if (nameEl) nameEl.innerText = `Selected: ${styleName}`;
+        if (costEl) costEl.innerText = `₹${price.toLocaleString()}`;
+        if (totalEl) totalEl.innerText = `₹${(price + 350).toLocaleString()}`;
+    }
+
+    function handleBookingSubmit(e) {
+        e.preventDefault();
+        
+        // Gatekeep authentication
+        const isLoggedIn = window.gatekeepUser("You must be logged in to book a tailoring appointment.");
+        if (!isLoggedIn) return; // redirects automatically
+        
+        // Get date
+        const dateInput = document.querySelector('input[type="date"]');
+        if (!dateInput || !dateInput.value) {
+            alert("Please select a preferred trial date.");
+            return;
+        }
+        
+        // Get urgency
+        const urgencyInput = document.querySelector('input[name="urgency"]:checked');
+        const urgency = urgencyInput ? urgencyInput.parentElement.innerText.trim() : "STANDARD";
+        
+        const details = {
+            date: dateInput.value,
+            style: selectedStyleName,
+            urgency: urgency,
+            price: selectedPrice + 350
+        };
+        
+        const success = window.createAppointment(details);
+        if (success) {
+            alert(`Fitting appointment scheduled successfully for ${details.date}!`);
+            window.location.href = "../auth/code.html#appointments";
+        } else {
+            alert("Failed to book appointment. Please try again.");
+        }
+    }
+
+    // Simple animation on scroll
+    const observerOptions = {
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('opacity-100', 'translate-y-0');
+                entry.target.classList.remove('opacity-0', 'translate-y-10');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('section').forEach(section => {
+        section.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+        observer.observe(section);
+    });
+</script>
+</body></html>

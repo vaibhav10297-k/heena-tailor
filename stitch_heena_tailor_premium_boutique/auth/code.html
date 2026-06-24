@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Atelier Portal | Heena Tailor</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&amp;family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+              "primary-fixed": "#ffdad4",
+              "tertiary-container": "#4d3829",
+              "on-surface": "#1b1b1b",
+              "secondary-fixed-dim": "#e9c349",
+              "primary": "#570000",
+              "primary-container": "#800000",
+              "inverse-surface": "#303030",
+              "surface-container-low": "#f3f3f3",
+              "on-tertiary": "#ffffff",
+              "error-container": "#ffdad6",
+              "tertiary-fixed-dim": "#dfc1ac",
+              "secondary-fixed": "#ffe088",
+              "surface-container-lowest": "#ffffff",
+              "background": "#f9f9f9",
+              "on-primary-fixed-variant": "#8f0f07",
+              "on-secondary-fixed": "#241a00",
+              "tertiary": "#352315",
+              "on-primary-fixed": "#410000",
+              "surface": "#f9f9f9",
+              "inverse-on-surface": "#f1f1f1",
+              "surface-tint": "#b22b1d",
+              "on-secondary": "#ffffff",
+              "on-error": "#ffffff",
+              "on-surface-variant": "#5a413d",
+              "error": "#ba1a1a",
+              "on-primary-container": "#ff8371",
+              "inverse-primary": "#ffb4a8",
+              "surface-dim": "#dadada",
+              "secondary-container": "#fed65b",
+              "on-error-container": "#93000a",
+              "primary-fixed-dim": "#ffb4a8",
+              "surface-variant": "#e2e2e2",
+              "surface-container-highest": "#e2e2e2",
+              "secondary": "#735c00",
+              "surface-container-high": "#e8e8e8",
+              "surface-container": "#eeeeee",
+              "on-tertiary-fixed-variant": "#584233",
+              "outline": "#8e706c",
+              "on-background": "#1b1b1b",
+              "on-tertiary-fixed": "#28180b",
+              "tertiary-fixed": "#fddcc7",
+              "surface-bright": "#f9f9f9",
+              "on-tertiary-container": "#bea18e",
+              "on-secondary-container": "#745c00",
+              "on-secondary-fixed-variant": "#574500",
+              "outline-variant": "#e2bfb9",
+              "on-primary": "#ffffff",
+              "gold-accent": "#F2D2BD"
+            },
+            "borderRadius": {
+              "DEFAULT": "0.25rem",
+              "lg": "0.5rem",
+              "xl": "0.75rem",
+              "full": "9999px"
+            },
+            "fontFamily": {
+              "label-caps": ["Montserrat"],
+              "headline-md": ["Playfair Display"],
+              "body-lg": ["Montserrat"],
+              "headline-sm": ["Playfair Display"],
+              "body-md": ["Montserrat"],
+              "display-lg": ["Playfair Display"],
+              "button": ["Montserrat"]
+            }
+          }
+        }
+      }
+    </script>
+
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(20px);
+            border: 1px solid #F2D2BD;
+        }
+        .boutique-note {
+            background-image: radial-gradient(#F2D2BD 0.5px, transparent 0.5px);
+            background-size: 10px 10px;
+            opacity: 0.8;
+        }
+        .active-tab {
+            border-bottom: 2px solid #800000;
+            color: #800000 !important;
+        }
+    </style>
+    
+    <!-- Central State Script -->
+    <script src="../shared.js"></script>
+</head>
+<body class="bg-background text-on-surface selection:bg-primary-fixed selection:text-primary overflow-x-hidden min-h-screen flex flex-col">
+
+<!-- TopAppBar -->
+<header id="main-header" class="fixed top-0 w-full z-50 bg-[#111111]/95 backdrop-blur-md text-white border-b border-white/10 shadow-lg h-20">
+    <nav class="flex justify-between items-center px-6 md:px-16 h-full w-full max-w-[1280px] mx-auto relative">
+        <a class="font-headline-sm text-headline-sm tracking-[0.2em] text-[#ffdad4] uppercase font-bold" href="../home_heena_tailor/code.html">HEENA TAILOR</a>
+        <div class="hidden lg:flex items-center gap-8">
+            <a id="nav-home" class="font-label-caps text-label-caps text-[#eeeeee] hover:text-[#ffdad4] transition-colors py-2 uppercase" href="../home_heena_tailor/code.html">HOME</a>
+            <a id="nav-services" class="font-label-caps text-label-caps text-[#eeeeee] hover:text-[#ffdad4] transition-colors py-2 uppercase" href="../book_a_service/code.html">SERVICES</a>
+            <a id="nav-shop" class="font-label-caps text-label-caps text-[#eeeeee] hover:text-[#ffdad4] transition-colors py-2 uppercase" href="../materials_store/code.html">SHOP</a>
+            <a id="nav-gallery" class="font-label-caps text-label-caps text-[#eeeeee] hover:text-[#ffdad4] transition-colors py-2 uppercase" href="../designer_gallery/code.html">GALLERY</a>
+            <a id="nav-reviews" class="font-label-caps text-label-caps text-[#eeeeee] hover:text-[#ffdad4] transition-colors py-2 uppercase" href="../home_heena_tailor/code.html#reviews">REVIEWS</a>
+            <a id="nav-about" class="font-label-caps text-label-caps text-[#eeeeee] hover:text-[#ffdad4] transition-colors py-2 uppercase" href="../home_heena_tailor/code.html#about">ABOUT</a>
+            <a id="nav-contact" class="font-label-caps text-label-caps text-[#eeeeee] hover:text-[#ffdad4] transition-colors py-2 uppercase" href="../home_heena_tailor/code.html#contact">CONTACT</a>
+        </div>
+        <div class="flex items-center gap-4">
+            <!-- Will be replaced dynamically by shared.js window load, but we keep initial layout for fallback -->
+            <button id="theme-toggle-btn" class="p-2 rounded-full"><span class="material-symbols-outlined text-2xl">dark_mode</span></button>
+            <button id="mobile-menu-toggle" onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-full"><span class="material-symbols-outlined text-2xl">menu</span></button>
+        </div>
+    </nav>
+    <div id="mobile-drawer" class="fixed inset-y-0 right-0 z-50 w-64 bg-[#111111] text-white shadow-2xl border-l border-white/10 transform translate-x-full transition-transform duration-300 ease-in-out lg:hidden flex flex-col p-6 gap-6">
+        <div class="flex justify-between items-center border-b border-white/10 pb-4">
+            <span class="font-headline-sm text-[18px] tracking-[0.1em] text-[#ffdad4] uppercase font-bold">MENU</span>
+            <button onclick="toggleMobileMenu()" class="text-[#eeeeee] hover:text-[#ffdad4]"><span class="material-symbols-outlined text-2xl">close</span></button>
+        </div>
+        <div class="flex flex-col gap-4 font-label-caps text-label-caps text-lg">
+            <a class="py-2 text-[#eeeeee] hover:text-[#ffdad4] border-b border-white/5" href="../home_heena_tailor/code.html" onclick="toggleMobileMenu()">HOME</a>
+            <a class="py-2 text-[#eeeeee] hover:text-[#ffdad4] border-b border-white/5" href="../book_a_service/code.html" onclick="toggleMobileMenu()">SERVICES</a>
+            <a class="py-2 text-[#eeeeee] hover:text-[#ffdad4] border-b border-white/5" href="../materials_store/code.html" onclick="toggleMobileMenu()">SHOP</a>
+            <a class="py-2 text-[#eeeeee] hover:text-[#ffdad4] border-b border-white/5" href="../designer_gallery/code.html" onclick="toggleMobileMenu()">GALLERY</a>
+        </div>
+        <div class="mt-auto flex flex-col gap-4"></div>
+    </div>
+    <div id="mobile-overlay" onclick="toggleMobileMenu()" class="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 lg:hidden"></div>
+</header>
+
+<main class="flex-grow pt-32 pb-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
+    
+    <!-- AUTH GUEST VIEW -->
+    <div id="auth-guest-container" class="max-w-md mx-auto bg-white rounded-xl shadow-[0_4px_30px_rgba(0,0,0,0.05)] border border-[#F2D2BD] overflow-hidden hidden">
+        <div class="p-8 text-center border-b border-[#F2D2BD]/30 bg-[#570000] text-white">
+            <span class="font-label-caps text-xs text-[#ffdad4] tracking-widest uppercase block mb-1">Digital Atelier</span>
+            <h2 id="auth-title" class="font-headline-md text-2xl">Enter Heena Tailor</h2>
+            <p id="auth-desc" class="text-sm text-white/70 mt-2 font-body-md">Sign in or register to book fittings, order materials, and save designs.</p>
+        </div>
+        
+        <!-- Status Box -->
+        <div id="auth-status-box" class="mx-8 mt-6 p-4 rounded-lg text-sm hidden font-body-md"></div>
+        
+        <!-- LOGIN FORM -->
+        <form id="login-form" class="p-8 space-y-6" onsubmit="handleLoginSubmit(event)">
+            <div>
+                <label class="font-label-caps text-xs text-on-surface-variant block mb-2 uppercase font-semibold">Email Address</label>
+                <input id="login-email" type="email" required class="w-full bg-white border border-[#8e706c]/40 rounded-lg px-4 py-3 text-body-md text-on-surface focus:ring-1 focus:ring-primary outline-none" placeholder="name@example.com">
+            </div>
+            <div>
+                <label class="font-label-caps text-xs text-on-surface-variant block mb-2 uppercase font-semibold">Password</label>
+                <input id="login-password" type="password" required class="w-full bg-white border border-[#8e706c]/40 rounded-lg px-4 py-3 text-body-md text-on-surface focus:ring-1 focus:ring-primary outline-none" placeholder="••••••••">
+            </div>
+            <div class="flex justify-between items-center text-xs">
+                <button type="button" onclick="switchAuthView('forgot')" class="text-primary hover:underline font-semibold uppercase tracking-wider">Forgot Password?</button>
+            </div>
+            <button type="submit" class="w-full bg-primary hover:bg-[#800000] text-white font-button text-button py-4 rounded-lg uppercase tracking-[0.1em] font-semibold active:scale-95 transition-all shadow-md">
+                Sign In
+            </button>
+            <div class="text-center text-sm pt-2 text-on-surface-variant/75">
+                Don't have an account? <button type="button" onclick="switchAuthView('register')" class="text-primary font-bold hover:underline">Register here</button>
+            </div>
+        </form>
+
+        <!-- REGISTER FORM -->
+        <form id="register-form" class="p-8 space-y-6 hidden" onsubmit="handleRegisterSubmit(event)">
+            <div>
+                <label class="font-label-caps text-xs text-on-surface-variant block mb-2 uppercase font-semibold">Full Name</label>
+                <input id="register-name" type="text" required class="w-full bg-white border border-[#8e706c]/40 rounded-lg px-4 py-3 text-body-md text-on-surface focus:ring-1 focus:ring-primary outline-none" placeholder="e.g. Priya Sharma">
+            </div>
+            <div>
+                <label class="font-label-caps text-xs text-on-surface-variant block mb-2 uppercase font-semibold">Email Address</label>
+                <input id="register-email" type="email" required class="w-full bg-white border border-[#8e706c]/40 rounded-lg px-4 py-3 text-body-md text-on-surface focus:ring-1 focus:ring-primary outline-none" placeholder="name@example.com">
+            </div>
+            <div>
+                <label class="font-label-caps text-xs text-on-surface-variant block mb-2 uppercase font-semibold">Phone Number</label>
+                <input id="register-phone" type="tel" required class="w-full bg-white border border-[#8e706c]/40 rounded-lg px-4 py-3 text-body-md text-on-surface focus:ring-1 focus:ring-primary outline-none" placeholder="e.g. 9930503752">
+            </div>
+            <div>
+                <label class="font-label-caps text-xs text-on-surface-variant block mb-2 uppercase font-semibold">Password</label>
+                <input id="register-password" type="password" required class="w-full bg-white border border-[#8e706c]/40 rounded-lg px-4 py-3 text-body-md text-on-surface focus:ring-1 focus:ring-primary outline-none" placeholder="Min 6 characters">
+            </div>
+            <div>
+                <label class="font-label-caps text-xs text-on-surface-variant block mb-2 uppercase font-semibold">Confirm Password</label>
+                <input id="register-confirm-password" type="password" required class="w-full bg-white border border-[#8e706c]/40 rounded-lg px-4 py-3 text-body-md text-on-surface focus:ring-1 focus:ring-primary outline-none" placeholder="Confirm password">
+            </div>
+            <button type="submit" class="w-full bg-primary hover:bg-[#800000] text-white font-button text-button py-4 rounded-lg uppercase tracking-[0.1em] font-semibold active:scale-95 transition-all shadow-md">
+                Create Account
+            </button>
+            <div class="text-center text-sm pt-2 text-on-surface-variant/75">
+                Already registered? <button type="button" onclick="switchAuthView('login')" class="text-primary font-bold hover:underline">Sign in</button>
+            </div>
+        </form>
+
+        <!-- FORGOT PASSWORD FORM -->
+        <form id="forgot-form" class="p-8 space-y-6 hidden" onsubmit="handleForgotSubmit(event)">
+            <div>
+                <label class="font-label-caps text-xs text-on-surface-variant block mb-2 uppercase font-semibold">Registered Email</label>
+                <input id="forgot-email" type="email" required class="w-full bg-white border border-[#8e706c]/40 rounded-lg px-4 py-3 text-body-md text-on-surface focus:ring-1 focus:ring-primary outline-none" placeholder="name@example.com">
+            </div>
+            <div>
+                <label class="font-label-caps text-xs text-on-surface-variant block mb-2 uppercase font-semibold">New Password</label>
+                <input id="forgot-new-password" type="password" required class="w-full bg-white border border-[#8e706c]/40 rounded-lg px-4 py-3 text-body-md text-on-surface focus:ring-1 focus:ring-primary outline-none" placeholder="Min 6 characters">
+            </div>
+            <div>
+                <label class="font-label-caps text-xs text-on-surface-variant block mb-2 uppercase font-semibold">Confirm New Password</label>
+                <input id="forgot-confirm-password" type="password" required class="w-full bg-white border border-[#8e706c]/40 rounded-lg px-4 py-3 text-body-md text-on-surface focus:ring-1 focus:ring-primary outline-none" placeholder="Confirm new password">
+            </div>
+            <button type="submit" class="w-full bg-primary hover:bg-[#800000] text-white font-button text-button py-4 rounded-lg uppercase tracking-[0.1em] font-semibold active:scale-95 transition-all shadow-md">
+                Reset Password
+            </button>
+            <div class="text-center text-sm pt-2 text-on-surface-variant/75">
+                Remembered it? <button type="button" onclick="switchAuthView('login')" class="text-primary font-bold hover:underline">Sign in</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- AUTH LOGGED-IN USER VIEW (DASHBOARD) -->
+    <div id="auth-user-container" class="hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+            
+            <!-- Dashboard Sidebar -->
+            <aside class="lg:col-span-3 bg-white p-6 rounded-xl border border-gold-accent/40 shadow-sm space-y-6">
+                <div class="text-center border-b border-[#F2D2BD]/20 pb-6">
+                    <div id="dashboard-avatar" class="w-16 h-16 bg-[#800000] text-white font-headline-sm text-xl uppercase font-bold rounded-full flex items-center justify-center mx-auto mb-3 shadow-md">
+                        US
+                    </div>
+                    <h3 id="dashboard-name" class="font-headline-sm text-lg text-primary font-bold">User Name</h3>
+                    <p id="dashboard-email" class="text-xs text-on-surface-variant/75 font-body-md">user@example.com</p>
+                </div>
+                
+                <!-- Nav Options -->
+                <nav class="flex flex-col gap-2">
+                    <button onclick="activateTab('profile')" id="btn-tab-profile" class="flex items-center gap-3 w-full text-left py-3 px-4 rounded-lg text-body-md hover:bg-[#800000]/5 hover:text-primary transition-all font-semibold text-on-surface-variant">
+                        <span class="material-symbols-outlined">person</span>
+                        <span>Profile Details</span>
+                    </button>
+                    <button onclick="activateTab('appointments')" id="btn-tab-appointments" class="flex items-center gap-3 w-full text-left py-3 px-4 rounded-lg text-body-md hover:bg-[#800000]/5 hover:text-primary transition-all font-semibold text-on-surface-variant relative">
+                        <span class="material-symbols-outlined">calendar_today</span>
+                        <span>My Appointments</span>
+                        <span id="badge-appointments-count" class="absolute right-4 bg-primary text-white text-[10px] w-5 h-5 rounded-full flex items-center justify-center hidden">0</span>
+                    </button>
+                    <button onclick="activateTab('orders')" id="btn-tab-orders" class="flex items-center gap-3 w-full text-left py-3 px-4 rounded-lg text-body-md hover:bg-[#800000]/5 hover:text-primary transition-all font-semibold text-on-surface-variant relative">
+                        <span class="material-symbols-outlined">receipt_long</span>
+                        <span>My Orders</span>
+                        <span id="badge-orders-count" class="absolute right-4 bg-primary text-white text-[10px] w-5 h-5 rounded-full flex items-center justify-center hidden">0</span>
+                    </button>
+                    <button onclick="activateTab('wishlist')" id="btn-tab-wishlist" class="flex items-center gap-3 w-full text-left py-3 px-4 rounded-lg text-body-md hover:bg-[#800000]/5 hover:text-primary transition-all font-semibold text-on-surface-variant relative">
+                        <span class="material-symbols-outlined">favorite</span>
+                        <span>Saved Favorites</span>
+                        <span id="badge-wishlist-count" class="absolute right-4 bg-primary text-white text-[10px] w-5 h-5 rounded-full flex items-center justify-center hidden">0</span>
+                    </button>
+                    <button onclick="activateTab('cart')" id="btn-tab-cart" class="flex items-center gap-3 w-full text-left py-3 px-4 rounded-lg text-body-md hover:bg-[#800000]/5 hover:text-primary transition-all font-semibold text-on-surface-variant relative">
+                        <span class="material-symbols-outlined">shopping_bag</span>
+                        <span>Shopping Bag</span>
+                        <span id="badge-cart-count" class="absolute right-4 bg-[#ffe088] text-[#111111] text-[10px] w-5 h-5 rounded-full flex items-center justify-center font-bold hidden">0</span>
+                    </button>
+                    <hr class="border-[#F2D2BD]/20 my-2" />
+                    <button onclick="window.logoutUser()" class="flex items-center gap-3 w-full text-left py-3 px-4 rounded-lg text-body-md text-[#ba1a1a] hover:bg-red-50 transition-all font-bold">
+                        <span class="material-symbols-outlined">logout</span>
+                        <span>Logout</span>
+                    </button>
+                </nav>
+            </aside>
+            
+            <!-- Dashboard Content Panels -->
+            <section class="lg:col-span-9 bg-white p-8 rounded-xl border border-gold-accent/40 shadow-sm min-h-[500px]">
+                
+                <!-- TAB: PROFILE DETAILS -->
+                <div id="panel-profile" class="tab-panel hidden space-y-8">
+                    <div>
+                        <h2 class="font-headline-sm text-2xl text-primary mb-2">Manage Profile</h2>
+                        <p class="text-sm text-on-surface-variant/80">Keep your personal contact details and delivery address updated for quicker tailoring guides and orders.</p>
+                        <div class="w-16 h-1 bg-secondary-fixed mt-3"></div>
+                    </div>
+                    
+                    <div id="profile-status" class="p-4 rounded-lg text-sm hidden font-body-md"></div>
+                    
+                    <form onsubmit="handleProfileUpdate(event)" class="space-y-6 max-w-xl">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="font-label-caps text-xs text-on-surface-variant block mb-2 uppercase font-semibold">Full Name</label>
+                                <input id="profile-name" type="text" required class="w-full bg-white border border-[#8e706c]/40 rounded-lg px-4 py-3 text-body-md text-on-surface focus:ring-1 focus:ring-primary outline-none">
+                            </div>
+                            <div>
+                                <label class="font-label-caps text-xs text-on-surface-variant block mb-2 uppercase font-semibold">Phone Number</label>
+                                <input id="profile-phone" type="tel" required class="w-full bg-white border border-[#8e706c]/40 rounded-lg px-4 py-3 text-body-md text-on-surface focus:ring-1 focus:ring-primary outline-none">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="font-label-caps text-xs text-on-surface-variant block mb-2 uppercase font-semibold">Email Address (Registered)</label>
+                            <input id="profile-email" type="email" disabled class="w-full bg-slate-100 border border-[#8e706c]/20 rounded-lg px-4 py-3 text-body-md text-on-surface-variant cursor-not-allowed">
+                        </div>
+                        <div>
+                            <label class="font-label-caps text-xs text-on-surface-variant block mb-2 uppercase font-semibold">Delivery Address</label>
+                            <textarea id="profile-address" rows="4" required class="w-full bg-white border border-[#8e706c]/40 rounded-lg px-4 py-3 text-body-md text-on-surface focus:ring-1 focus:ring-primary outline-none" placeholder="Provide complete delivery address for materials store checkouts..."></textarea>
+                        </div>
+                        <button type="submit" class="bg-primary hover:bg-[#800000] text-white font-button text-button px-8 py-4 rounded-lg uppercase tracking-wider transition-all font-semibold active:scale-95 shadow-md">
+                            Save Changes
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- TAB: APPOINTMENTS -->
+                <div id="panel-appointments" class="tab-panel hidden space-y-6">
+                    <div>
+                        <h2 class="font-headline-sm text-2xl text-primary mb-2">Fitting Appointments</h2>
+                        <p class="text-sm text-on-surface-variant/80">Track scheduled dress consultations and trial schedules with our master tailor.</p>
+                        <div class="w-16 h-1 bg-secondary-fixed mt-3"></div>
+                    </div>
+                    
+                    <div id="appointments-list-container" class="overflow-x-auto w-full pt-4">
+                        <!-- Rendered dynamically -->
+                    </div>
+                </div>
+                
+                <!-- TAB: ORDERS -->
+                <div id="panel-orders" class="tab-panel hidden space-y-6">
+                    <div>
+                        <h2 class="font-headline-sm text-2xl text-primary mb-2">Previous Orders</h2>
+                        <p class="text-sm text-on-surface-variant/80">Review orders placed from the Heena Tailoring accessory store.</p>
+                        <div class="w-16 h-1 bg-secondary-fixed mt-3"></div>
+                    </div>
+                    
+                    <div id="orders-list-container" class="overflow-x-auto w-full pt-4">
+                        <!-- Rendered dynamically -->
+                    </div>
+                </div>
+                
+                <!-- TAB: WISHLIST -->
+                <div id="panel-wishlist" class="tab-panel hidden space-y-6">
+                    <div>
+                        <h2 class="font-headline-sm text-2xl text-primary mb-2">Saved Favorites</h2>
+                        <p class="text-sm text-on-surface-variant/80">Your curated design materials. Instantly add them to your shopping bag.</p>
+                        <div class="w-16 h-1 bg-secondary-fixed mt-3"></div>
+                    </div>
+                    
+                    <div id="wishlist-grid-container" class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
+                        <!-- Rendered dynamically -->
+                    </div>
+                </div>
+                
+                <!-- TAB: CART -->
+                <div id="panel-cart" class="tab-panel hidden space-y-6">
+                    <div>
+                        <h2 class="font-headline-sm text-2xl text-primary mb-2">Shopping Bag</h2>
+                        <p class="text-sm text-on-surface-variant/80">Finalize materials quantity and complete checkout details.</p>
+                        <div class="w-16 h-1 bg-secondary-fixed mt-3"></div>
+                    </div>
+                    
+                    <div id="cart-list-container" class="space-y-6 pt-4">
+                        <!-- Rendered dynamically -->
+                    </div>
+                </div>
+                
+            </section>
+        </div>
+    </div>
+</main>
+
+<!-- Footer -->
+<footer class="w-full pt-12 pb-12 bg-surface-container-lowest border-t border-secondary-fixed/20 mt-auto">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+        <div class="col-span-1">
+            <h3 class="font-headline-sm text-headline-sm text-primary uppercase tracking-widest mb-4">HEENA TAILOR</h3>
+            <p class="text-body-md text-on-surface-variant mb-6">Masterfully Crafted since 1984. Bespoke tailoring redefined for the modern era.</p>
+        </div>
+        <div class="col-span-1">
+            <h4 class="font-label-caps text-label-caps text-on-surface mb-4">SERVICES</h4>
+            <ul class="space-y-2">
+                <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Custom Stitching</a></li>
+                <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Material Store</a></li>
+                <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Designer Gallery</a></li>
+                <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Alterations</a></li>
+            </ul>
+        </div>
+        <div class="col-span-1">
+            <h4 class="font-label-caps text-label-caps text-on-surface mb-4">RESOURCES</h4>
+            <ul class="space-y-2">
+                <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Measurement Guide</a></li>
+                <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Fabric Care</a></li>
+                <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Our Heritage</a></li>
+                <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">FAQs</a></li>
+            </ul>
+        </div>
+        <div class="col-span-1">
+            <h4 class="font-label-caps text-label-caps text-on-surface mb-4">CONNECT</h4>
+            <div class="flex gap-4 mb-6">
+                <a class="w-10 h-10 flex items-center justify-center rounded-full border border-gold-accent text-primary hover:bg-primary hover:text-white transition-all" href="https://wa.me/919930503752" target="_blank">
+                    <span class="material-symbols-outlined text-lg">call</span>
+                </a>
+                <a class="w-10 h-10 flex items-center justify-center rounded-full border border-gold-accent text-primary hover:bg-primary hover:text-white transition-all" href="#">
+                    <span class="material-symbols-outlined text-lg">mail</span>
+                </a>
+            </div>
+            <p class="text-[12px] text-on-surface-variant/70">© 2026 Heena Tailor. Masterfully Crafted.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Theme toggle functions
+    function initTheme() {
+        const theme = localStorage.getItem('theme') || 'light';
+        if (theme === 'dark') {
+            document.documentElement.classList.add('dark');
+            const icon = document.getElementById('theme-toggle-icon');
+            if (icon) icon.innerText = 'light_mode';
+        } else {
+            document.documentElement.classList.remove('dark');
+            const icon = document.getElementById('theme-toggle-icon');
+            if (icon) icon.innerText = 'dark_mode';
+        }
+    }
+
+    function toggleTheme() {
+        if (document.documentElement.classList.contains('dark')) {
+            document.documentElement.classList.remove('dark');
+            localStorage.setItem('theme', 'light');
+            const icon = document.getElementById('theme-toggle-icon');
+            if (icon) icon.innerText = 'dark_mode';
+        } else {
+            document.documentElement.classList.add('dark');
+            localStorage.setItem('theme', 'dark');
+            const icon = document.getElementById('theme-toggle-icon');
+            if (icon) icon.innerText = 'light_mode';
+        }
+        if (window.syncHeaderDOM) window.syncHeaderDOM();
+    }
+
+    // Mobile Menu
+    function toggleMobileMenu() {
+        const drawer = document.getElementById('mobile-drawer');
+        const overlay = document.getElementById('mobile-overlay');
+        const isClosed = drawer.classList.contains('translate-x-full');
+        if (isClosed) {
+            drawer.classList.remove('translate-x-full');
+            overlay.classList.remove('opacity-0', 'pointer-events-none');
+            overlay.classList.add('opacity-100');
+        } else {
+            drawer.classList.add('translate-x-full');
+            overlay.classList.add('opacity-0', 'pointer-events-none');
+            overlay.classList.remove('opacity-100');
+        }
+    }
+
+    // --- AUTH FLOW CONTROLLERS ---
+
+    function switchAuthView(view) {
+        document.getElementById("login-form").classList.add("hidden");
+        document.getElementById("register-form").classList.add("hidden");
+        document.getElementById("forgot-form").classList.add("hidden");
+        document.getElementById("auth-status-box").classList.add("hidden");
+        
+        if (view === 'login') {
+            document.getElementById("login-form").classList.remove("hidden");
+            document.getElementById("auth-title").innerText = "Enter Heena Tailor";
+            document.getElementById("auth-desc").innerText = "Sign in or register to book fittings, order materials, and save designs.";
+        } else if (view === 'register') {
+            document.getElementById("register-form").classList.remove("hidden");
+            document.getElementById("auth-title").innerText = "Join the Atelier";
+            document.getElementById("auth-desc").innerText = "Create your account for personalized customization services.";
+        } else if (view === 'forgot') {
+            document.getElementById("forgot-form").classList.remove("hidden");
+            document.getElementById("auth-title").innerText = "Reset Password";
+            document.getElementById("auth-desc").innerText = "Provide your registered email to update your secure password.";
+        }
+    }
+
+    function showAuthStatus(message, isSuccess) {
+        const box = document.getElementById("auth-status-box");
+        box.innerText = message;
+        box.className = `mx-8 mt-6 p-4 rounded-lg text-sm font-body-md ${isSuccess ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`;
+        box.classList.remove("hidden");
+    }
+
+    function handleLoginSubmit(e) {
+        e.preventDefault();
+        const email = document.getElementById("login-email").value;
+        const pass = document.getElementById("login-password").value;
+        
+        const res = window.loginUser(email, pass);
+        if (res.success) {
+            showAuthStatus("Login successful! Loading dashboard...", true);
+            setTimeout(checkAuthState, 1000);
+        } else {
+            showAuthStatus(res.message, false);
+        }
+    }
+
+    function handleRegisterSubmit(e) {
+        e.preventDefault();
+        const name = document.getElementById("register-name").value;
+        const email = document.getElementById("register-email").value;
+        const phone = document.getElementById("register-phone").value;
+        const pass = document.getElementById("register-password").value;
+        const confPass = document.getElementById("register-confirm-password").value;
+        
+        if (pass.length < 6) {
+            showAuthStatus("Password must be at least 6 characters.", false);
+            return;
+        }
+        if (pass !== confPass) {
+            showAuthStatus("Passwords do not match.", false);
+            return;
+        }
+        
+        const res = window.registerUser(name, email, phone, pass);
+        if (res.success) {
+            showAuthStatus("Registration successful! Opening dashboard...", true);
+            setTimeout(checkAuthState, 1000);
+        } else {
+            showAuthStatus(res.message, false);
+        }
+    }
+
+    function handleForgotSubmit(e) {
+        e.preventDefault();
+        const email = document.getElementById("forgot-email").value;
+        const newPass = document.getElementById("forgot-new-password").value;
+        const confNewPass = document.getElementById("forgot-confirm-password").value;
+        
+        if (newPass.length < 6) {
+            showAuthStatus("Password must be at least 6 characters.", false);
+            return;
+        }
+        if (newPass !== confNewPass) {
+            showAuthStatus("Passwords do not match.", false);
+            return;
+        }
+        
+        const res = window.resetUserPassword(email, newPass);
+        if (res.success) {
+            showAuthStatus("Password reset successfully! Toggling back to Login...", true);
+            setTimeout(() => {
+                switchAuthView('login');
+            }, 1500);
+        } else {
+            showAuthStatus(res.message, false);
+        }
+    }
+
+    // --- DASHBOARD TAB CONTROLLERS ---
+
+    function activateTab(tabId) {
+        // Toggle tab button states
+        const tabs = ['profile', 'appointments', 'orders', 'wishlist', 'cart'];
+        tabs.forEach(t => {
+            const btn = document.getElementById(`btn-tab-${t}`);
+            const panel = document.getElementById(`panel-${t}`);
+            if (btn) btn.className = btn.className.replace(' bg-[#800000]/10 text-primary border-l-4 border-primary', '').replace(' text-on-surface-variant', '');
+            if (panel) panel.classList.add("hidden");
+        });
+        
+        const activeBtn = document.getElementById(`btn-tab-${tabId}`);
+        const activePanel = document.getElementById(`panel-${tabId}`);
+        if (activeBtn) activeBtn.className += ' bg-[#800000]/10 text-primary border-l-4 border-primary';
+        if (activePanel) activePanel.classList.remove("hidden");
+        
+        // Update URL hash without reload
+        window.history.replaceState(null, null, `#${tabId}`);
+        
+        // Render dynamic contents for specific tabs
+        if (tabId === 'profile') loadProfileDetails();
+        if (tabId === 'appointments') renderAppointments();
+        if (tabId === 'orders') renderOrders();
+        if (tabId === 'wishlist') renderWishlist();
+        if (tabId === 'cart') renderCart();
+        
+        // Sync badge numbers
+        updateDashboardBadges();
+    }
+
+    function updateDashboardBadges() {
+        const user = window.getCurrentUser();
+        if (!user) return;
+        
+        const bAppt = document.getElementById("badge-appointments-count");
+        const bOrd = document.getElementById("badge-orders-count");
+        const bWish = document.getElementById("badge-wishlist-count");
+        const bCart = document.getElementById("badge-cart-count");
+        
+        if (bAppt) {
+            if (user.appointments.length > 0) {
+                bAppt.innerText = user.appointments.length;
+                bAppt.classList.remove("hidden");
+            } else bAppt.classList.add("hidden");
+        }
+        if (bOrd) {
+            if (user.orders.length > 0) {
+                bOrd.innerText = user.orders.length;
+                bOrd.classList.remove("hidden");
+            } else bOrd.classList.add("hidden");
+        }
+        if (bWish) {
+            if (user.favorites.length > 0) {
+                bWish.innerText = user.favorites.length;
+                bWish.classList.remove("hidden");
+            } else bWish.classList.add("hidden");
+        }
+        if (bCart) {
+            const count = window.getCartCount();
+            if (count > 0) {
+                bCart.innerText = count;
+                bCart.classList.remove("hidden");
+            } else bCart.classList.add("hidden");
+        }
+    }
+
+    // --- TAB RENDERING LOGIC ---
+
+    function loadProfileDetails() {
+        const user = window.getCurrentUser();
+        if (!user) return;
+        
+        document.getElementById("profile-name").value = user.name || "";
+        document.getElementById("profile-phone").value = user.phone || "";
+        document.getElementById("profile-email").value = user.email || "";
+        document.getElementById("profile-address").value = user.address || "";
+    }
+
+    function handleProfileUpdate(e) {
+        e.preventDefault();
+        const user = window.getCurrentUser();
+        if (!user) return;
+        
+        user.name = document.getElementById("profile-name").value;
+        user.phone = document.getElementById("profile-phone").value;
+        user.address = document.getElementById("profile-address").value;
+        
+        window.saveCurrentUser(user);
+        window.syncHeaderDOM();
+        
+        // Show status message
+        const statusBox = document.getElementById("profile-status");
+        statusBox.innerText = "Profile details saved successfully!";
+        statusBox.className = "p-4 rounded-lg text-sm bg-green-100 text-green-800 font-body-md";
+        statusBox.classList.remove("hidden");
+        
+        // Sync initials avatar
+        const initials = user.name.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase();
+        document.getElementById("dashboard-avatar").innerText = initials;
+        document.getElementById("dashboard-name").innerText = user.name;
+        
+        setTimeout(() => { statusBox.classList.add("hidden"); }, 3000);
+    }
+
+    function renderAppointments() {
+        const container = document.getElementById("appointments-list-container");
+        const user = window.getCurrentUser();
+        if (!user || user.appointments.length === 0) {
+            container.innerHTML = `
+                <div class="text-center py-12 bg-surface rounded-xl border border-dashed border-[#F2D2BD]/60">
+                    <span class="material-symbols-outlined text-4xl text-outline mb-3">calendar_month</span>
+                    <p class="text-on-surface-variant">You have no scheduled appointments.</p>
+                    <a href="../book_a_service/code.html" class="inline-block mt-4 bg-primary text-white font-button px-6 py-3 rounded-lg text-xs uppercase tracking-wider hover:opacity-90">Book Fitting Now</a>
+                </div>
+            `;
+            return;
+        }
+        
+        let tableRows = user.appointments.map(appt => `
+            <tr class="border-b border-[#F2D2BD]/10 hover:bg-slate-50/50">
+                <td class="px-6 py-4 font-semibold text-primary font-body-md">${appt.id}</td>
+                <td class="px-6 py-4 text-on-surface-variant text-sm">${appt.createdAt}</td>
+                <td class="px-6 py-4 text-on-surface-variant font-bold text-sm">${appt.style}</td>
+                <td class="px-6 py-4 text-sm font-semibold">${appt.date}</td>
+                <td class="px-6 py-4 text-sm">
+                    <span class="px-2.5 py-1 text-[11px] rounded-full font-bold bg-green-100 text-green-800">${appt.status}</span>
+                </td>
+                <td class="px-6 py-4 font-bold text-[#800000] text-sm">₹${appt.price.toLocaleString()}</td>
+            </tr>
+        `).join('');
+        
+        container.innerHTML = `
+            <table class="w-full text-left border border-[#F2D2BD]/30 rounded-xl overflow-hidden shadow-sm">
+                <thead>
+                    <tr class="bg-surface border-b border-[#F2D2BD]/30 font-label-caps text-xs text-on-surface">
+                        <th class="px-6 py-4 font-semibold">Appointment ID</th>
+                        <th class="px-6 py-4 font-semibold">Booked Date</th>
+                        <th class="px-6 py-4 font-semibold">Custom Style</th>
+                        <th class="px-6 py-4 font-semibold">Scheduled Trial</th>
+                        <th class="px-6 py-4 font-semibold">Status</th>
+                        <th class="px-6 py-4 font-semibold">Base Cost</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-[#F2D2BD]/10 bg-white">
+                    ${tableRows}
+                </tbody>
+            </table>
+        `;
+    }
+
+    function renderOrders() {
+        const container = document.getElementById("orders-list-container");
+        const user = window.getCurrentUser();
+        if (!user || user.orders.length === 0) {
+            container.innerHTML = `
+                <div class="text-center py-12 bg-surface rounded-xl border border-dashed border-[#F2D2BD]/60">
+                    <span class="material-symbols-outlined text-4xl text-outline mb-3">shopping_cart</span>
+                    <p class="text-on-surface-variant">You have not placed any orders yet.</p>
+                    <a href="../materials_store/code.html" class="inline-block mt-4 bg-primary text-white font-button px-6 py-3 rounded-lg text-xs uppercase tracking-wider hover:opacity-90">Visit Materials Shop</a>
+                </div>
+            `;
+            return;
+        }
+        
+        let tableRows = user.orders.map(order => {
+            const itemsSummary = order.items.map(item => `${item.name} (x${item.quantity})`).join(', ');
+            return `
+                <tr class="border-b border-[#F2D2BD]/10 hover:bg-slate-50/50">
+                    <td class="px-6 py-4 font-semibold text-primary font-body-md">${order.id}</td>
+                    <td class="px-6 py-4 text-on-surface-variant text-sm">${order.createdAt}</td>
+                    <td class="px-6 py-4 text-on-surface-variant text-sm max-w-xs truncate" title="${itemsSummary}">${itemsSummary}</td>
+                    <td class="px-6 py-4 text-sm font-semibold">${order.address}</td>
+                    <td class="px-6 py-4 text-sm">
+                        <span class="px-2.5 py-1 text-[11px] rounded-full font-bold ${order.status === 'Delivered' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'}">${order.status}</span>
+                    </td>
+                    <td class="px-6 py-4 font-bold text-[#800000] text-sm">₹${order.total.toLocaleString()}</td>
+                </tr>
+            `;
+        }).join('');
+        
+        container.innerHTML = `
+            <table class="w-full text-left border border-[#F2D2BD]/30 rounded-xl overflow-hidden shadow-sm">
+                <thead>
+                    <tr class="bg-surface border-b border-[#F2D2BD]/30 font-label-caps text-xs text-on-surface">
+                        <th class="px-6 py-4 font-semibold">Order ID</th>
+                        <th class="px-6 py-4 font-semibold">Ordered Date</th>
+                        <th class="px-6 py-4 font-semibold">Items</th>
+                        <th class="px-6 py-4 font-semibold">Delivery Destination</th>
+                        <th class="px-6 py-4 font-semibold">Shipping Status</th>
+                        <th class="px-6 py-4 font-semibold">Total Price</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-[#F2D2BD]/10 bg-white">
+                    ${tableRows}
+                </tbody>
+            </table>
+        `;
+    }
+
+    function renderWishlist() {
+        const container = document.getElementById("wishlist-grid-container");
+        const user = window.getCurrentUser();
+        if (!user || user.favorites.length === 0) {
+            container.innerHTML = `
+                <div class="col-span-3 text-center py-12 bg-surface rounded-xl border border-dashed border-[#F2D2BD]/60">
+                    <span class="material-symbols-outlined text-4xl text-outline mb-3">favorite_border</span>
+                    <p class="text-on-surface-variant">Your favorites list is currently empty.</p>
+                    <a href="../materials_store/code.html" class="inline-block mt-4 bg-primary text-white font-button px-6 py-3 rounded-lg text-xs uppercase tracking-wider hover:opacity-90">Browse Materials Catalog</a>
+                </div>
+            `;
+            return;
+        }
+        
+        const favProducts = window.HEENA_PRODUCTS.filter(p => user.favorites.includes(p.id));
+        
+        container.innerHTML = favProducts.map(p => `
+            <div class="bg-white rounded-xl border border-[#F2D2BD]/40 overflow-hidden shadow-sm flex flex-col group hover:shadow-lg transition-all duration-300">
+                <div class="aspect-[3/4] relative overflow-hidden bg-slate-50">
+                    <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <button onclick="removeWishlistItem(${p.id})" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm text-[#ba1a1a] flex items-center justify-center shadow-md hover:bg-white active:scale-90 transition-all">
+                        <span class="material-symbols-outlined text-lg fill-current">favorite</span>
+                    </button>
+                </div>
+                <div class="p-4 flex-grow flex flex-col justify-between">
+                    <div>
+                        <span class="text-[10px] font-semibold text-secondary uppercase tracking-widest block mb-1">${p.category}</span>
+                        <h4 class="font-label-caps text-sm text-on-surface font-semibold line-clamp-1">${p.name}</h4>
+                        <div class="flex items-center gap-2 mt-2">
+                            <span class="text-primary font-bold text-sm">₹${p.price}</span>
+                            <span class="text-on-surface-variant/50 line-through text-[11px]">₹${p.originalPrice}</span>
+                        </div>
+                    </div>
+                    <button onclick="wishlistToCart(${p.id})" class="w-full mt-4 bg-primary text-white text-xs font-button uppercase py-3 rounded-lg flex items-center justify-center gap-2 active:scale-95 transition-all">
+                        <span class="material-symbols-outlined text-sm">add_shopping_cart</span>
+                        <span>Move to Bag</span>
+                    </button>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    function removeWishlistItem(prodId) {
+        window.toggleWishlist(prodId);
+        renderWishlist();
+        updateDashboardBadges();
+        window.syncHeaderDOM();
+    }
+
+    function wishlistToCart(prodId) {
+        window.addToCart(prodId, 1);
+        window.updateHeaderBadges();
+        updateDashboardBadges();
+        
+        // Soft message trigger
+        const btn = event.currentTarget;
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '<span class="material-symbols-outlined text-sm">check</span><span>In Bag</span>';
+        btn.className = "w-full mt-4 bg-green-700 text-white text-xs font-button uppercase py-3 rounded-lg flex items-center justify-center gap-2";
+        setTimeout(() => {
+            btn.innerHTML = originalText;
+            btn.className = "w-full mt-4 bg-primary text-white text-xs font-button uppercase py-3 rounded-lg flex items-center justify-center gap-2";
+        }, 1500);
+    }
+
+    function renderCart() {
+        const container = document.getElementById("cart-list-container");
+        const user = window.getCurrentUser();
+        
+        if (!user || user.cart.length === 0) {
+            container.innerHTML = `
+                <div class="text-center py-12 bg-surface rounded-xl border border-dashed border-[#F2D2BD]/60">
+                    <span class="material-symbols-outlined text-4xl text-outline mb-3">shopping_bag</span>
+                    <p class="text-on-surface-variant">Your shopping bag is empty.</p>
+                    <a href="../materials_store/code.html" class="inline-block mt-4 bg-primary text-white font-button px-6 py-3 rounded-lg text-xs uppercase tracking-wider hover:opacity-90">Shop Materials</a>
+                </div>
+            `;
+            return;
+        }
+        
+        // Compute prices
+        let subtotal = 0;
+        let cartItemsHtml = user.cart.map(cItem => {
+            const product = window.HEENA_PRODUCTS.find(p => p.id === cItem.productId);
+            if (!product) return '';
+            
+            const cost = product.price * cItem.quantity;
+            subtotal += cost;
+            
+            return `
+                <div class="flex flex-col sm:flex-row items-center gap-6 p-4 bg-surface rounded-xl border border-[#F2D2BD]/20">
+                    <div class="w-20 h-20 rounded-lg overflow-hidden shrink-0 bg-white">
+                        <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover">
+                    </div>
+                    <div class="flex-grow text-center sm:text-left space-y-1">
+                        <h4 class="font-label-caps text-sm text-primary font-bold">${product.name}</h4>
+                        <p class="text-xs text-on-surface-variant/80">${product.category}</p>
+                        <p class="text-xs font-bold text-on-surface">₹${product.price} / ${product.unit}</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <button onclick="updateCartItemQty(${product.id}, -1)" class="w-8 h-8 rounded-full border border-secondary-fixed/50 hover:bg-white flex items-center justify-center text-primary font-bold active:scale-90 transition-all">-</button>
+                        <span class="font-bold text-sm text-on-surface w-4 text-center">${cItem.quantity}</span>
+                        <button onclick="updateCartItemQty(${product.id}, 1)" class="w-8 h-8 rounded-full border border-secondary-fixed/50 hover:bg-white flex items-center justify-center text-primary font-bold active:scale-90 transition-all">+</button>
+                    </div>
+                    <div class="text-center sm:text-right shrink-0 min-w-[100px]">
+                        <p class="font-bold text-sm text-primary">₹${cost.toLocaleString()}</p>
+                        <button onclick="deleteCartItem(${product.id})" class="text-xs text-[#ba1a1a] hover:underline font-bold mt-1">Remove</button>
+                    </div>
+                </div>
+            `;
+        }).join('');
+        
+        const deliveryCharge = subtotal > 1000 ? 0 : 150;
+        const finalTotal = subtotal + deliveryCharge;
+        
+        container.innerHTML = `
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <!-- Items list -->
+                <div class="lg:col-span-8 space-y-4">
+                    ${cartItemsHtml}
+                </div>
+                
+                <!-- Order Summary -->
+                <div class="lg:col-span-4 bg-surface p-6 rounded-xl border border-secondary-fixed/20 space-y-6">
+                    <h3 class="font-headline-sm text-lg text-primary font-bold">Cart Summary</h3>
+                    
+                    <div class="space-y-3 border-b border-[#F2D2BD]/20 pb-4 text-sm font-body-md text-on-surface-variant">
+                        <div class="flex justify-between">
+                            <span>Subtotal</span>
+                            <span class="font-bold text-on-surface">₹${subtotal.toLocaleString()}</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Delivery Fees</span>
+                            <span class="font-bold text-on-surface">${deliveryCharge === 0 ? '<span class="text-green-700 uppercase font-bold">FREE</span>' : '₹' + deliveryCharge}</span>
+                        </div>
+                        <p class="text-[10px] text-on-surface-variant/80 italic mt-1">* Enjoy Free Shipping on orders above ₹1,000!</p>
+                    </div>
+                    
+                    <div class="flex justify-between text-base font-bold text-primary">
+                        <span>Total Price</span>
+                        <span>₹${finalTotal.toLocaleString()}</span>
+                    </div>
+                    
+                    <!-- Delivery address validation before checkout -->
+                    <div class="space-y-3 bg-white p-4 rounded-lg border border-[#F2D2BD]/20">
+                        <h4 class="font-label-caps text-xs text-on-surface font-semibold uppercase tracking-wider">Confirm Shipping Address</h4>
+                        <p id="checkout-address-preview" class="text-xs text-on-surface-variant leading-relaxed line-clamp-3">${user.address || '<span class="text-[#ba1a1a] italic font-semibold">No address saved. Please update in Profile tab.</span>'}</p>
+                        <button onclick="activateTab('profile')" class="text-xs text-primary font-bold hover:underline block">Edit Address</button>
+                    </div>
+                    
+                    <button onclick="handleCheckout(${finalTotal}, '${user.address.replace(/'/g, "\\'")}')" 
+                        class="w-full bg-primary hover:bg-[#800000] text-white font-button text-button py-4 rounded-lg uppercase tracking-widest font-semibold active:scale-95 transition-all shadow-md flex justify-center items-center gap-2"
+                        ${!user.address ? 'disabled style="opacity: 0.6; cursor: not-allowed;" title="Please add a shipping address first."' : ''}>
+                        Checkout Order
+                        <span class="material-symbols-outlined text-lg">payments</span>
+                    </button>
+                </div>
+            </div>
+        `;
+    }
+
+    function updateCartItemQty(prodId, delta) {
+        const user = window.getCurrentUser();
+        if (!user) return;
+        
+        const idx = user.cart.findIndex(c => c.productId === prodId);
+        if (idx !== -1) {
+            user.cart[idx].quantity += delta;
+            if (user.cart[idx].quantity <= 0) {
+                user.cart.splice(idx, 1);
+            }
+            window.saveCurrentUser(user);
+            renderCart();
+            updateDashboardBadges();
+            window.syncHeaderDOM();
+        }
+    }
+
+    function deleteCartItem(prodId) {
+        const user = window.getCurrentUser();
+        if (!user) return;
+        
+        const idx = user.cart.findIndex(c => c.productId === prodId);
+        if (idx !== -1) {
+            user.cart.splice(idx, 1);
+            window.saveCurrentUser(user);
+            renderCart();
+            updateDashboardBadges();
+            window.syncHeaderDOM();
+        }
+    }
+
+    function handleCheckout(total, address) {
+        const user = window.getCurrentUser();
+        if (!user || user.cart.length === 0) return;
+        
+        // Prepare order items
+        const orderItems = user.cart.map(c => {
+            const p = window.HEENA_PRODUCTS.find(prod => prod.id === c.productId);
+            return {
+                name: `${p.name} (1 ${p.unit})`,
+                price: p.price,
+                quantity: c.quantity
+            };
+        });
+        
+        const details = {
+            items: orderItems,
+            total: total,
+            address: address
+        };
+        
+        const success = window.createOrder(details);
+        if (success) {
+            alert("Thank you! Your order has been placed successfully and is being processed by the atelier.");
+            activateTab('orders');
+            window.syncHeaderDOM();
+        } else {
+            alert("Order checkout failed. Please try again.");
+        }
+    }
+
+    // --- VIEW LOADING CORE LOGIC ---
+
+    function checkAuthState() {
+        const user = window.getCurrentUser();
+        if (user) {
+            document.getElementById("auth-guest-container").classList.add("hidden");
+            document.getElementById("auth-user-container").classList.remove("hidden");
+            
+            // Populate dashboard basic details
+            const initials = user.name.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase();
+            document.getElementById("dashboard-avatar").innerText = initials;
+            document.getElementById("dashboard-name").innerText = user.name;
+            document.getElementById("dashboard-email").innerText = user.email;
+            
+            // Redirect check from query params
+            const params = new URLSearchParams(window.location.search);
+            const redirect = params.get('redirect');
+            if (redirect) {
+                window.location.href = decodeURIComponent(redirect);
+                return;
+            }
+            
+            // Handle Tab via hash
+            let activeTabId = 'profile';
+            const hash = window.location.hash.replace("#", "");
+            if (hash && ['profile', 'appointments', 'orders', 'wishlist', 'cart'].includes(hash)) {
+                activeTabId = hash;
+            }
+            
+            activateTab(activeTabId);
+        } else {
+            document.getElementById("auth-user-container").classList.add("hidden");
+            document.getElementById("auth-guest-container").classList.remove("hidden");
+            
+            // Render redirect messages if any
+            const params = new URLSearchParams(window.location.search);
+            const reason = params.get('reason');
+            if (reason) {
+                showAuthStatus(decodeURIComponent(reason), false);
+            } else {
+                document.getElementById("auth-status-box").classList.add("hidden");
+            }
+            
+            switchAuthView('login');
+        }
+    }
+
+    // Hash change handler
+    window.addEventListener('hashchange', () => {
+        const user = window.getCurrentUser();
+        if (user) {
+            const hash = window.location.hash.replace("#", "");
+            if (hash && ['profile', 'appointments', 'orders', 'wishlist', 'cart'].includes(hash)) {
+                activateTab(hash);
+            }
+        }
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+        initTheme();
+        checkAuthState();
+    });
+</script>
+</body>
+</html>

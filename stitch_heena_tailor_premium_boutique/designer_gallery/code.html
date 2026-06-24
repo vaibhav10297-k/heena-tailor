@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Inspiration Gallery - Heena Tailor</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="../shared.js"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed": "#ffdad4",
+                    "tertiary-container": "#4d3829",
+                    "on-surface": "#1b1b1b",
+                    "secondary-fixed-dim": "#e9c349",
+                    "primary": "#570000",
+                    "primary-container": "#800000",
+                    "inverse-surface": "#303030",
+                    "surface-container-low": "#f3f3f3",
+                    "on-tertiary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed-dim": "#dfc1ac",
+                    "secondary-fixed": "#ffe088",
+                    "surface-container-lowest": "#ffffff",
+                    "background": "#f9f9f9",
+                    "on-primary-fixed-variant": "#8f0f07",
+                    "on-secondary-fixed": "#241a00",
+                    "tertiary": "#352315",
+                    "on-primary-fixed": "#410000",
+                    "surface": "#f9f9f9",
+                    "inverse-on-surface": "#f1f1f1",
+                    "surface-tint": "#b22b1d",
+                    "on-secondary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "on-surface-variant": "#5a413d",
+                    "error": "#ba1a1a",
+                    "on-primary-container": "#ff8371",
+                    "inverse-primary": "#ffb4a8",
+                    "surface-dim": "#dadada",
+                    "secondary-container": "#fed65b",
+                    "on-error-container": "#93000a",
+                    "primary-fixed-dim": "#ffb4a8",
+                    "surface-variant": "#e2e2e2",
+                    "surface-container-highest": "#e2e2e2",
+                    "secondary": "#735c00",
+                    "surface-container-high": "#e8e8e8",
+                    "surface-container": "#eeeeee",
+                    "on-tertiary-fixed-variant": "#584233",
+                    "outline": "#8e706c",
+                    "on-background": "#1b1b1b",
+                    "on-tertiary-fixed": "#28180b",
+                    "tertiary-fixed": "#fddcc7",
+                    "surface-bright": "#f9f9f9",
+                    "on-tertiary-container": "#bea18e",
+                    "on-secondary-container": "#745c00",
+                    "on-secondary-fixed-variant": "#574500",
+                    "outline-variant": "#e2bfb9",
+                    "on-primary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "64px",
+                    "container-max": "1280px",
+                    "margin-mobile": "16px",
+                    "gutter": "24px",
+                    "unit": "8px"
+            },
+            "fontFamily": {
+                    "label-caps": ["Montserrat"],
+                    "headline-md": ["Playfair Display"],
+                    "body-lg": ["Montserrat"],
+                    "headline-sm": ["Playfair Display"],
+                    "display-lg-mobile": ["Playfair Display"],
+                    "body-md": ["Montserrat"],
+                    "display-lg": ["Playfair Display"],
+                    "button": ["Montserrat"]
+            },
+            "fontSize": {
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "button": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(242, 210, 189, 0.3);
+        }
+        .masonry-grid {
+            column-count: 1;
+            column-gap: 24px;
+        }
+        @media (min-width: 768px) {
+            .masonry-grid {
+                column-count: 2;
+            }
+        }
+        @media (min-width: 1024px) {
+            .masonry-grid {
+                column-count: 3;
+            }
+        }
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 24px;
+        }
+        .tailor-note {
+            background-image: radial-gradient(circle at 2px 2px, rgba(0,0,0,0.02) 1px, transparent 0);
+            background-size: 8px 8px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary-fixed">
+<!-- TopAppBar -->
+<header id="main-header" class="fixed top-0 w-full z-50 bg-[#111111]/95 backdrop-blur-md text-white border-b border-white/10 shadow-lg h-20">
+    <nav class="flex justify-between items-center px-6 md:px-16 h-full w-full max-w-[1280px] mx-auto relative">
+        <!-- Logo -->
+        <a class="font-headline-sm text-headline-sm tracking-[0.2em] text-[#ffdad4] uppercase font-bold" href="../home_heena_tailor/code.html">HEENA TAILOR</a>
+        
+        <!-- Desktop Menu Links -->
+        <div class="hidden lg:flex items-center gap-8">
+            <a id="nav-home" class="font-label-caps text-label-caps text-[#eeeeee] hover:text-[#ffdad4] transition-colors py-2 uppercase" href="../home_heena_tailor/code.html">HOME</a>
+            <a id="nav-services" class="font-label-caps text-label-caps text-[#eeeeee] hover:text-[#ffdad4] transition-colors py-2 uppercase" href="../book_a_service/code.html">SERVICES</a>
+            <a id="nav-shop" class="font-label-caps text-label-caps text-[#eeeeee] hover:text-[#ffdad4] transition-colors py-2 uppercase" href="../materials_store/code.html">SHOP</a>
+            <a id="nav-gallery" class="font-label-caps text-label-caps text-[#eeeeee] hover:text-[#ffdad4] transition-colors py-2 uppercase" href="../designer_gallery/code.html">GALLERY</a>
+            <a id="nav-reviews" class="font-label-caps text-label-caps text-[#eeeeee] hover:text-[#ffdad4] transition-colors py-2 uppercase" href="../home_heena_tailor/code.html#reviews">REVIEWS</a>
+            <a id="nav-about" class="font-label-caps text-label-caps text-[#eeeeee] hover:text-[#ffdad4] transition-colors py-2 uppercase" href="../home_heena_tailor/code.html#about">ABOUT</a>
+            <a id="nav-contact" class="font-label-caps text-label-caps text-[#eeeeee] hover:text-[#ffdad4] transition-colors py-2 uppercase" href="../home_heena_tailor/code.html#contact">CONTACT</a>
+        </div>
+        
+        <!-- Right side actions -->
+        <div class="flex items-center gap-4">
+            <!-- Theme Toggle -->
+            <button id="theme-toggle-btn" onclick="toggleTheme()" class="text-[#eeeeee] hover:text-[#ffdad4] active:scale-95 transition-all p-2 rounded-full">
+                <span class="material-symbols-outlined text-2xl" id="theme-toggle-icon">dark_mode</span>
+            </button>
+            
+            <!-- Wishlist -->
+            <button class="text-[#eeeeee] hover:text-[#ffdad4] active:scale-95 transition-all p-2 rounded-full hidden sm:block">
+                <span class="material-symbols-outlined text-2xl">favorite</span>
+            </button>
+            
+            <!-- Shopping Bag -->
+            <button class="text-[#eeeeee] hover:text-[#ffdad4] active:scale-95 transition-all p-2 rounded-full relative">
+                <span class="material-symbols-outlined text-2xl">shopping_bag</span>
+                <span class="absolute top-1 right-1 bg-[#ffdad4] text-[#111111] text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">2</span>
+            </button>
+            
+            <!-- Book Appointment CTA -->
+            <a href="../book_a_service/code.html" class="hidden md:flex items-center gap-2 bg-[#800000] hover:bg-[#570000] text-white font-button text-button px-5 py-3 rounded-lg transition-all uppercase tracking-wider font-semibold active:scale-95">
+                <span class="material-symbols-outlined text-lg">calendar_today</span>
+                <span>BOOK APPOINTMENT</span>
+            </a>
+            
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-toggle" onclick="toggleMobileMenu()" class="lg:hidden text-[#eeeeee] hover:text-[#ffdad4] active:scale-95 transition-all p-2 rounded-full">
+                <span class="material-symbols-outlined text-2xl" id="menu-btn-icon">menu</span>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- Mobile Side Drawer -->
+    <div id="mobile-drawer" class="fixed inset-y-0 right-0 z-50 w-64 bg-[#111111] text-white shadow-2xl border-l border-white/10 transform translate-x-full transition-transform duration-300 ease-in-out lg:hidden flex flex-col p-6 gap-6">
+        <div class="flex justify-between items-center border-b border-white/10 pb-4">
+            <span class="font-headline-sm text-[18px] tracking-[0.1em] text-[#ffdad4] uppercase font-bold">MENU</span>
+            <button onclick="toggleMobileMenu()" class="text-[#eeeeee] hover:text-[#ffdad4]">
+                <span class="material-symbols-outlined text-2xl">close</span>
+            </button>
+        </div>
+        
+        <div class="flex flex-col gap-4 font-label-caps text-label-caps text-lg">
+            <a class="py-2 text-[#eeeeee] hover:text-[#ffdad4] transition-colors border-b border-white/5" href="../home_heena_tailor/code.html" onclick="toggleMobileMenu()">HOME</a>
+            <a class="py-2 text-[#eeeeee] hover:text-[#ffdad4] transition-colors border-b border-white/5" href="../book_a_service/code.html" onclick="toggleMobileMenu()">SERVICES</a>
+            <a class="py-2 text-[#eeeeee] hover:text-[#ffdad4] transition-colors border-b border-white/5" href="../materials_store/code.html" onclick="toggleMobileMenu()">SHOP</a>
+            <a class="py-2 text-[#eeeeee] hover:text-[#ffdad4] transition-colors border-b border-white/5" href="../designer_gallery/code.html" onclick="toggleMobileMenu()">GALLERY</a>
+            <a class="py-2 text-[#eeeeee] hover:text-[#ffdad4] transition-colors border-b border-white/5" href="../home_heena_tailor/code.html#reviews" onclick="toggleMobileMenu()">REVIEWS</a>
+            <a class="py-2 text-[#eeeeee] hover:text-[#ffdad4] transition-colors border-b border-white/5" href="../home_heena_tailor/code.html#about" onclick="toggleMobileMenu()">ABOUT</a>
+            <a class="py-2 text-[#eeeeee] hover:text-[#ffdad4] transition-colors border-b border-white/5" href="../home_heena_tailor/code.html#contact" onclick="toggleMobileMenu()">CONTACT</a>
+        </div>
+        
+        <div class="mt-auto flex flex-col gap-4">
+            <!-- Wishlist for mobile -->
+            <a href="#" class="flex items-center gap-3 py-2 text-[#eeeeee] hover:text-[#ffdad4] transition-colors border-b border-white/5 sm:hidden">
+                <span class="material-symbols-outlined">favorite</span>
+                <span>WISHLIST</span>
+            </a>
+            <!-- Book Appointment button inside drawer -->
+            <a href="../book_a_service/code.html" class="flex items-center justify-center gap-2 bg-[#800000] hover:bg-[#570000] text-white font-button text-button py-4 rounded-lg transition-all uppercase tracking-wider font-bold">
+                <span class="material-symbols-outlined text-lg">calendar_today</span>
+                <span>BOOK APPOINTMENT</span>
+            </a>
+        </div>
+    </div>
+    
+    <!-- Mobile Drawer Overlay -->
+    <div id="mobile-overlay" onclick="toggleMobileMenu()" class="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 lg:hidden"></div>
+</header>
+<main class="pt-24 pb-32 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<!-- Hero / Title -->
+<div class="mb-12">
+<h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-4">Inspiration Gallery</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Explore our curated collection of bespoke masterpieces, from intricate bridal embroidery to contemporary silhouette transformations.</p>
+</div>
+<!-- Filter Chips -->
+<div class="flex overflow-x-auto gap-4 mb-12 pb-4 scrollbar-hide no-scrollbar">
+<button class="px-6 py-2 rounded-full border border-primary bg-primary text-on-primary font-button text-button whitespace-nowrap transition-all">All Designs</button>
+<button class="px-6 py-2 rounded-full border border-outline-variant bg-surface-container-lowest text-on-surface-variant font-button text-button whitespace-nowrap hover:bg-primary-fixed hover:text-on-primary-fixed transition-all">Blouse Necks</button>
+<button class="px-6 py-2 rounded-full border border-outline-variant bg-surface-container-lowest text-on-surface-variant font-button text-button whitespace-nowrap hover:bg-primary-fixed hover:text-on-primary-fixed transition-all">Sleeves</button>
+<button class="px-6 py-2 rounded-full border border-outline-variant bg-surface-container-lowest text-on-surface-variant font-button text-button whitespace-nowrap hover:bg-primary-fixed hover:text-on-primary-fixed transition-all">Bridal</button>
+<button class="px-6 py-2 rounded-full border border-outline-variant bg-surface-container-lowest text-on-surface-variant font-button text-button whitespace-nowrap hover:bg-primary-fixed hover:text-on-primary-fixed transition-all">Embroidery</button>
+<button class="px-6 py-2 rounded-full border border-outline-variant bg-surface-container-lowest text-on-surface-variant font-button text-button whitespace-nowrap hover:bg-primary-fixed hover:text-on-primary-fixed transition-all">Completed Orders</button>
+</div>
+<!-- Gallery Grid -->
+<div class="masonry-grid">
+<!-- Item 1 -->
+<div class="masonry-item group relative overflow-hidden rounded-xl border border-secondary-fixed/30 bg-surface shadow-[0_4px_30px_rgba(0,0,0,0.05)] transition-transform duration-300 hover:-translate-y-1">
+<img class="w-full h-auto object-cover" data-alt="A macro photograph of an intricate Deep Maroon velvet blouse featuring gold zardosi embroidery and shimmering sequins. The lighting is dramatic, highlighting the rich texture of the fabric and the fine metallic threadwork. The style is high-fashion luxury boutique, emphasizing craftsmanship and traditional South Asian bridal elegance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzkXlQ_9tTKU5bOudNs6YU5GoIjiA2NYruIH0Es_YlLvsze6rAfewdF8VjnGZUu6Inol2k-sk_1Db_pEhWiAHS7VSVtUQaklQmWN0QPdCq5fj7UQbdcQLYPDzQnPNcJHCA03ky2V5wRPGfzpodyi6mgXggUIJS1TkCLzLDemJlBjbyrurSUvHIg5Z9-G87YRuakSA2MMnYYhdmCjjRXKfSRpcKMacVZl-igtf32TGHH8Q5rsDgiLNBUhYYg-E8PZY3U5Qh_fjnrys"/>
+<div class="p-6">
+<span class="inline-block px-3 py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-caps text-label-caps mb-3">Bridal</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Majestic Zardosi</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Hand-stitched gold wire work on premium velvet for the classic bride.</p>
+<button class="w-full py-3 bg-primary text-on-primary font-button text-button rounded-lg hover:opacity-90 transition-opacity uppercase tracking-wider" onclick="openModal('Majestic Zardosi')">Request Similar Design</button>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="masonry-item group relative overflow-hidden rounded-xl border border-secondary-fixed/30 bg-surface shadow-[0_4px_30px_rgba(0,0,0,0.05)] transition-transform duration-300 hover:-translate-y-1">
+<img class="w-full h-auto object-cover" data-alt="A modern designer blouse with a deep-cut back and delicate organza frill sleeves in a soft pastel pink. The setting is a minimalist atelier with warm, ambient lighting. The visual style is editorial and light, showcasing contemporary tailoring techniques and clean, elegant lines suitable for a luxury boutique." src="https://lh3.googleusercontent.com/aida-public/AB6AXuArz5X5CE92XpUIVZswen45rJe4HrxIKNttnehuTIC36xuuNYM5mV0MwsyTheH3tSovBFob-7451E3yoIueAtKdzXnT0J4FVVEFQzD5a5rYTzqaarWPsjuzTpNd1iNYw5u74_PKER8HoODhxdOwD5uc1SU-VSxFOML6RmD0mHFrYQ0S1KH-mkavrXKiQKwiXBK_NGnLv0jYSovf6CgKW4Nm7GfcWtAWnZBN-jImvPDMaOxtA-6G2jw54CZsxUf1vpa8St9AyOooSYw"/>
+<div class="p-6">
+<span class="inline-block px-3 py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-caps text-label-caps mb-3">Blouse Necks</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Organza Petals</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Contemporary sheer sleeves with a focus on fluid structural design.</p>
+<button class="w-full py-3 bg-primary text-on-primary font-button text-button rounded-lg hover:opacity-90 transition-opacity uppercase tracking-wider" onclick="openModal('Organza Petals')">Request Similar Design</button>
+</div>
+</div>
+<!-- Tailor's Note Component -->
+<div class="masonry-item tailor-note p-8 border border-secondary-fixed/50 rounded-xl flex flex-col justify-center items-center text-center space-y-4">
+<span class="material-symbols-outlined text-secondary text-4xl">history_edu</span>
+<h4 class="font-headline-sm text-headline-sm text-primary">Tailor's Note</h4>
+<p class="font-body-md text-body-md text-on-surface-variant italic">"Each stitch tells a story of forty years of heritage. We don't just sew fabric; we craft legacies that are passed down through generations."</p>
+<div class="w-12 h-px bg-secondary-fixed"></div>
+<p class="font-label-caps text-label-caps uppercase tracking-widest text-primary">- Heena Boutique</p>
+</div>
+<!-- Item 3 -->
+<div class="masonry-item group relative overflow-hidden rounded-xl border border-secondary-fixed/30 bg-surface shadow-[0_4px_30px_rgba(0,0,0,0.05)] transition-transform duration-300 hover:-translate-y-1">
+<img class="w-full h-auto object-cover" data-alt="Detailed close-up of intricate hand-embroidery featuring peacock motifs in vibrant silk threads and micro-pearls. The fabric is a lustrous silk in champagne gold. The aesthetic is sophisticated and high-end, with soft-focus backgrounds and bright, crisp lighting that emphasizes every single stitch and pearl detail." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB015ghElBaKOce4wLpZURFqqq_8KHbooZ8PFtOOxuwqZANAU5NSvFhcxqcze0Uny0Lg_2ygHX9qBxZdmLt_6Y9ordzU-Rq3rhQSbmKB6HPy6h4tt2NWEuhnOtSdwCojZGI6l3IoVrrqRsksp6WoIy9eJuSpqyzrL7nkFbaWU8V9mC2m5dmH5g8pffAxIXixML98XZK6N2RzmTYN9fyDg_LNNvxFSJ4UfJEdWqGLydZ2WFNyoguyE5pih45U2M_SDF_QCjTKqfbe_4"/>
+<div class="p-6">
+<span class="inline-block px-3 py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-caps text-label-caps mb-3">Embroidery</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Pearl Peacock</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Micro-embroidery using silk threads and authentic fresh-water pearls.</p>
+<button class="w-full py-3 bg-primary text-on-primary font-button text-button rounded-lg hover:opacity-90 transition-opacity uppercase tracking-wider" onclick="openModal('Pearl Peacock')">Request Similar Design</button>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="masonry-item group relative overflow-hidden rounded-xl border border-secondary-fixed/30 bg-surface shadow-[0_4px_30px_rgba(0,0,0,0.05)] transition-transform duration-300 hover:-translate-y-1">
+<img class="w-full h-auto object-cover" data-alt="A sophisticated cold-shoulder blouse design in navy blue silk with silver metallic embroidery along the neckline. The piece is displayed on a high-end mannequin in a bright, modern studio. The mood is professional and fashion-forward, with clean shadows and a palette dominated by primary maroon and champagne gold accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtKBwS-SD6Cq4Hi3ph9hQhipR8Is7L9btvG5A5NnTC_u7LT4t0pXvxS6ZEfHtD6L8FwO1s0c6eaUEY0z2Laq_CLY0W3aMxYmochag3K4vf6RV9i6hcKXfFAybCsOjpRR1smybuo45iNhV-yB2WyoNrjBE6cmDNo_rhJDCTlEn4gpD0pI3hiMGnK5Te9DBIL2tCqdNqFozeQlwQRftauOQF-CV4l8XJReyJe6gDhmYH2OJDkAc6OBYzUSA_KDwd96JHGru2XVKtSuo"/>
+<div class="p-6">
+<span class="inline-block px-3 py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-caps text-label-caps mb-3">Sleeves</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Silver Cold Shoulder</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Modern fusion of traditional silk and geometric metallic work.</p>
+<button class="w-full py-3 bg-primary text-on-primary font-button text-button rounded-lg hover:opacity-90 transition-opacity uppercase tracking-wider" onclick="openModal('Silver Cold Shoulder')">Request Similar Design</button>
+</div>
+</div>
+<!-- Item 5 -->
+<div class="masonry-item group relative overflow-hidden rounded-xl border border-secondary-fixed/30 bg-surface shadow-[0_4px_30px_rgba(0,0,0,0.05)] transition-transform duration-300 hover:-translate-y-1">
+<img class="w-full h-auto object-cover" data-alt="A stunning traditional bridal lehenga blouse with heavy gold threadwork and ruby-colored stone embellishments. The image is shot in a sun-drenched marble palace hallway, creating a regal and opulent mood. The color palette features deep maroon, gold, and ivory, embodying the luxury minimalist boutique brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAapAgpX7FB9fzY5chR45_E0uH3n8EWiCnXyalhvZKTbjo_szjalRv7-DEidluUxVIvV1Wah0MqCfvpDTXEDMdfvqAWGzhZPb07eNh6t2sJuP4oUcwfZhmTqg9L6wGV1MNvIAYxgjgHGFUMpuFHki43N5PoCTGzTB3GSUgUY2t2Xz_kaRgWSeOZCKL3XVOHToWmcOfdth_SCwdjoQenjPiMjJrH1XhrWgVnfyuw7ceGafo4UxNzmdXVWbx8RLEy5_NoxMn8m0IxSMA"/>
+<div class="p-6">
+<span class="inline-block px-3 py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-caps text-label-caps mb-3">Completed Orders</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Heritage Ruby</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Commissioned for a destination wedding, featuring over 200 hours of hand-work.</p>
+<button class="w-full py-3 bg-primary text-on-primary font-button text-button rounded-lg hover:opacity-90 transition-opacity uppercase tracking-wider" onclick="openModal('Heritage Ruby')">Request Similar Design</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Modal Backdrop -->
+<div class="fixed inset-0 z-[100] hidden flex items-center justify-center bg-on-surface/40 backdrop-blur-sm px-4" id="requestModal">
+<div class="glass-card w-full max-w-lg rounded-2xl p-8 shadow-2xl scale-95 transition-transform duration-300">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h3 class="font-headline-md text-headline-md text-primary" id="modalTitle">Request Design</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Tell us more about your custom requirements.</p>
+</div>
+<button class="text-on-surface-variant hover:text-primary" onclick="closeModal()">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<form class="space-y-6">
+<div>
+<label class="font-label-caps text-label-caps text-primary mb-2 block uppercase">Your Measurements Status</label>
+<select class="w-full bg-surface-container-low border border-outline-variant rounded-lg p-3 font-body-md text-on-surface focus:ring-1 focus:ring-primary outline-none">
+<option>Use my saved measurements</option>
+<option>Book a measurement appointment</option>
+<option>I will provide them later</option>
+</select>
+</div>
+<div>
+<label class="font-label-caps text-label-caps text-primary mb-2 block uppercase">Preferred Fabric</label>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 rounded-full bg-primary-fixed text-on-primary-fixed font-label-caps text-[10px] uppercase">Silk</span>
+<span class="px-3 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-caps text-[10px] uppercase">Velvet</span>
+<span class="px-3 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-caps text-[10px] uppercase">Organza</span>
+<span class="px-3 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-caps text-[10px] uppercase">Cotton</span>
+</div>
+</div>
+<div>
+<label class="font-label-caps text-label-caps text-primary mb-2 block uppercase">Special Instructions</label>
+<textarea class="w-full bg-surface-container-low border border-outline-variant rounded-lg p-3 font-body-md text-on-surface focus:ring-1 focus:ring-primary outline-none placeholder:text-on-surface-variant/40" placeholder="E.g., I want a deeper neck or different color..." rows="3"></textarea>
+</div>
+<button class="w-full py-4 bg-primary text-on-primary font-button text-button rounded-lg hover:opacity-90 transition-opacity shadow-lg uppercase tracking-widest" type="button">Submit Inquiry</button>
+</form>
+</div>
+</div>
+<!-- BottomNavBar removed for desktop/mobile consistency with drawer menu -->
+<!-- Footer (Desktop Only) -->
+<footer class="hidden md:block w-full pt-12 pb-12 bg-surface-container-lowest border-t border-secondary-fixed/20">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop max-w-container-max mx-auto">
+<div class="space-y-4">
+<h4 class="font-headline-sm text-headline-sm text-primary">HEENA TAILOR</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Masterfully crafted tailoring since 1984. Bringing luxury heritage to your doorstep.</p>
+</div>
+<div>
+<h5 class="font-button text-button text-primary mb-4 uppercase">Services</h5>
+<ul class="space-y-2 font-body-md text-on-surface-variant">
+<li><a class="hover:text-primary transition-colors" href="#">Custom Stitching</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Material Store</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Designer Gallery</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Contact Us</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-button text-button text-primary mb-4 uppercase">Heritage</h5>
+<ul class="space-y-2 font-body-md text-on-surface-variant">
+<li><a class="hover:text-primary transition-colors" href="#">Our Story</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Fabric Care</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Sustainability</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-button text-button text-primary mb-4 uppercase">Social</h5>
+<div class="flex gap-4">
+<button class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center hover:bg-primary-fixed transition-colors">
+<span class="material-symbols-outlined text-primary text-sm">camera</span>
+</button>
+<button class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center hover:bg-primary-fixed transition-colors">
+<span class="material-symbols-outlined text-primary text-sm">share</span>
+</button>
+</div>
+<p class="mt-6 font-label-caps text-label-caps text-on-surface-variant">© 2024 Heena Tailor. Masterfully Crafted.</p>
+</div>
+</div>
+</footer>
+<script>
+    // Theme toggle functions
+    function initTheme() {
+        const theme = localStorage.getItem('theme') || 'light';
+        if (theme === 'dark') {
+            document.documentElement.classList.add('dark');
+            const icon = document.getElementById('theme-toggle-icon');
+            if (icon) icon.innerText = 'light_mode';
+        } else {
+            document.documentElement.classList.remove('dark');
+            const icon = document.getElementById('theme-toggle-icon');
+            if (icon) icon.innerText = 'dark_mode';
+        }
+    }
+
+    function toggleTheme() {
+        if (document.documentElement.classList.contains('dark')) {
+            document.documentElement.classList.remove('dark');
+            localStorage.setItem('theme', 'light');
+            const icon = document.getElementById('theme-toggle-icon');
+            if (icon) icon.innerText = 'dark_mode';
+        } else {
+            document.documentElement.classList.add('dark');
+            localStorage.setItem('theme', 'dark');
+            const icon = document.getElementById('theme-toggle-icon');
+            if (icon) icon.innerText = 'light_mode';
+        }
+        if (window.syncHeaderDOM) window.syncHeaderDOM();
+    }
+
+    // Mobile Menu Functions
+    function toggleMobileMenu() {
+        const drawer = document.getElementById('mobile-drawer');
+        const overlay = document.getElementById('mobile-overlay');
+        const isClosed = drawer.classList.contains('translate-x-full');
+        if (isClosed) {
+            drawer.classList.remove('translate-x-full');
+            overlay.classList.remove('opacity-0', 'pointer-events-none');
+            overlay.classList.add('opacity-100');
+        } else {
+            drawer.classList.add('translate-x-full');
+            overlay.classList.add('opacity-0', 'pointer-events-none');
+            overlay.classList.remove('opacity-100');
+        }
+    }
+
+    // Dynamic Active Menu Underlining
+    function highlightActiveNav() {
+        const path = window.location.pathname;
+        const hash = window.location.hash;
+        
+        const ids = ['nav-home', 'nav-services', 'nav-shop', 'nav-gallery', 'nav-reviews', 'nav-about', 'nav-contact'];
+        ids.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) {
+                el.classList.remove('border-b-2', 'border-[#ffdad4]', 'text-[#ffdad4]');
+                el.classList.add('text-[#eeeeee]');
+            }
+        });
+
+        let activeId = 'nav-gallery'; // default for gallery page
+        const activeEl = document.getElementById(activeId);
+        if (activeEl) {
+            activeEl.classList.add('border-b-2', 'border-[#ffdad4]', 'text-[#ffdad4]');
+            activeEl.classList.remove('text-[#eeeeee]');
+        }
+    }
+
+    window.addEventListener('hashchange', highlightActiveNav);
+    window.addEventListener('DOMContentLoaded', () => {
+        initTheme();
+        highlightActiveNav();
+    });
+
+    function openModal(designName) {
+        const modal = document.getElementById('requestModal');
+        const title = document.getElementById('modalTitle');
+        title.innerText = `Request: ${designName}`;
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+        setTimeout(() => {
+            modal.querySelector('.glass-card').classList.remove('scale-95');
+            modal.querySelector('.glass-card').classList.add('scale-100');
+        }, 10);
+    }
+
+    function closeModal() {
+        const modal = document.getElementById('requestModal');
+        modal.querySelector('.glass-card').classList.remove('scale-100');
+        modal.querySelector('.glass-card').classList.add('scale-95');
+        setTimeout(() => {
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }, 300);
+    }
+
+    // Close modal on outside click
+    document.getElementById('requestModal').addEventListener('click', function(e) {
+        if (e.target === this) closeModal();
+    });
+</script>
+</body></html>

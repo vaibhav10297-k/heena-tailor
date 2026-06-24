@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Heena Tailor | Curated Materials</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="../shared.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&family=Playfair+Display:wght@100..900&display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed": "#ffdad4",
+                    "tertiary-container": "#4d3829",
+                    "on-surface": "#1b1b1b",
+                    "secondary-fixed-dim": "#e9c349",
+                    "primary": "#570000",
+                    "primary-container": "#800000",
+                    "inverse-surface": "#303030",
+                    "surface-container-low": "#f3f3f3",
+                    "on-tertiary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed-dim": "#dfc1ac",
+                    "secondary-fixed": "#ffe088",
+                    "surface-container-lowest": "#ffffff",
+                    "background": "#f9f9f9",
+                    "on-primary-fixed-variant": "#8f0f07",
+                    "on-secondary-fixed": "#241a00",
+                    "tertiary": "#352315",
+                    "on-primary-fixed": "#410000",
+                    "surface": "#f9f9f9",
+                    "inverse-on-surface": "#f1f1f1",
+                    "surface-tint": "#b22b1d",
+                    "on-secondary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "on-surface-variant": "#5a413d",
+                    "error": "#ba1a1a",
+                    "on-primary-container": "#ff8371",
+                    "inverse-primary": "#ffb4a8",
+                    "surface-dim": "#dadada",
+                    "secondary-container": "#fed65b",
+                    "on-error-container": "#93000a",
+                    "primary-fixed-dim": "#ffb4a8",
+                    "surface-variant": "#e2e2e2",
+                    "surface-container-highest": "#e2e2e2",
+                    "secondary": "#735c00",
+                    "surface-container-high": "#e8e8e8",
+                    "surface-container": "#eeeeee",
+                    "on-tertiary-fixed-variant": "#584233",
+                    "outline": "#8e706c",
+                    "on-background": "#1b1b1b",
+                    "on-tertiary-fixed": "#28180b",
+                    "tertiary-fixed": "#fddcc7",
+                    "surface-bright": "#f9f9f9",
+                    "on-tertiary-container": "#bea18e",
+                    "on-secondary-container": "#745c00",
+                    "on-secondary-fixed-variant": "#574500",
+                    "outline-variant": "#e2bfb9",
+                    "on-primary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "64px",
+                    "container-max": "1280px",
+                    "margin-mobile": "16px",
+                    "gutter": "24px",
+                    "unit": "8px"
+            },
+            "fontFamily": {
+                    "label-caps": ["Montserrat"],
+                    "headline-md": ["Playfair Display"],
+                    "body-lg": ["Montserrat"],
+                    "headline-sm": ["Playfair Display"],
+                    "display-lg-mobile": ["Playfair Display"],
+                    "body-md": ["Montserrat"],
+                    "display-lg": ["Playfair Display"],
+                    "button": ["Montserrat"]
+            },
+            "fontSize": {
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "button": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-nav {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .boutique-card {
+            box-shadow: 0 4px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .boutique-card:active {
+            transform: scale(0.98);
+        }
+        .search-container:focus-within {
+            box-shadow: 0 0 0 1px #ffe088;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md selection:bg-secondary-fixed/30">
+<!-- TopAppBar -->
+<header id="main-header" class="fixed top-0 w-full z-50 bg-[#111111]/95 backdrop-blur-md text-white border-b border-white/10 shadow-lg h-20">
+    <nav class="flex justify-between items-center px-6 md:px-16 h-full w-full max-w-[1280px] mx-auto relative">
+        <!-- Logo -->
+        <a class="font-headline-sm text-headline-sm tracking-[0.2em] text-[#ffdad4] uppercase font-bold" href="../home_heena_tailor/code.html">HEENA TAILOR</a>
+        
+        <!-- Desktop Menu Links -->
+        <div class="hidden lg:flex items-center gap-8">
+            <a id="nav-home" class="font-label-caps text-label-caps text-[#eeeeee] hover:text-[#ffdad4] transition-colors py-2 uppercase" href="../home_heena_tailor/code.html">HOME</a>
+            <a id="nav-services" class="font-label-caps text-label-caps text-[#eeeeee] hover:text-[#ffdad4] transition-colors py-2 uppercase" href="../book_a_service/code.html">SERVICES</a>
+            <a id="nav-shop" class="font-label-caps text-label-caps text-[#eeeeee] hover:text-[#ffdad4] transition-colors py-2 uppercase" href="../materials_store/code.html">SHOP</a>
+            <a id="nav-gallery" class="font-label-caps text-label-caps text-[#eeeeee] hover:text-[#ffdad4] transition-colors py-2 uppercase" href="../designer_gallery/code.html">GALLERY</a>
+            <a id="nav-reviews" class="font-label-caps text-label-caps text-[#eeeeee] hover:text-[#ffdad4] transition-colors py-2 uppercase" href="../home_heena_tailor/code.html#reviews">REVIEWS</a>
+            <a id="nav-about" class="font-label-caps text-label-caps text-[#eeeeee] hover:text-[#ffdad4] transition-colors py-2 uppercase" href="../home_heena_tailor/code.html#about">ABOUT</a>
+            <a id="nav-contact" class="font-label-caps text-label-caps text-[#eeeeee] hover:text-[#ffdad4] transition-colors py-2 uppercase" href="../home_heena_tailor/code.html#contact">CONTACT</a>
+        </div>
+        
+        <!-- Right side actions -->
+        <div class="flex items-center gap-4">
+            <!-- Theme Toggle -->
+            <button id="theme-toggle-btn" onclick="toggleTheme()" class="text-[#eeeeee] hover:text-[#ffdad4] active:scale-95 transition-all p-2 rounded-full">
+                <span class="material-symbols-outlined text-2xl" id="theme-toggle-icon">dark_mode</span>
+            </button>
+            
+            <!-- Wishlist -->
+            <button class="text-[#eeeeee] hover:text-[#ffdad4] active:scale-95 transition-all p-2 rounded-full hidden sm:block">
+                <span class="material-symbols-outlined text-2xl">favorite</span>
+            </button>
+            
+            <!-- Shopping Bag -->
+            <button class="text-[#eeeeee] hover:text-[#ffdad4] active:scale-95 transition-all p-2 rounded-full relative">
+                <span class="material-symbols-outlined text-2xl">shopping_bag</span>
+                <span class="absolute top-1 right-1 bg-[#ffdad4] text-[#111111] text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">2</span>
+            </button>
+            
+            <!-- Book Appointment CTA -->
+            <a href="../book_a_service/code.html" class="hidden md:flex items-center gap-2 bg-[#800000] hover:bg-[#570000] text-white font-button text-button px-5 py-3 rounded-lg transition-all uppercase tracking-wider font-semibold active:scale-95">
+                <span class="material-symbols-outlined text-lg">calendar_today</span>
+                <span>BOOK APPOINTMENT</span>
+            </a>
+            
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-toggle" onclick="toggleMobileMenu()" class="lg:hidden text-[#eeeeee] hover:text-[#ffdad4] active:scale-95 transition-all p-2 rounded-full">
+                <span class="material-symbols-outlined text-2xl" id="menu-btn-icon">menu</span>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- Mobile Side Drawer -->
+    <div id="mobile-drawer" class="fixed inset-y-0 right-0 z-50 w-64 bg-[#111111] text-white shadow-2xl border-l border-white/10 transform translate-x-full transition-transform duration-300 ease-in-out lg:hidden flex flex-col p-6 gap-6">
+        <div class="flex justify-between items-center border-b border-white/10 pb-4">
+            <span class="font-headline-sm text-[18px] tracking-[0.1em] text-[#ffdad4] uppercase font-bold">MENU</span>
+            <button onclick="toggleMobileMenu()" class="text-[#eeeeee] hover:text-[#ffdad4]">
+                <span class="material-symbols-outlined text-2xl">close</span>
+            </button>
+        </div>
+        
+        <div class="flex flex-col gap-4 font-label-caps text-label-caps text-lg">
+            <a class="py-2 text-[#eeeeee] hover:text-[#ffdad4] transition-colors border-b border-white/5" href="../home_heena_tailor/code.html" onclick="toggleMobileMenu()">HOME</a>
+            <a class="py-2 text-[#eeeeee] hover:text-[#ffdad4] transition-colors border-b border-white/5" href="../book_a_service/code.html" onclick="toggleMobileMenu()">SERVICES</a>
+            <a class="py-2 text-[#eeeeee] hover:text-[#ffdad4] transition-colors border-b border-white/5" href="../materials_store/code.html" onclick="toggleMobileMenu()">SHOP</a>
+            <a class="py-2 text-[#eeeeee] hover:text-[#ffdad4] transition-colors border-b border-white/5" href="../designer_gallery/code.html" onclick="toggleMobileMenu()">GALLERY</a>
+            <a class="py-2 text-[#eeeeee] hover:text-[#ffdad4] transition-colors border-b border-white/5" href="../home_heena_tailor/code.html#reviews" onclick="toggleMobileMenu()">REVIEWS</a>
+            <a class="py-2 text-[#eeeeee] hover:text-[#ffdad4] transition-colors border-b border-white/5" href="../home_heena_tailor/code.html#about" onclick="toggleMobileMenu()">ABOUT</a>
+            <a class="py-2 text-[#eeeeee] hover:text-[#ffdad4] transition-colors border-b border-white/5" href="../home_heena_tailor/code.html#contact" onclick="toggleMobileMenu()">CONTACT</a>
+        </div>
+        
+        <div class="mt-auto flex flex-col gap-4">
+            <!-- Wishlist for mobile -->
+            <a href="#" class="flex items-center gap-3 py-2 text-[#eeeeee] hover:text-[#ffdad4] transition-colors border-b border-white/5 sm:hidden">
+                <span class="material-symbols-outlined">favorite</span>
+                <span>WISHLIST</span>
+            </a>
+            <!-- Book Appointment button inside drawer -->
+            <a href="../book_a_service/code.html" class="flex items-center justify-center gap-2 bg-[#800000] hover:bg-[#570000] text-white font-button text-button py-4 rounded-lg transition-all uppercase tracking-wider font-bold">
+                <span class="material-symbols-outlined text-lg">calendar_today</span>
+                <span>BOOK APPOINTMENT</span>
+            </a>
+        </div>
+    </div>
+    
+    <!-- Mobile Drawer Overlay -->
+    <div id="mobile-overlay" onclick="toggleMobileMenu()" class="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 lg:hidden"></div>
+</header>
+<main class="pt-24 pb-32 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<!-- Search Bar Section -->
+<section class="mb-10 relative">
+    <div class="search-container bg-surface-container-low rounded-xl flex items-center px-4 py-3 border border-transparent transition-all">
+        <span class="material-symbols-outlined text-outline mr-3">search</span>
+        <input id="search-input" class="bg-transparent border-none focus:ring-0 w-full text-body-md placeholder:text-on-surface-variant/50" placeholder="Search threads, laces, or buttons..." type="text" autocomplete="off" oninput="handleSearchInput(this.value)" onkeydown="handleSearchKeyDown(event)"/>
+    </div>
+    <div id="search-suggestions" class="absolute left-0 right-0 mt-2 bg-white dark:bg-[#111111] border border-secondary-fixed/30 rounded-xl shadow-xl z-50 hidden max-h-60 overflow-y-auto"></div>
+</section>
+
+<!-- Category Icons Section -->
+<section class="mb-12 overflow-x-auto no-scrollbar">
+    <div class="flex gap-gutter min-w-max pb-4" id="categories-container">
+        <!-- ALL -->
+        <div class="flex flex-col items-center gap-3 group cursor-pointer category-tab" onclick="filterByCategory('All', this)">
+            <div class="w-16 h-16 rounded-full bg-[#800000]/10 flex items-center justify-center border border-secondary-fixed/20 transition-all active-cat-circle">
+                <span class="material-symbols-outlined text-primary text-3xl">apps</span>
+            </div>
+            <span class="font-label-caps text-label-caps uppercase tracking-wider text-primary font-bold active-cat-text">All</span>
+        </div>
+        <!-- ASTER -->
+        <div class="flex flex-col items-center gap-3 group cursor-pointer category-tab" onclick="filterByCategory('Aster & Linings', this)">
+            <div class="w-16 h-16 rounded-full bg-primary/5 flex items-center justify-center border border-secondary-fixed/20 group-hover:bg-[#800000]/10 transition-all">
+                <span class="material-symbols-outlined text-primary text-3xl">local_florist</span>
+            </div>
+            <span class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface-variant">Aster</span>
+        </div>
+        <!-- LACES -->
+        <div class="flex flex-col items-center gap-3 group cursor-pointer category-tab" onclick="filterByCategory('Laces & Borders', this)">
+            <div class="w-16 h-16 rounded-full bg-primary/5 flex items-center justify-center border border-secondary-fixed/20 group-hover:bg-[#800000]/10 transition-all">
+                <span class="material-symbols-outlined text-primary text-3xl">texture</span>
+            </div>
+            <span class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface-variant">Laces</span>
+        </div>
+        <!-- THREADS -->
+        <div class="flex flex-col items-center gap-3 group cursor-pointer category-tab" onclick="filterByCategory('Threads & Fasteners', this)">
+            <div class="w-16 h-16 rounded-full bg-primary/5 flex items-center justify-center border border-secondary-fixed/20 group-hover:bg-[#800000]/10 transition-all">
+                <span class="material-symbols-outlined text-primary text-3xl">architecture</span>
+            </div>
+            <span class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface-variant">Threads</span>
+        </div>
+        <!-- BUTTONS -->
+        <div class="flex flex-col items-center gap-3 group cursor-pointer category-tab" onclick="filterByCategory('Buttons', this)">
+            <div class="w-16 h-16 rounded-full bg-primary/5 flex items-center justify-center border border-secondary-fixed/20 group-hover:bg-[#800000]/10 transition-all">
+                <span class="material-symbols-outlined text-primary text-3xl">radio_button_checked</span>
+            </div>
+            <span class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface-variant">Buttons</span>
+        </div>
+        <!-- TOOLS -->
+        <div class="flex flex-col items-center gap-3 group cursor-pointer category-tab" onclick="filterByCategory('Tools', this)">
+            <div class="w-16 h-16 rounded-full bg-primary/5 flex items-center justify-center border border-secondary-fixed/20 group-hover:bg-[#800000]/10 transition-all">
+                <span class="material-symbols-outlined text-primary text-3xl">content_cut</span>
+            </div>
+            <span class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface-variant">Tools</span>
+        </div>
+        <!-- ACCESSORIES -->
+        <div class="flex flex-col items-center gap-3 group cursor-pointer category-tab" onclick="filterByCategory('Accessories', this)">
+            <div class="w-16 h-16 rounded-full bg-primary/5 flex items-center justify-center border border-secondary-fixed/20 group-hover:bg-[#800000]/10 transition-all">
+                <span class="material-symbols-outlined text-primary text-3xl">shopping_bag</span>
+            </div>
+            <span class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface-variant">Accessories</span>
+        </div>
+    </div>
+</section>
+
+<!-- Product Grid Section -->
+<section id="shop-products-grid" class="grid grid-cols-2 md:grid-cols-4 gap-gutter mb-16 min-h-[400px]">
+    <!-- Rendered dynamically -->
+</section>
+<!-- Frequently Bought Together -->
+<section class="mb-24">
+<div class="flex items-center justify-between mb-8">
+<h2 class="font-headline-sm text-headline-sm text-primary">The Artisan's Bundle</h2>
+<span class="font-label-caps text-label-caps text-on-surface-variant/70">FREQUENTLY BOUGHT TOGETHER</span>
+</div>
+<div class="bg-surface-container-lowest rounded-2xl p-6 border border-secondary-fixed/20 shadow-sm">
+<div class="flex flex-col md:flex-row items-center gap-8">
+<div class="flex items-center gap-4 flex-wrap justify-center">
+<div class="w-24 h-24 rounded-lg overflow-hidden border border-secondary-fixed/10">
+<img class="w-full h-full object-cover" data-alt="A small reel of fine silver embroidery thread on a neutral studio background, part of a curated tailoring set." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkXBaV7cP_rnfcjR2MpCi3LfmW_ZEcEOL-nK6PHuCgWJiZaOexa-PDYFqJQRvMoeVJBH6VkLy7ypzOXe6lzssUzpddua2JsZ2wwHiixVrX-EwkwsGZnLTTrIUqKEQe8MJ8nCHODz4jMRWrCRFV_lO4UAJ4_Qe6f6Ldrxi2sOTr3DBgQrCVU4sz-ZxBRPPE-GvMspHHeXmHQuk8bPfkiktLru7446pcCMq905F9doHg3SryC4-ewmpfOqspLvlam2WlkCMEn9SbrL0"/>
+</div>
+<span class="material-symbols-outlined text-outline">add</span>
+<div class="w-24 h-24 rounded-lg overflow-hidden border border-secondary-fixed/10">
+<img class="w-full h-full object-cover" data-alt="A set of hand-selected glass beads in a velvet-lined wooden tray, showcasing various sizes and subtle color gradients from clear to smoke gray." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMbaBwHqn48oavGnE3Oa66QddmD6-LfBKphScWyXvhKh0934qWT3JrdRpQghmO5IEEK5tTt1caKX9sV4SNKTbDob6WSyUUPxFsiu1lEeNu_OJfH7d-0SneykVCmQrX2DmIOejcUF81wNW146sm-u7eucp9l62x61lPIeWnItpGQFPn7OlCqzCML5XdT0Pe3iNueaADHOd_CGwpRyHZLylIQoIealNKdu2v57DV-XfwORq8k_Quh_WgMOcSf_96hmbH56pK33cflvc"/>
+</div>
+<span class="material-symbols-outlined text-outline">add</span>
+<div class="w-24 h-24 rounded-lg overflow-hidden border border-secondary-fixed/10">
+<img class="w-full h-full object-cover" data-alt="High-quality sewing needles in a leather-bound case, arranged neatly to show different sizes. Luxury atelier aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2LyglQIgLdzmBePBc__BkrBnZURj4X0XduYCTn9JPjXPGr8px4vYetWTjIiVQjhdJftwUV4nINTkY1VmL24SL12CHAEU-eXPeMMmyZa5cQkgXQaIYuC8tiUsSTyZWaSIls7qvLcYvliqsCs0gK_mXLpMTIDTGEQYnKa9j_KDRK2Mi1i-HfIG-aTgoGf02f1MZ2XgGH7YC1SWMuutTUADQflK9CHNu6DZ8pl8i1jkhOTvFD8Xzt31KnZxUvnNV0yHMcshQcd6ay4E"/>
+</div>
+</div>
+<div class="flex-1 text-center md:text-left">
+<p class="text-body-md font-bold text-on-surface mb-1">Evening Couture Essentials</p>
+<p class="text-label-caps text-on-surface-variant mb-4">Silver Thread + Glass Beads + Needle Set</p>
+<div class="flex items-center justify-center md:justify-start gap-4">
+<span class="text-headline-sm text-primary font-bold">₹2,850</span>
+<span class="text-body-md text-on-surface-variant line-through opacity-50">₹3,600</span>
+</div>
+</div>
+<button class="w-full md:w-auto bg-primary text-white px-8 py-4 rounded-xl font-button uppercase tracking-widest hover:opacity-90 active:scale-95 transition-all">
+                        Add Bundle to Bag
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Floating Filter Button -->
+<div class="fixed bottom-24 left-1/2 -translate-x-1/2 z-40">
+<div class="flex items-center bg-primary text-white rounded-full px-6 py-3 shadow-xl gap-6">
+<button class="flex items-center gap-2 font-label-caps uppercase active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-lg">sort</span>
+                Sort
+            </button>
+<div class="w-px h-4 bg-white/20"></div>
+<button class="flex items-center gap-2 font-label-caps uppercase active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-lg">filter_list</span>
+                Filter
+            </button>
+</div>
+</div>
+<script>
+    let activeCategory = 'All';
+    let searchQuery = '';
+    
+    // Theme toggle functions
+    function initTheme() {
+        const theme = localStorage.getItem('theme') || 'light';
+        if (theme === 'dark') {
+            document.documentElement.classList.add('dark');
+            const icon = document.getElementById('theme-toggle-icon');
+            if (icon) icon.innerText = 'light_mode';
+        } else {
+            document.documentElement.classList.remove('dark');
+            const icon = document.getElementById('theme-toggle-icon');
+            if (icon) icon.innerText = 'dark_mode';
+        }
+    }
+
+    function toggleTheme() {
+        if (document.documentElement.classList.contains('dark')) {
+            document.documentElement.classList.remove('dark');
+            localStorage.setItem('theme', 'light');
+            const icon = document.getElementById('theme-toggle-icon');
+            if (icon) icon.innerText = 'dark_mode';
+        } else {
+            document.documentElement.classList.add('dark');
+            localStorage.setItem('theme', 'dark');
+            const icon = document.getElementById('theme-toggle-icon');
+            if (icon) icon.innerText = 'light_mode';
+        }
+        if (window.syncHeaderDOM) window.syncHeaderDOM();
+    }
+
+    // Mobile Menu Functions
+    function toggleMobileMenu() {
+        const drawer = document.getElementById('mobile-drawer');
+        const overlay = document.getElementById('mobile-overlay');
+        const isClosed = drawer.classList.contains('translate-x-full');
+        if (isClosed) {
+            drawer.classList.remove('translate-x-full');
+            overlay.classList.remove('opacity-0', 'pointer-events-none');
+            overlay.classList.add('opacity-100');
+        } else {
+            drawer.classList.add('translate-x-full');
+            overlay.classList.add('opacity-0', 'pointer-events-none');
+            overlay.classList.remove('opacity-100');
+        }
+    }
+
+    // Dynamic Active Menu Underlining
+    function highlightActiveNav() {
+        const path = window.location.pathname;
+        const hash = window.location.hash;
+        
+        const ids = ['nav-home', 'nav-services', 'nav-shop', 'nav-gallery', 'nav-reviews', 'nav-about', 'nav-contact'];
+        ids.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) {
+                el.classList.remove('border-b-2', 'border-[#ffdad4]', 'text-[#ffdad4]');
+                el.classList.add('text-[#eeeeee]');
+            }
+        });
+
+        let activeId = 'nav-shop'; // default for shop page
+        const activeEl = document.getElementById(activeId);
+        if (activeEl) {
+            activeEl.classList.add('border-b-2', 'border-[#ffdad4]', 'text-[#ffdad4]');
+            activeEl.classList.remove('text-[#eeeeee]');
+        }
+    }
+
+    // --- LEVENSHTEIN DISTANCE ALGORITHM ---
+    function getEditDistance(a, b) {
+        if (a.length === 0) return b.length;
+        if (a.length === 0) return a.length;
+        const matrix = [];
+        for (let i = 0; i <= b.length; i++) {
+            matrix[i] = [i];
+        }
+        for (let j = 0; j <= a.length; j++) {
+            matrix[0][j] = j;
+        }
+        for (let i = 1; i <= b.length; i++) {
+            for (let j = 1; j <= a.length; j++) {
+                if (b.charAt(i - 1) === a.charAt(j - 1)) {
+                    matrix[i][j] = matrix[i - 1][j - 1];
+                } else {
+                    matrix[i][j] = Math.min(
+                        matrix[i - 1][j - 1] + 1, // substitution
+                        Math.min(
+                            matrix[i][j - 1] + 1, // insertion
+                            matrix[i - 1][j] + 1  // deletion
+                        )
+                    );
+                }
+            }
+        }
+        return matrix[b.length][a.length];
+    }
+
+    // --- FUZZY SEARCH LOGIC ---
+    function searchCatalog(query) {
+        const products = window.HEENA_PRODUCTS || [];
+        if (!query || query.trim() === '') return products;
+        
+        const terms = query.toLowerCase().trim().split(/\s+/);
+        
+        // Synonym mapping
+        const synonymsMap = {
+            'dhaga': ['threads', 'thread', 'embroidery'],
+            'buton': ['buttons', 'button'],
+            'bttn': ['buttons', 'button'],
+            'aster': ['aster', 'lining', 'fabrics'],
+            'fall': ['fall', 'borders'],
+            'pico': ['pico', 'roll', 'accessories'],
+            'lace': ['laces', 'lace', 'borders'],
+            'thread': ['threads', 'thread'],
+            'zip': ['zippers', 'zipper', 'chain'],
+            'cutter': ['scissors', 'cutting']
+        };
+        
+        // Expand terms with synonyms
+        let expandedTerms = [...terms];
+        terms.forEach(t => {
+            if (synonymsMap[t]) {
+                expandedTerms = expandedTerms.concat(synonymsMap[t]);
+            }
+        });
+        
+        const scoredProducts = products.map(p => {
+            let score = 0;
+            const titleWords = p.name.toLowerCase().split(/\s+/);
+            const categoryWords = p.category.toLowerCase().split(/\s+/);
+            const descriptionWords = p.description.toLowerCase().split(/\s+/);
+            const productKeywords = [...titleWords, ...categoryWords, ...p.synonyms];
+            
+            expandedTerms.forEach(term => {
+                // 1. Exact match in title/keywords
+                if (productKeywords.includes(term)) {
+                    score += 15;
+                }
+                // 2. Substring match
+                productKeywords.forEach(kw => {
+                    if (kw.includes(term)) {
+                        score += 5;
+                    }
+                });
+                // 3. Fuzzy match (Lev distance)
+                productKeywords.forEach(kw => {
+                    const distance = getEditDistance(term, kw);
+                    const allowedTypos = term.length < 6 ? 1 : 2;
+                    if (distance <= allowedTypos) {
+                        score += (10 - distance * 3);
+                    }
+                });
+                // 4. Description search
+                if (descriptionWords.includes(term)) {
+                    score += 2;
+                }
+            });
+            
+            return { product: p, score };
+        });
+        
+        // Filter out items with score <= 0
+        let results = scoredProducts.filter(sp => sp.score > 0).sort((a, b) => b.score - a.score).map(sp => sp.product);
+        
+        // Fallback check
+        if (results.length === 0) {
+            window.searchIsFallback = true;
+            // Return top 4 recommended items based on scores
+            results = scoredProducts.sort((a, b) => b.score - a.score).slice(0, 4).map(sp => sp.product);
+        } else {
+            window.searchIsFallback = false;
+        }
+        
+        return results;
+    }
+
+    // --- PRODUCT RENDERING ---
+    function renderProducts() {
+        const grid = document.getElementById("shop-products-grid");
+        if (!grid) return;
+        
+        let productsList = window.HEENA_PRODUCTS || [];
+        
+        // Apply search query
+        if (searchQuery.trim() !== '') {
+            productsList = searchCatalog(searchQuery);
+        }
+        
+        // Apply category filter (if not 'All' and not displaying search fallback)
+        if (activeCategory !== 'All' && !window.searchIsFallback) {
+            productsList = productsList.filter(p => p.category === activeCategory);
+        }
+        
+        // Check if fallback is active
+        let fallbackHeaderHtml = '';
+        if (searchQuery.trim() !== '' && window.searchIsFallback) {
+            fallbackHeaderHtml = `
+                <div class="col-span-full bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-900/30 p-5 rounded-xl mb-6 text-center text-on-surface-variant text-sm">
+                    <span class="material-symbols-outlined text-amber-600 text-3xl block mb-2">sentiment_dissatisfied</span>
+                    No direct matches found for "<span class="font-bold text-[#800000]">${searchQuery}</span>". 
+                    Here are some tailoring products you may like:
+                </div>
+            `;
+        }
+        
+        if (productsList.length === 0) {
+            grid.innerHTML = `
+                <div class="col-span-full text-center py-20 bg-surface border border-dashed border-[#F2D2BD]/60 rounded-xl">
+                    <span class="material-symbols-outlined text-4xl text-outline mb-3">category</span>
+                    <p class="text-on-surface-variant">No products found in this category.</p>
+                </div>
+            `;
+            return;
+        }
+        
+        const currentUser = window.getCurrentUser();
+        
+        grid.innerHTML = fallbackHeaderHtml + productsList.map(p => {
+            const isFav = currentUser ? currentUser.favorites.includes(p.id) : false;
+            const favIconClass = isFav ? 'fill-current text-[#ba1a1a]' : 'text-outline hover:text-[#ba1a1a]';
+            
+            return `
+                <div class="boutique-card group bg-white rounded-xl border border-secondary-fixed/20 overflow-hidden shadow-sm flex flex-col justify-between hover:shadow-lg transition-all duration-300">
+                    <div class="relative aspect-[3/4] overflow-hidden bg-slate-50">
+                        <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="${p.image}" alt="${p.name}">
+                        
+                        <!-- Wishlist button -->
+                        <button onclick="toggleWishlistItem(${p.id}, this)" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center shadow-md hover:bg-white active:scale-90 transition-all z-20">
+                            <span class="material-symbols-outlined text-lg ${favIconClass}">favorite</span>
+                        </button>
+                        
+                        <!-- Cart Action -->
+                        <button onclick="addToBag(${p.id}, this)" class="absolute bottom-4 right-4 bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg active:scale-90 transition-all z-20 hover:bg-[#800000]">
+                            <span class="material-symbols-outlined text-xl">add_shopping_cart</span>
+                        </button>
+                    </div>
+                    <div class="p-4 flex-grow flex flex-col justify-between">
+                        <div>
+                            <span class="text-[10px] font-semibold text-secondary uppercase tracking-widest block mb-1">${p.category}</span>
+                            <h3 class="font-label-caps text-xs text-on-surface uppercase font-bold leading-tight line-clamp-2" title="${p.name}">${p.name}</h3>
+                        </div>
+                        <div class="flex items-center gap-2 mt-3">
+                            <span class="text-primary font-bold text-sm">₹${p.price}</span>
+                            <span class="text-on-surface-variant/50 line-through text-[11px]">₹${p.originalPrice}</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }).join('');
+    }
+
+    // --- SEARCH HELPERS ---
+    function handleSearchInput(val) {
+        searchQuery = val;
+        renderProducts();
+        showSuggestions(val);
+    }
+
+    function showSuggestions(val) {
+        const suggBox = document.getElementById("search-suggestions");
+        if (!suggBox) return;
+        
+        if (val.trim() === '') {
+            suggBox.classList.add("hidden");
+            return;
+        }
+        
+        // Find matches for suggestion popup (autocomplete & suggestions)
+        const productsList = window.HEENA_PRODUCTS || [];
+        const normVal = val.toLowerCase().trim();
+        
+        // exact matches first, then fuzzy matches
+        let matches = productsList.filter(p => 
+            p.name.toLowerCase().includes(normVal) || 
+            p.category.toLowerCase().includes(normVal) ||
+            p.synonyms.some(s => s.toLowerCase().includes(normVal))
+        );
+        
+        if (matches.length === 0) {
+            // Suggest category names or synonyms
+            matches = productsList.slice(0, 3); // fallback suggestions
+        }
+        
+        // limit to 5 suggestions
+        matches = matches.slice(0, 5);
+        
+        suggBox.innerHTML = matches.map(p => `
+            <div class="px-4 py-3 hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer text-sm flex justify-between items-center border-b border-slate-100 last:border-none"
+                 onclick="selectSuggestion('${p.name.replace(/'/g, "\\'")}')">
+                <div class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-outline text-lg">search</span>
+                    <span class="font-semibold text-on-surface">${p.name}</span>
+                </div>
+                <span class="text-xs text-secondary font-bold font-label-caps uppercase">${p.category}</span>
+            </div>
+        `).join('');
+        
+        suggBox.classList.remove("hidden");
+    }
+
+    function selectSuggestion(name) {
+        const input = document.getElementById("search-input");
+        if (input) {
+            input.value = name;
+            searchQuery = name;
+            renderProducts();
+        }
+        document.getElementById("search-suggestions").classList.add("hidden");
+    }
+
+    function handleSearchKeyDown(e) {
+        if (e.key === 'Enter') {
+            document.getElementById("search-suggestions").classList.add("hidden");
+        }
+    }
+
+    // Hide suggestions popup on outer click
+    document.addEventListener("click", (e) => {
+        const sBox = document.getElementById("search-suggestions");
+        const sInput = document.getElementById("search-input");
+        if (sBox && !sBox.contains(e.target) && e.target !== sInput) {
+            sBox.classList.add("hidden");
+        }
+    });
+
+    // --- CATEGORY FILTERING ---
+    function filterByCategory(categoryName, element) {
+        activeCategory = categoryName;
+        
+        // Remove active class styling from all tabs
+        const tabs = document.querySelectorAll(".category-tab");
+        tabs.forEach(tab => {
+            const circle = tab.querySelector(".rounded-full");
+            const text = tab.querySelector("span");
+            
+            circle.className = "w-16 h-16 rounded-full bg-primary/5 flex items-center justify-center border border-secondary-fixed/20 group-hover:bg-[#800000]/10 transition-all";
+            text.className = "font-label-caps text-label-caps uppercase tracking-wider text-on-surface-variant";
+        });
+        
+        // Add active class styling to clicked tab
+        const activeCircle = element.querySelector(".rounded-full");
+        const activeText = element.querySelector("span");
+        
+        activeCircle.className = "w-16 h-16 rounded-full bg-[#800000]/10 flex items-center justify-center border border-secondary-fixed/20 transition-all active-cat-circle";
+        activeText.className = "font-label-caps text-label-caps uppercase tracking-wider text-primary font-bold active-cat-text";
+        
+        renderProducts();
+    }
+
+    // --- INTERACTION CONTROLLERS ---
+    function toggleWishlistItem(productId, btnElement) {
+        const success = window.toggleWishlist(productId);
+        if (success === true) {
+            // Added
+            const span = btnElement.querySelector("span");
+            span.className = "material-symbols-outlined text-lg fill-current text-[#ba1a1a]";
+        } else if (success === false) {
+            // Removed
+            const span = btnElement.querySelector("span");
+            span.className = "material-symbols-outlined text-lg text-outline hover:text-[#ba1a1a]";
+        }
+    }
+
+    function addToBag(productId, btnElement) {
+        window.addToCart(productId, 1);
+        
+        // Micro-interaction success feedback
+        const span = btnElement.querySelector("span");
+        btnElement.classList.replace('bg-primary', 'bg-[#D4AF37]');
+        span.innerText = "check";
+        
+        setTimeout(() => {
+            btnElement.classList.replace('bg-[#D4AF37]', 'bg-primary');
+            span.innerText = "add_shopping_cart";
+        }, 1500);
+    }
+
+    // Initialize Page
+    window.addEventListener("DOMContentLoaded", () => {
+        initTheme();
+        highlightActiveNav();
+        renderProducts();
+    });
+</script>
+</body></html>

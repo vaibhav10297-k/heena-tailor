@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HEENA TAILOR | Luxury Bespoke Tailoring</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="../shared.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&amp;family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed": "#ffdad4",
+                    "tertiary-container": "#4d3829",
+                    "on-surface": "#1b1b1b",
+                    "secondary-fixed-dim": "#e9c349",
+                    "primary": "#570000",
+                    "primary-container": "#800000",
+                    "inverse-surface": "#303030",
+                    "surface-container-low": "#f3f3f3",
+                    "on-tertiary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed-dim": "#dfc1ac",
+                    "secondary-fixed": "#ffe088",
+                    "surface-container-lowest": "#ffffff",
+                    "background": "#f9f9f9",
+                    "on-primary-fixed-variant": "#8f0f07",
+                    "on-secondary-fixed": "#241a00",
+                    "tertiary": "#352315",
+                    "on-primary-fixed": "#410000",
+                    "surface": "#f9f9f9",
+                    "inverse-on-surface": "#f1f1f1",
+                    "surface-tint": "#b22b1d",
+                    "on-secondary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "on-surface-variant": "#5a413d",
+                    "error": "#ba1a1a",
+                    "on-primary-container": "#ff8371",
+                    "inverse-primary": "#ffb4a8",
+                    "surface-dim": "#dadada",
+                    "secondary-container": "#fed65b",
+                    "on-error-container": "#93000a",
+                    "primary-fixed-dim": "#ffb4a8",
+                    "surface-variant": "#e2e2e2",
+                    "surface-container-highest": "#e2e2e2",
+                    "secondary": "#735c00",
+                    "surface-container-high": "#e8e8e8",
+                    "surface-container": "#eeeeee",
+                    "on-tertiary-fixed-variant": "#584233",
+                    "outline": "#8e706c",
+                    "on-background": "#1b1b1b",
+                    "on-tertiary-fixed": "#28180b",
+                    "tertiary-fixed": "#fddcc7",
+                    "surface-bright": "#f9f9f9",
+                    "on-tertiary-container": "#bea18e",
+                    "on-secondary-container": "#745c00",
+                    "on-secondary-fixed-variant": "#574500",
+                    "outline-variant": "#e2bfb9",
+                    "on-primary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "64px",
+                    "container-max": "1280px",
+                    "margin-mobile": "16px",
+                    "gutter": "24px",
+                    "unit": "8px"
+            },
+            "fontFamily": {
+                    "label-caps": ["Montserrat"],
+                    "headline-md": ["Playfair Display"],
+                    "body-lg": ["Montserrat"],
+                    "headline-sm": ["Playfair Display"],
+                    "display-lg-mobile": ["Playfair Display"],
+                    "body-md": ["Montserrat"],
+                    "display-lg": ["Playfair Display"],
+                    "button": ["Montserrat"]
+            },
+            "fontSize": {
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "button": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid #F2D2BD;
+        }
+        .boutique-note {
+            background-image: radial-gradient(#F2D2BD 0.5px, transparent 0.5px);
+            background-size: 10px 10px;
+            opacity: 0.8;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface selection:bg-primary-fixed selection:text-primary overflow-x-hidden">
+<!-- TopAppBar -->
+<header id="main-header" class="fixed top-0 w-full z-50 bg-transparent text-white border-b border-transparent transition-all duration-300 h-20">
+    <nav class="flex justify-between items-center px-6 md:px-16 h-full w-full max-w-[1280px] mx-auto relative">
+        <!-- Logo -->
+        <a class="font-headline-sm text-headline-sm tracking-[0.2em] text-[#ffdad4] uppercase font-bold" href="../home_heena_tailor/code.html">HEENA TAILOR</a>
+        
+        <!-- Desktop Menu Links -->
+        <div class="hidden lg:flex items-center gap-8">
+            <a id="nav-home" class="font-label-caps text-label-caps text-[#eeeeee] hover:text-[#ffdad4] transition-colors py-2 uppercase" href="../home_heena_tailor/code.html">HOME</a>
+            <a id="nav-services" class="font-label-caps text-label-caps text-[#eeeeee] hover:text-[#ffdad4] transition-colors py-2 uppercase" href="../book_a_service/code.html">SERVICES</a>
+            <a id="nav-shop" class="font-label-caps text-label-caps text-[#eeeeee] hover:text-[#ffdad4] transition-colors py-2 uppercase" href="../materials_store/code.html">SHOP</a>
+            <a id="nav-gallery" class="font-label-caps text-label-caps text-[#eeeeee] hover:text-[#ffdad4] transition-colors py-2 uppercase" href="../designer_gallery/code.html">GALLERY</a>
+            <a id="nav-reviews" class="font-label-caps text-label-caps text-[#eeeeee] hover:text-[#ffdad4] transition-colors py-2 uppercase" href="../home_heena_tailor/code.html#reviews">REVIEWS</a>
+            <a id="nav-about" class="font-label-caps text-label-caps text-[#eeeeee] hover:text-[#ffdad4] transition-colors py-2 uppercase" href="../home_heena_tailor/code.html#about">ABOUT</a>
+            <a id="nav-contact" class="font-label-caps text-label-caps text-[#eeeeee] hover:text-[#ffdad4] transition-colors py-2 uppercase" href="../home_heena_tailor/code.html#contact">CONTACT</a>
+        </div>
+        
+        <!-- Right side actions -->
+        <div class="flex items-center gap-4">
+            <!-- Theme Toggle -->
+            <button id="theme-toggle-btn" onclick="toggleTheme()" class="text-[#eeeeee] hover:text-[#ffdad4] active:scale-95 transition-all p-2 rounded-full">
+                <span class="material-symbols-outlined text-2xl" id="theme-toggle-icon">dark_mode</span>
+            </button>
+            
+            <!-- Wishlist -->
+            <button class="text-[#eeeeee] hover:text-[#ffdad4] active:scale-95 transition-all p-2 rounded-full hidden sm:block">
+                <span class="material-symbols-outlined text-2xl">favorite</span>
+            </button>
+            
+            <!-- Shopping Bag -->
+            <button class="text-[#eeeeee] hover:text-[#ffdad4] active:scale-95 transition-all p-2 rounded-full relative">
+                <span class="material-symbols-outlined text-2xl">shopping_bag</span>
+                <span class="absolute top-1 right-1 bg-[#ffdad4] text-[#111111] text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">2</span>
+            </button>
+            
+            <!-- Book Appointment CTA -->
+            <a href="../book_a_service/code.html" class="hidden md:flex items-center gap-2 bg-[#800000] hover:bg-[#570000] text-white font-button text-button px-5 py-3 rounded-lg transition-all uppercase tracking-wider font-semibold active:scale-95">
+                <span class="material-symbols-outlined text-lg">calendar_today</span>
+                <span>BOOK APPOINTMENT</span>
+            </a>
+            
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-toggle" onclick="toggleMobileMenu()" class="lg:hidden text-[#eeeeee] hover:text-[#ffdad4] active:scale-95 transition-all p-2 rounded-full">
+                <span class="material-symbols-outlined text-2xl" id="menu-btn-icon">menu</span>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- Mobile Side Drawer -->
+    <div id="mobile-drawer" class="fixed inset-y-0 right-0 z-50 w-64 bg-[#111111] text-white shadow-2xl border-l border-white/10 transform translate-x-full transition-transform duration-300 ease-in-out lg:hidden flex flex-col p-6 gap-6">
+        <div class="flex justify-between items-center border-b border-white/10 pb-4">
+            <span class="font-headline-sm text-[18px] tracking-[0.1em] text-[#ffdad4] uppercase font-bold">MENU</span>
+            <button onclick="toggleMobileMenu()" class="text-[#eeeeee] hover:text-[#ffdad4]">
+                <span class="material-symbols-outlined text-2xl">close</span>
+            </button>
+        </div>
+        
+        <div class="flex flex-col gap-4 font-label-caps text-label-caps text-lg">
+            <a class="py-2 text-[#eeeeee] hover:text-[#ffdad4] transition-colors border-b border-white/5" href="../home_heena_tailor/code.html" onclick="toggleMobileMenu()">HOME</a>
+            <a class="py-2 text-[#eeeeee] hover:text-[#ffdad4] transition-colors border-b border-white/5" href="../book_a_service/code.html" onclick="toggleMobileMenu()">SERVICES</a>
+            <a class="py-2 text-[#eeeeee] hover:text-[#ffdad4] transition-colors border-b border-white/5" href="../materials_store/code.html" onclick="toggleMobileMenu()">SHOP</a>
+            <a class="py-2 text-[#eeeeee] hover:text-[#ffdad4] transition-colors border-b border-white/5" href="../designer_gallery/code.html" onclick="toggleMobileMenu()">GALLERY</a>
+            <a class="py-2 text-[#eeeeee] hover:text-[#ffdad4] transition-colors border-b border-white/5" href="../home_heena_tailor/code.html#reviews" onclick="toggleMobileMenu()">REVIEWS</a>
+            <a class="py-2 text-[#eeeeee] hover:text-[#ffdad4] transition-colors border-b border-white/5" href="../home_heena_tailor/code.html#about" onclick="toggleMobileMenu()">ABOUT</a>
+            <a class="py-2 text-[#eeeeee] hover:text-[#ffdad4] transition-colors border-b border-white/5" href="../home_heena_tailor/code.html#contact" onclick="toggleMobileMenu()">CONTACT</a>
+        </div>
+        
+        <div class="mt-auto flex flex-col gap-4">
+            <!-- Wishlist for mobile -->
+            <a href="#" class="flex items-center gap-3 py-2 text-[#eeeeee] hover:text-[#ffdad4] transition-colors border-b border-white/5 sm:hidden">
+                <span class="material-symbols-outlined">favorite</span>
+                <span>WISHLIST</span>
+            </a>
+            <!-- Book Appointment button inside drawer -->
+            <a href="../book_a_service/code.html" class="flex items-center justify-center gap-2 bg-[#800000] hover:bg-[#570000] text-white font-button text-button py-4 rounded-lg transition-all uppercase tracking-wider font-bold">
+                <span class="material-symbols-outlined text-lg">calendar_today</span>
+                <span>BOOK APPOINTMENT</span>
+            </a>
+        </div>
+    </div>
+    
+    <!-- Mobile Drawer Overlay -->
+    <div id="mobile-overlay" onclick="toggleMobileMenu()" class="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 lg:hidden"></div>
+</header>
+<main class="pt-0 pb-20 md:pb-0">
+<!-- Hero Section -->
+<section class="relative min-h-[751px] flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" data-alt="Close-up artistic photography of luxurious deep maroon silk fabric draped elegantly over an antique wooden tailoring table. Professional silver tailoring scissors rest beside a swirl of gold thread. The lighting is soft and moody, coming from a side window, highlighting the rich texture and sheen of the silk. High-fashion luxury boutique aesthetic with shallow depth of field." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWyUbz-8XiQqHWrH1YXvAFpCLQFJQxGtGarIjhWP2mzafXZn8axrWkjsvIOvchuAsnyuqI3ebK7zohsmc2T56al7dMyC2_5DqZ8rJwG3nk783L17C2Ob1AArf74NfUuM-vuzgLzGWrf6QIa__WzfkAiWpeIIpC7y9l_emGWzqajB_DQQl_nDohstu2-TEq7j_Ky8jp7N6I8Su59ou3jdKA334F33kFmArozw4LVN8or6Oi7bVDcvAokXzm_CgwLbWr8g-Sm0qc9eQ"/>
+<div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/35 to-black/60"></div>
+</div>
+<div class="relative z-10 px-margin-mobile md:px-margin-desktop w-full max-w-container-max mx-auto text-center flex flex-col items-center justify-center pt-20">
+    <div class="inline-flex items-center border border-white/30 bg-white/10 backdrop-blur-md px-6 py-2.5 rounded-full mb-8 font-label-caps text-[11px] md:text-[13px] uppercase text-white tracking-[0.25em]">
+        EST. 1984 &nbsp;|&nbsp; LUXURY TAILORING ATELIER
+    </div>
+    <h1 class="font-display-lg-mobile md:font-display-lg text-[38px] md:text-[64px] leading-[1.1] md:leading-[1.1] text-white mb-6 tracking-wide max-w-4xl font-bold font-headline-md">
+        Elegant Tailoring.<br>
+        <span class="italic font-normal text-[#ffdad4]">Premium Stitching.</span><br>
+        Quality Materials.
+    </h1>
+    <p class="font-body-lg text-[16px] md:text-[20px] text-white/80 mb-10 max-w-2xl leading-relaxed">
+        Custom stitching for women with premium tailoring accessories under one roof.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-6 justify-center w-full max-w-md px-4">
+        <button onclick="location.href='https://wa.me/919930503752'" class="bg-primary hover:bg-[#570000] text-white font-button text-button px-8 py-4 uppercase tracking-wider transition-all active:scale-95 rounded-lg shadow-lg w-full sm:w-auto">
+            Book on WhatsApp
+        </button>
+        <button onclick="location.href='../materials_store/code.html'" class="border border-white/60 text-white hover:bg-white/10 font-button text-button px-8 py-4 uppercase tracking-wider transition-all active:scale-95 rounded-lg w-full sm:w-auto">
+            Explore Products
+        </button>
+    </div>
+</div>
+</section>
+<!-- Social Proof Ticker Banner -->
+<style>
+    @keyframes ticker-scroll-right {
+        0% {
+            transform: translate3d(-50%, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+    .ticker-wrap {
+        overflow: hidden;
+        white-space: nowrap;
+        display: flex;
+        align-items: center;
+        width: 100%;
+    }
+    .ticker-content {
+        display: inline-flex;
+        animation: ticker-scroll-right 30s linear infinite;
+        gap: 6rem;
+        padding-right: 6rem;
+    }
+</style>
+<div class="bg-surface-container-low py-8 overflow-hidden relative">
+    <div class="ticker-wrap flex">
+        <div class="ticker-content flex shrink-0 items-center justify-around gap-16 min-w-full opacity-60 grayscale">
+            <span class="font-label-caps text-label-caps text-on-surface-variant italic">Trusted by 5000+ ladies</span>
+            <span class="font-headline-sm text-headline-sm text-on-surface-variant tracking-tighter">VOGUE INDIA</span>
+            <span class="font-headline-sm text-headline-sm text-on-surface-variant tracking-tighter">GRAZIA</span>
+            <span class="font-headline-sm text-headline-sm text-on-surface-variant tracking-tighter">ELLE</span>
+            <span class="font-label-caps text-label-caps text-on-surface-variant">As seen in Femina</span>
+        </div>
+        <!-- Duplicate for infinite seamless scroll -->
+        <div class="ticker-content flex shrink-0 items-center justify-around gap-16 min-w-full opacity-60 grayscale" aria-hidden="true">
+            <span class="font-label-caps text-label-caps text-on-surface-variant italic">Trusted by 5000+ ladies</span>
+            <span class="font-headline-sm text-headline-sm text-on-surface-variant tracking-tighter">VOGUE INDIA</span>
+            <span class="font-headline-sm text-headline-sm text-on-surface-variant tracking-tighter">GRAZIA</span>
+            <span class="font-headline-sm text-headline-sm text-on-surface-variant tracking-tighter">ELLE</span>
+            <span class="font-label-caps text-label-caps text-on-surface-variant">As seen in Femina</span>
+        </div>
+    </div>
+</div>
+<!-- About Section -->
+<section id="about" class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+<div class="md:col-span-5 relative">
+<div class="aspect-[4/5] rounded-xl overflow-hidden shadow-2xl">
+<img class="w-full h-full object-cover" data-alt="A sophisticated portrait of an elderly master tailor with 40 years of experience, working in a sun-drenched atelier. She is measuring a vibrant silk garment on a mannequin. The room is filled with rolls of fabric, vintage sewing machines, and sketches. Soft, warm lighting emphasizes the heritage and expertise of the boutique. Elegant minimalist composition." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAaYABh8JG-gkDIIJohCcNFc5evwppnIbmJ1MAgbMnOkRbKCnFNFvnOSM9g0DKsZRVWpvli1Q03vkM7dOyEQvsj4aohNOhw6rPODDgbzZC7HUFav9v6hFFMA65wYQfuIzWdv4-CCDLBRBWeJXQqSjMZGsyHUxMynnmbdMUhubusRUWzELEKOIBUaD7XX7EgKW_DNlo5ocw-Ff2WmucJF8wgZF-Hz9eHbMs3Wk0uPFoNMTBkr-R6DlMU44vvOoNJTKZ_4nPyHZjkV8"/>
+</div>
+<div class="absolute -bottom-6 -right-6 w-32 h-32 bg-secondary-fixed-dim rounded-full flex items-center justify-center border-4 border-white shadow-xl animate-pulse">
+<div class="text-center text-primary">
+<span class="font-headline-sm text-headline-sm block">40</span>
+<span class="font-label-caps text-[10px] uppercase">Years</span>
+</div>
+</div>
+</div>
+<div class="md:col-span-7 md:pl-16 space-y-8">
+<div class="boutique-note border border-secondary-fixed/30 p-8 rounded-lg relative">
+<span class="font-label-caps text-label-caps text-secondary uppercase block mb-4">Our Heritage</span>
+<h2 class="font-headline-md text-headline-md text-primary mb-6">Crafting Elegance Since 1984</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                            For four decades, Heena Tailor has been the heartbeat of bespoke fashion. We believe that a garment is more than just fabric—it's an extension of your identity. Our master artisans blend traditional techniques with modern silhouettes to create masterpieces that stand the test of time.
+                        </p>
+<div class="pt-6 flex gap-8">
+<div>
+<span class="font-headline-sm text-headline-sm text-primary block">150k+</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Stitches Daily</span>
+</div>
+<div>
+<span class="font-headline-sm text-headline-sm text-primary block">12k+</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Bridal Bliss</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Preview -->
+<section class="py-24 bg-surface-container-lowest">
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="flex justify-between items-end mb-12">
+<div>
+<span class="font-label-caps text-label-caps text-secondary uppercase block mb-2">Our Specialties</span>
+<h2 class="font-headline-md text-headline-md text-primary">Masterfully Crafted Services</h2>
+</div>
+<a class="font-label-caps text-label-caps text-primary border-b border-primary hover:opacity-70 transition-opacity pb-1 hidden md:block" href="#">View All Services</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Service Card 1 -->
+<div class="group relative bg-surface border border-secondary-fixed/20 rounded-xl overflow-hidden transition-transform duration-500 hover:-translate-y-2 cursor-pointer" onclick="location.href='../book_a_service/code.html'">
+<div class="aspect-[3/4] overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Exquisite close-up of a bridal blouse with intricate hand-embroidered zardosi work and gold bead details. The blouse is a rich emerald green velvet, displayed against a soft ivory backdrop. Professional high-end catalog photography, soft lighting highlighting the texture of the embroidery and the shimmer of the beads." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBy0b7hl-DidY-24-Qt3DiRzKYq7V3jzwjpmHxDWooY7tm4oZdHZy-jCXEtkaWuV7YkuJ4WnwHCCvuGvSuLd-2TC8TsPh7cOedd9RQ4o9BbbfR3D5KliCqDXSvHSUeU8UD_lj2fiPxqGwhWRjOXJ5p16ODkb9LVvO-QVi_bnS1UXpSCBqolbnn6k6-B1LvHDpY0TE0K6eD3PestFMjQNaRdtHqa_glxxYiB2EZlKCCFVH64-SLMQKRTUQjGPXo8hlcjVKe22pEnbA"/>
+</div>
+<div class="p-6 glass-card absolute bottom-4 left-4 right-4 rounded-xl shadow-lg">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-2">Bridal Blouse</h3>
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface-variant">Starting from ₹2,500</span>
+<button class="w-10 h-10 rounded-full border border-primary flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Service Card 2 -->
+<div class="group relative bg-surface border border-secondary-fixed/20 rounded-xl overflow-hidden transition-transform duration-500 hover:-translate-y-2 cursor-pointer" onclick="location.href='../book_a_service/code.html'">
+<div class="aspect-[3/4] overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A modern designer kurti with contemporary asymmetric cuts and minimalist aesthetic. The fabric is a light pastel pink linen with delicate floral thread work along the neckline. The setting is a minimalist boutique with clean lines and soft ambient lighting. High-fashion editorial style photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAK3P4vrnmC6wBKMArlQU6OXuTKjvRfL0mV3lYdLYhpxGfoY7lZqk78ZClENL0rgCeDsYjPK91CHGay04M8sK27QQQz78PUeMn4Uf6MIQGd8vNBelvQejbB6HX_OotFSYuDWLaZYs7GbUZCr5kVVFPzxH4iqoT76U-UWr1gxq8uQa9UEBA5_AYofMfM-6efPcfgfObnf8DJpWDJuWcmrCNKlNFthqaF7fqJPStc1uoYILFWVUZUEgFgL8Mq5KNTELx1N0uDvZwDzQo"/>
+</div>
+<div class="p-6 glass-card absolute bottom-4 left-4 right-4 rounded-xl shadow-lg">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-2">Designer Kurti</h3>
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface-variant">Starting from ₹800</span>
+<button class="w-10 h-10 rounded-full border border-primary flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Service Card 3 -->
+<div class="group relative bg-surface border border-secondary-fixed/20 rounded-xl overflow-hidden transition-transform duration-500 hover:-translate-y-2 cursor-pointer" onclick="location.href='../book_a_service/code.html'">
+<div class="aspect-[3/4] overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A majestic floor-length evening gown being stitched in a modern atelier. The gown is made of layers of soft champagne tulle and satin, catching the light elegantly. Tailor's hands are seen adjusting a seam with precision. Elegant and luxurious atmosphere with high-key lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAymzWOVd8iGbt6rGJZHlHDA-kgYP9O_JLkRZGQMWxD8rxhsWxKQdWQFLENDW4EwX3BKNJHYcn3Jb_wpt4CU7xh1yZZOfrzZT_cWgx2bCyMGDvlFFV36UVMqwPBNlr1RMPEYx1450RfThNCleqJR0vrxkQbwGvAe4ByMMwOIE9V8XmKEd6Z_mvRSTnqvjmXRuB81P8FBSnX6awjb4LjXcb9GfZh4vLzEBOMQTL_ZapTAfhgLQMa2XJBMkwsF6zx1k6issEpVIsYNYE"/>
+</div>
+<div class="p-6 glass-card absolute bottom-4 left-4 right-4 rounded-xl shadow-lg">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-2">Gown Stitching</h3>
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface-variant">Starting from ₹4,500</span>
+<button class="w-10 h-10 rounded-full border border-primary flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Service Card 4 (Repairing & Alterations) -->
+<div class="group relative bg-surface border border-secondary-fixed/20 rounded-xl overflow-hidden transition-transform duration-500 hover:-translate-y-2 cursor-pointer" onclick="location.href='../book_a_service/code.html'">
+<div class="aspect-[3/4] overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Premium close-up photography of sewing alterations on an elegant dress. Tailor's shears and threads visible on an antique table." src="../home_heena_tailor/repairing_alterations.png"/>
+</div>
+<div class="p-6 glass-card absolute bottom-4 left-4 right-4 rounded-xl shadow-lg">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-2">Alteration & Repair</h3>
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface-variant">Starting from ₹250</span>
+<button class="w-10 h-10 rounded-full border border-primary flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Reviews Section -->
+<section id="reviews" class="py-24 bg-surface-container-lowest">
+    <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            <span class="font-label-caps text-label-caps text-secondary uppercase block mb-2 tracking-[0.2em]">TESTIMONIALS</span>
+            <h2 class="font-headline-md text-headline-md text-primary">Atelier Diaries: Client Tales</h2>
+            <div class="w-16 h-1 bg-secondary-fixed mx-auto mt-4"></div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Review 1 -->
+            <div class="bg-surface p-8 rounded-xl border border-secondary-fixed/20 shadow-[0_4px_30px_rgba(0,0,0,0.02)] hover:shadow-xl transition-all duration-300">
+                <div class="flex items-center gap-1 text-secondary mb-4">
+                    <span class="material-symbols-outlined fill-current text-[#D4AF37]">star</span>
+                    <span class="material-symbols-outlined fill-current text-[#D4AF37]">star</span>
+                    <span class="material-symbols-outlined fill-current text-[#D4AF37]">star</span>
+                    <span class="material-symbols-outlined fill-current text-[#D4AF37]">star</span>
+                    <span class="material-symbols-outlined fill-current text-[#D4AF37]">star</span>
+                </div>
+                <p class="font-body-md text-body-md text-on-surface-variant italic mb-6 leading-relaxed">
+                    "I had my bridal lehenga and blouses stitched here. The custom fitting was absolutely perfect on the first trial! The hand embroidery detail was stunning. Highly recommend for any bride."
+                </p>
+                <div class="flex justify-between items-center">
+                    <div>
+                        <h4 class="font-label-caps text-sm text-primary font-bold">Priya Sharma</h4>
+                        <span class="text-[12px] text-on-surface-variant/60">Bridal Couture Client</span>
+                    </div>
+                    <span class="material-symbols-outlined text-secondary-fixed-dim text-3xl">format_quote</span>
+                </div>
+            </div>
+            
+            <!-- Review 2 -->
+            <div class="bg-surface p-8 rounded-xl border border-secondary-fixed/20 shadow-[0_4px_30px_rgba(0,0,0,0.02)] hover:shadow-xl transition-all duration-300">
+                <div class="flex items-center gap-1 text-secondary mb-4">
+                    <span class="material-symbols-outlined fill-current text-[#D4AF37]">star</span>
+                    <span class="material-symbols-outlined fill-current text-[#D4AF37]">star</span>
+                    <span class="material-symbols-outlined fill-current text-[#D4AF37]">star</span>
+                    <span class="material-symbols-outlined fill-current text-[#D4AF37]">star</span>
+                    <span class="material-symbols-outlined fill-current text-[#D4AF37]">star</span>
+                </div>
+                <p class="font-body-md text-body-md text-on-surface-variant italic mb-6 leading-relaxed">
+                    "Heena Tailor has been stitching my salwar suits and kurtis for years. Their attention to detail, cut, and finish is outstanding. No other boutique in town matches their perfection."
+                </p>
+                <div class="flex justify-between items-center">
+                    <div>
+                        <h4 class="font-label-caps text-sm text-primary font-bold">Ananya Patel</h4>
+                        <span class="text-[12px] text-on-surface-variant/60">Regular Customer</span>
+                    </div>
+                    <span class="material-symbols-outlined text-secondary-fixed-dim text-3xl">format_quote</span>
+                </div>
+            </div>
+            
+            <!-- Review 3 -->
+            <div class="bg-surface p-8 rounded-xl border border-secondary-fixed/20 shadow-[0_4px_30px_rgba(0,0,0,0.02)] hover:shadow-xl transition-all duration-300">
+                <div class="flex items-center gap-1 text-secondary mb-4">
+                    <span class="material-symbols-outlined fill-current text-[#D4AF37]">star</span>
+                    <span class="material-symbols-outlined fill-current text-[#D4AF37]">star</span>
+                    <span class="material-symbols-outlined fill-current text-[#D4AF37]">star</span>
+                    <span class="material-symbols-outlined fill-current text-[#D4AF37]">star</span>
+                    <span class="material-symbols-outlined fill-current text-[#D4AF37]">star</span>
+                </div>
+                <p class="font-body-md text-body-md text-on-surface-variant italic mb-6 leading-relaxed">
+                    "Exceptional service! They understood exactly what modifications I wanted for my designer gown. The fit is super flattering. The fabric store recommendations were also great."
+                </p>
+                <div class="flex justify-between items-center">
+                    <div>
+                        <h4 class="font-label-caps text-sm text-primary font-bold">Meera Nair</h4>
+                        <span class="text-[12px] text-on-surface-variant/60">Evening Wear Client</span>
+                    </div>
+                    <span class="material-symbols-outlined text-secondary-fixed-dim text-3xl">format_quote</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <!-- Contact Information -->
+        <div class="lg:col-span-5 space-y-8">
+            <div>
+                <span class="font-label-caps text-label-caps text-secondary uppercase block mb-2 tracking-[0.2em]">CONNECT</span>
+                <h2 class="font-display-lg-mobile md:font-headline-md text-display-lg-mobile md:text-headline-md text-primary leading-tight">Visit the Atelier</h2>
+                <div class="w-16 h-1 bg-secondary-fixed mt-4"></div>
+            </div>
+            <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                Step into our private boutique to discuss your tailored designs, custom embroidery requirements, or check out our exclusive fabric catalog.
+            </p>
+            
+            <div class="space-y-6 pt-4">
+                <div class="flex items-start gap-4">
+                    <span class="material-symbols-outlined text-primary text-2xl mt-1">location_on</span>
+                    <div class="w-full">
+                        <h4 class="font-label-caps text-sm text-on-surface font-bold">ADDRESS</h4>
+                        <p class="font-body-md text-body-md text-on-surface-variant">Swargiya Deepak, Dharamji Patil Marg,<br>Chimaji Nagar, Penkarpada,<br>Mira Road East, Mira Bhayandar,<br>Maharashtra – 401107</p>
+                        
+                        <!-- Google Maps Embed -->
+                        <div class="mt-4 w-full h-48 rounded-lg overflow-hidden border border-secondary-fixed/20 shadow-md">
+                            <iframe class="w-full h-full" src="https://maps.google.com/maps?q=Heena+Tailor+Penkarpada+Mira+Road+East&t=&z=15&ie=UTF8&iwloc=&output=embed" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                        
+                        <a href="https://www.google.com/maps/search/?api=1&query=Heena+Tailor+Swargiya+Deepak+Dharamji+Patil+Marg+Penkarpada+Mira+Road+East+Mira+Bhayandar+Maharashtra+401107" target="_blank" class="inline-flex items-center gap-2 mt-4 bg-primary hover:bg-[#570000] text-white font-button text-xs px-4 py-2.5 rounded-lg transition-all uppercase tracking-wider font-semibold active:scale-95 shadow-md">
+                            <span class="material-symbols-outlined text-sm">directions</span>
+                            <span>Get Directions</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <span class="material-symbols-outlined text-primary text-2xl mt-1">schedule</span>
+                    <div>
+                        <h4 class="font-label-caps text-sm text-on-surface font-bold">ATELIER HOURS</h4>
+                        <p class="font-body-md text-body-md text-on-surface-variant">
+                            Monday: 7:00 AM – 7:00 PM<br>
+                            Tuesday – Sunday: 7:00 AM – 9:30 PM
+                        </p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <span class="material-symbols-outlined text-primary text-2xl mt-1">call</span>
+                    <div>
+                        <h4 class="font-label-caps text-sm text-on-surface font-bold">CONTACT INFO</h4>
+                        <p class="font-body-md text-body-md text-on-surface-variant">Phone: +91 99305 03752<br>Email: shaileshjhotaniya43@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Contact Form -->
+        <div class="lg:col-span-7 bg-surface-container-low p-8 md:p-10 rounded-xl border border-secondary-fixed/20 shadow-lg">
+            <h3 class="font-headline-sm text-headline-sm text-primary mb-6">Send an Inquiry</h3>
+            <form class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="font-label-caps text-label-caps text-on-surface mb-2 block uppercase">Your Name</label>
+                        <input type="text" class="w-full bg-white border border-outline-variant rounded-lg px-4 py-3 font-body-md text-on-surface focus:ring-1 focus:ring-primary outline-none" placeholder="e.g. Priya Sharma">
+                    </div>
+                    <div>
+                        <label class="font-label-caps text-label-caps text-on-surface mb-2 block uppercase">Email Address</label>
+                        <input type="email" class="w-full bg-white border border-outline-variant rounded-lg px-4 py-3 font-body-md text-on-surface focus:ring-1 focus:ring-primary outline-none" placeholder="e.g. priya@gmail.com">
+                    </div>
+                </div>
+                
+                <div>
+                    <label class="font-label-caps text-label-caps text-on-surface mb-2 block uppercase">Inquiry Type</label>
+                    <select class="w-full bg-white border border-outline-variant rounded-lg px-4 py-3 font-body-md text-on-surface focus:ring-1 focus:ring-primary outline-none appearance-none">
+                        <option>Bridal Stitching</option>
+                        <option>Bespoke Blouse / Kurti</option>
+                        <option>Designer Suit / Gown</option>
+                        <option>Fabric & Material Inquiry</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label class="font-label-caps text-label-caps text-on-surface mb-2 block uppercase">Message</label>
+                    <textarea rows="4" class="w-full bg-white border border-outline-variant rounded-lg p-4 font-body-md text-on-surface focus:ring-1 focus:ring-primary outline-none" placeholder="Describe your design dream..."></textarea>
+                </div>
+                
+                <button type="button" class="w-full bg-primary hover:bg-primary-container text-white font-button text-button py-4 rounded-lg uppercase tracking-wider font-semibold active:scale-95 transition-all shadow-md">
+                    Submit Inquiry
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full pt-12 pb-24 md:pb-12 bg-surface-container-lowest border-t border-secondary-fixed/20">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="col-span-1 md:col-span-1">
+<h4 class="font-headline-sm text-headline-sm text-primary mb-6">HEENA TAILOR</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Masterfully crafting your dreams into reality since 1984.</p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer hover:opacity-70 transition-opacity">face_nod</span>
+<span class="material-symbols-outlined text-primary cursor-pointer hover:opacity-70 transition-opacity">photo_camera</span>
+<span class="material-symbols-outlined text-primary cursor-pointer hover:opacity-70 transition-opacity">alternate_email</span>
+</div>
+</div>
+<div>
+<h5 class="font-label-caps text-label-caps text-on-surface mb-6 uppercase">Quick Links</h5>
+<ul class="space-y-3">
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="../book_a_service/code.html">Custom Stitching</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="../materials_store/code.html">Material Store</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="../designer_gallery/code.html">Designer Gallery</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Contact Us</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-caps text-label-caps text-on-surface mb-6 uppercase">Legal</h5>
+<ul class="space-y-3">
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Fabric Care</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-caps text-label-caps text-on-surface mb-6 uppercase">Newsletter</h5>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Join our inner circle for fashion tips.</p>
+<div class="flex border-b border-primary py-2">
+<input class="bg-transparent border-none focus:ring-0 w-full font-body-md text-body-md" placeholder="Your email address" type="email"/>
+<button class="text-primary"><span class="material-symbols-outlined">east</span></button>
+</div>
+</div>
+</div>
+<div class="mt-12 text-center px-margin-mobile">
+<p class="font-body-md text-body-md text-on-surface-variant/60">© 2024 Heena Tailor. Masterfully Crafted.</p>
+</div>
+</footer>
+<script>
+    // Theme toggle functions
+    function initTheme() {
+        const theme = localStorage.getItem('theme') || 'light';
+        if (theme === 'dark') {
+            document.documentElement.classList.add('dark');
+            const icon = document.getElementById('theme-toggle-icon');
+            if (icon) icon.innerText = 'light_mode';
+        } else {
+            document.documentElement.classList.remove('dark');
+            const icon = document.getElementById('theme-toggle-icon');
+            if (icon) icon.innerText = 'dark_mode';
+        }
+    }
+
+    function toggleTheme() {
+        if (document.documentElement.classList.contains('dark')) {
+            document.documentElement.classList.remove('dark');
+            localStorage.setItem('theme', 'light');
+            const icon = document.getElementById('theme-toggle-icon');
+            if (icon) icon.innerText = 'dark_mode';
+        } else {
+            document.documentElement.classList.add('dark');
+            localStorage.setItem('theme', 'dark');
+            const icon = document.getElementById('theme-toggle-icon');
+            if (icon) icon.innerText = 'light_mode';
+        }
+    }
+
+    // Mobile Menu Functions
+    function toggleMobileMenu() {
+        const drawer = document.getElementById('mobile-drawer');
+        const overlay = document.getElementById('mobile-overlay');
+        const isClosed = drawer.classList.contains('translate-x-full');
+        if (isClosed) {
+            drawer.classList.remove('translate-x-full');
+            overlay.classList.remove('opacity-0', 'pointer-events-none');
+            overlay.classList.add('opacity-100');
+        } else {
+            drawer.classList.add('translate-x-full');
+            overlay.classList.add('opacity-0', 'pointer-events-none');
+            overlay.classList.remove('opacity-100');
+        }
+    }
+
+    // Dynamic Active Menu Underlining
+    function highlightActiveNav() {
+        const path = window.location.pathname;
+        const hash = window.location.hash;
+        
+        const ids = ['nav-home', 'nav-services', 'nav-shop', 'nav-gallery', 'nav-reviews', 'nav-about', 'nav-contact'];
+        ids.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) {
+                el.classList.remove('border-b-2', 'border-[#ffdad4]', 'text-[#ffdad4]');
+                el.classList.add('text-[#eeeeee]');
+            }
+        });
+
+        let activeId = 'nav-home';
+        if (path.includes('book_a_service')) {
+            activeId = 'nav-services';
+        } else if (path.includes('materials_store')) {
+            activeId = 'nav-shop';
+        } else if (path.includes('designer_gallery')) {
+            activeId = 'nav-gallery';
+        } else if (hash === '#reviews') {
+            activeId = 'nav-reviews';
+        } else if (hash === '#about') {
+            activeId = 'nav-about';
+        } else if (hash === '#contact') {
+            activeId = 'nav-contact';
+        }
+
+        const activeEl = document.getElementById(activeId);
+        if (activeEl) {
+            activeEl.classList.add('border-b-2', 'border-[#ffdad4]', 'text-[#ffdad4]');
+            activeEl.classList.remove('text-[#eeeeee]');
+        }
+    }
+
+    window.addEventListener('hashchange', highlightActiveNav);
+    window.addEventListener('DOMContentLoaded', () => {
+        initTheme();
+        highlightActiveNav();
+    });
+
+    window.addEventListener('scroll', () => {
+        const header = document.getElementById('main-header');
+        if (window.scrollY > 50) {
+            header.classList.remove('bg-transparent', 'border-transparent');
+            header.classList.add('bg-[#111111]/95', 'backdrop-blur-md', 'border-b', 'border-white/10', 'shadow-lg');
+        } else {
+            header.classList.add('bg-transparent', 'border-transparent');
+            header.classList.remove('bg-[#111111]/95', 'backdrop-blur-md', 'border-b', 'border-white/10', 'shadow-lg');
+        }
+    });
+</script>
+
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/919930503752" target="_blank" class="fixed bottom-8 right-8 z-50 w-14 h-14 bg-[#25D366] hover:bg-[#20ba5a] rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 animate-bounce">
+    <svg class="w-8 h-8 text-white fill-current" viewBox="0 0 24 24">
+        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.005 5.234 5.24.001 11.7.001c3.128.001 6.07 1.22 8.279 3.434 2.209 2.213 3.424 5.158 3.42 8.286-.005 6.466-5.24 11.7-11.7 11.7-2.007-.001-3.98-.52-5.77-1.51L0 24zm6.09-3.978c1.61.956 3.197 1.458 4.887 1.459 5.376.002 9.75-4.372 9.754-9.753.002-2.607-1.011-5.059-2.854-6.904-1.843-1.846-4.291-2.863-6.901-2.863-5.38 0-9.758 4.373-9.762 9.756-.001 1.776.47 3.511 1.365 5.048L1.656 22.42l5.77-1.512H6.147zM17.06 14.28c-.287-.144-1.702-.84-1.965-.936-.263-.096-.456-.144-.648.144-.192.288-.744.936-.912 1.128-.168.192-.336.216-.624.072-.288-.144-1.217-.449-2.318-1.432-.857-.765-1.436-1.709-1.604-1.997-.168-.288-.018-.444.126-.587.13-.13.288-.336.432-.504.144-.168.192-.288.288-.48.096-.192.048-.36-.024-.504-.072-.144-.648-1.56-.888-2.136-.233-.56-.47-.484-.648-.493-.168-.008-.36-.01-.552-.01-.192 0-.504.072-.768.36-.264.288-1.008.984-1.008 2.4 0 1.416 1.032 2.784 1.176 2.976.144.192 2.03 3.1 4.92 4.35.687.297 1.224.474 1.643.607.69.219 1.319.188 1.815.114.553-.083 1.702-.696 1.944-1.368.243-.672.243-1.248.171-1.368-.072-.12-.24-.192-.528-.336z"/>
+    </svg>
+</a>
+</body></html>
