@@ -10,95 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            "colors": {
-                    "primary-fixed": "#ffdad4",
-                    "tertiary-container": "#4d3829",
-                    "on-surface": "#1b1b1b",
-                    "secondary-fixed-dim": "#e9c349",
-                    "primary": "#570000",
-                    "primary-container": "#800000",
-                    "inverse-surface": "#303030",
-                    "surface-container-low": "#f3f3f3",
-                    "on-tertiary": "#ffffff",
-                    "error-container": "#ffdad6",
-                    "tertiary-fixed-dim": "#dfc1ac",
-                    "secondary-fixed": "#ffe088",
-                    "surface-container-lowest": "#ffffff",
-                    "background": "#f9f9f9",
-                    "on-primary-fixed-variant": "#8f0f07",
-                    "on-secondary-fixed": "#241a00",
-                    "tertiary": "#352315",
-                    "on-primary-fixed": "#410000",
-                    "surface": "#f9f9f9",
-                    "inverse-on-surface": "#f1f1f1",
-                    "surface-tint": "#b22b1d",
-                    "on-secondary": "#ffffff",
-                    "on-error": "#ffffff",
-                    "on-surface-variant": "#5a413d",
-                    "error": "#ba1a1a",
-                    "on-primary-container": "#ff8371",
-                    "inverse-primary": "#ffb4a8",
-                    "surface-dim": "#dadada",
-                    "secondary-container": "#fed65b",
-                    "on-error-container": "#93000a",
-                    "primary-fixed-dim": "#ffb4a8",
-                    "surface-variant": "#e2e2e2",
-                    "surface-container-highest": "#e2e2e2",
-                    "secondary": "#735c00",
-                    "surface-container-high": "#e8e8e8",
-                    "surface-container": "#eeeeee",
-                    "on-tertiary-fixed-variant": "#584233",
-                    "outline": "#8e706c",
-                    "on-background": "#1b1b1b",
-                    "on-tertiary-fixed": "#28180b",
-                    "tertiary-fixed": "#fddcc7",
-                    "surface-bright": "#f9f9f9",
-                    "on-tertiary-container": "#bea18e",
-                    "on-secondary-container": "#745c00",
-                    "on-secondary-fixed-variant": "#574500",
-                    "outline-variant": "#e2bfb9",
-                    "on-primary": "#ffffff"
-            },
-            "borderRadius": {
-                    "DEFAULT": "0.25rem",
-                    "lg": "0.5rem",
-                    "xl": "0.75rem",
-                    "full": "9999px"
-            },
-            "spacing": {
-                    "margin-desktop": "64px",
-                    "container-max": "1280px",
-                    "margin-mobile": "16px",
-                    "gutter": "24px",
-                    "unit": "8px"
-            },
-            "fontFamily": {
-                    "label-caps": ["Montserrat"],
-                    "headline-md": ["Playfair Display"],
-                    "body-lg": ["Montserrat"],
-                    "headline-sm": ["Playfair Display"],
-                    "display-lg-mobile": ["Playfair Display"],
-                    "body-md": ["Montserrat"],
-                    "display-lg": ["Playfair Display"],
-                    "button": ["Montserrat"]
-            },
-            "fontSize": {
-                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600"}],
-                    "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
-                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
-                    "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
-                    "display-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
-                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
-                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                    "button": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}]
-            }
-          },
-        },
-      }
+      tailwind.config = window.getTailwindConfig();
     </script>
 <style>
         .material-symbols-outlined {
@@ -217,7 +129,7 @@
     <div class="inline-flex items-center border border-white/30 bg-white/10 backdrop-blur-md px-6 py-2.5 rounded-full mb-8 font-label-caps text-[11px] md:text-[13px] uppercase text-white tracking-[0.25em]">
         EST. 1984 &nbsp;|&nbsp; LUXURY TAILORING ATELIER
     </div>
-    <h1 class="font-display-lg-mobile md:font-display-lg text-[38px] md:text-[64px] leading-[1.1] md:leading-[1.1] text-white mb-6 tracking-wide max-w-4xl font-bold font-headline-md">
+    <h1 class="text-[30px] sm:text-[38px] md:text-[64px] leading-[1.1] text-white mb-6 tracking-wide max-w-4xl font-bold font-headline-md">
         Elegant Tailoring.<br>
         <span class="italic font-normal text-[#ffdad4]">Premium Stitching.</span><br>
         Quality Materials.
@@ -329,8 +241,8 @@
 <div class="aspect-[3/4] overflow-hidden">
 <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Exquisite close-up of a bridal blouse with intricate hand-embroidered zardosi work and gold bead details. The blouse is a rich emerald green velvet, displayed against a soft ivory backdrop. Professional high-end catalog photography, soft lighting highlighting the texture of the embroidery and the shimmer of the beads." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBy0b7hl-DidY-24-Qt3DiRzKYq7V3jzwjpmHxDWooY7tm4oZdHZy-jCXEtkaWuV7YkuJ4WnwHCCvuGvSuLd-2TC8TsPh7cOedd9RQ4o9BbbfR3D5KliCqDXSvHSUeU8UD_lj2fiPxqGwhWRjOXJ5p16ODkb9LVvO-QVi_bnS1UXpSCBqolbnn6k6-B1LvHDpY0TE0K6eD3PestFMjQNaRdtHqa_glxxYiB2EZlKCCFVH64-SLMQKRTUQjGPXo8hlcjVKe22pEnbA"/>
 </div>
-<div class="p-6 glass-card absolute bottom-4 left-4 right-4 rounded-xl shadow-lg">
-<h3 class="font-headline-sm text-headline-sm text-primary mb-2">Bridal Blouse</h3>
+<div class="p-4 sm:p-6 glass-card absolute bottom-4 left-4 right-4 rounded-xl shadow-lg">
+<h3 class="font-headline-sm text-lg sm:text-headline-sm text-primary mb-2">Bridal Blouse</h3>
 <div class="flex justify-between items-center">
 <span class="font-body-md text-body-md text-on-surface-variant">Starting from ₹2,500</span>
 <button class="w-10 h-10 rounded-full border border-primary flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
@@ -344,8 +256,8 @@
 <div class="aspect-[3/4] overflow-hidden">
 <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A modern designer kurti with contemporary asymmetric cuts and minimalist aesthetic. The fabric is a light pastel pink linen with delicate floral thread work along the neckline. The setting is a minimalist boutique with clean lines and soft ambient lighting. High-fashion editorial style photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAK3P4vrnmC6wBKMArlQU6OXuTKjvRfL0mV3lYdLYhpxGfoY7lZqk78ZClENL0rgCeDsYjPK91CHGay04M8sK27QQQz78PUeMn4Uf6MIQGd8vNBelvQejbB6HX_OotFSYuDWLaZYs7GbUZCr5kVVFPzxH4iqoT76U-UWr1gxq8uQa9UEBA5_AYofMfM-6efPcfgfObnf8DJpWDJuWcmrCNKlNFthqaF7fqJPStc1uoYILFWVUZUEgFgL8Mq5KNTELx1N0uDvZwDzQo"/>
 </div>
-<div class="p-6 glass-card absolute bottom-4 left-4 right-4 rounded-xl shadow-lg">
-<h3 class="font-headline-sm text-headline-sm text-primary mb-2">Designer Kurti</h3>
+<div class="p-4 sm:p-6 glass-card absolute bottom-4 left-4 right-4 rounded-xl shadow-lg">
+<h3 class="font-headline-sm text-lg sm:text-headline-sm text-primary mb-2">Designer Kurti</h3>
 <div class="flex justify-between items-center">
 <span class="font-body-md text-body-md text-on-surface-variant">Starting from ₹800</span>
 <button class="w-10 h-10 rounded-full border border-primary flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
@@ -359,8 +271,8 @@
 <div class="aspect-[3/4] overflow-hidden">
 <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A majestic floor-length evening gown being stitched in a modern atelier. The gown is made of layers of soft champagne tulle and satin, catching the light elegantly. Tailor's hands are seen adjusting a seam with precision. Elegant and luxurious atmosphere with high-key lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAymzWOVd8iGbt6rGJZHlHDA-kgYP9O_JLkRZGQMWxD8rxhsWxKQdWQFLENDW4EwX3BKNJHYcn3Jb_wpt4CU7xh1yZZOfrzZT_cWgx2bCyMGDvlFFV36UVMqwPBNlr1RMPEYx1450RfThNCleqJR0vrxkQbwGvAe4ByMMwOIE9V8XmKEd6Z_mvRSTnqvjmXRuB81P8FBSnX6awjb4LjXcb9GfZh4vLzEBOMQTL_ZapTAfhgLQMa2XJBMkwsF6zx1k6issEpVIsYNYE"/>
 </div>
-<div class="p-6 glass-card absolute bottom-4 left-4 right-4 rounded-xl shadow-lg">
-<h3 class="font-headline-sm text-headline-sm text-primary mb-2">Gown Stitching</h3>
+<div class="p-4 sm:p-6 glass-card absolute bottom-4 left-4 right-4 rounded-xl shadow-lg">
+<h3 class="font-headline-sm text-lg sm:text-headline-sm text-primary mb-2">Gown Stitching</h3>
 <div class="flex justify-between items-center">
 <span class="font-body-md text-body-md text-on-surface-variant">Starting from ₹4,500</span>
 <button class="w-10 h-10 rounded-full border border-primary flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
@@ -374,8 +286,8 @@
 <div class="aspect-[3/4] overflow-hidden">
 <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Premium close-up photography of sewing alterations on an elegant dress. Tailor's shears and threads visible on an antique table." src="../home_heena_tailor/repairing_alterations.png"/>
 </div>
-<div class="p-6 glass-card absolute bottom-4 left-4 right-4 rounded-xl shadow-lg">
-<h3 class="font-headline-sm text-headline-sm text-primary mb-2">Alteration & Repair</h3>
+<div class="p-4 sm:p-6 glass-card absolute bottom-4 left-4 right-4 rounded-xl shadow-lg">
+<h3 class="font-headline-sm text-lg sm:text-headline-sm text-primary mb-2">Alteration & Repair</h3>
 <div class="flex justify-between items-center">
 <span class="font-body-md text-body-md text-on-surface-variant">Starting from ₹250</span>
 <button class="w-10 h-10 rounded-full border border-primary flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
@@ -514,20 +426,18 @@
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <!-- Contact Form -->
-        <div class="lg:col-span-7 bg-surface-container-low p-8 md:p-10 rounded-xl border border-secondary-fixed/20 shadow-lg">
+                <!-- Contact Form -->
+        <div class="lg:col-span-7 bg-surface-container-low p-8 md:p-10 rounded-xl border border-secondary-fixed/20 shadow-md">
             <h3 class="font-headline-sm text-headline-sm text-primary mb-6">Send an Inquiry</h3>
-            <form class="space-y-6">
+            <form class="space-y-6" onsubmit="handleContactSubmit(event)">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                         <label class="font-label-caps text-label-caps text-on-surface mb-2 block uppercase">Your Name</label>
-                        <input type="text" class="w-full bg-white border border-outline-variant rounded-lg px-4 py-3 font-body-md text-on-surface focus:ring-1 focus:ring-primary outline-none" placeholder="e.g. Priya Sharma">
+                        <input type="text" required class="w-full bg-white border border-outline-variant rounded-lg px-4 py-3 font-body-md text-on-surface focus:ring-1 focus:ring-primary outline-none" placeholder="e.g. Priya Sharma">
                     </div>
                     <div>
                         <label class="font-label-caps text-label-caps text-on-surface mb-2 block uppercase">Email Address</label>
-                        <input type="email" class="w-full bg-white border border-outline-variant rounded-lg px-4 py-3 font-body-md text-on-surface focus:ring-1 focus:ring-primary outline-none" placeholder="e.g. priya@gmail.com">
+                        <input type="email" required class="w-full bg-white border border-outline-variant rounded-lg px-4 py-3 font-body-md text-on-surface focus:ring-1 focus:ring-primary outline-none" placeholder="e.g. priya@gmail.com">
                     </div>
                 </div>
                 
@@ -543,10 +453,10 @@
                 
                 <div>
                     <label class="font-label-caps text-label-caps text-on-surface mb-2 block uppercase">Message</label>
-                    <textarea rows="4" class="w-full bg-white border border-outline-variant rounded-lg p-4 font-body-md text-on-surface focus:ring-1 focus:ring-primary outline-none" placeholder="Describe your design dream..."></textarea>
+                    <textarea rows="4" required class="w-full bg-white border border-outline-variant rounded-lg p-4 font-body-md text-on-surface focus:ring-1 focus:ring-primary outline-none" placeholder="Describe your design dream..."></textarea>
                 </div>
                 
-                <button type="button" class="w-full bg-primary hover:bg-primary-container text-white font-button text-button py-4 rounded-lg uppercase tracking-wider font-semibold active:scale-95 transition-all shadow-md">
+                <button type="submit" class="w-full bg-primary hover:bg-primary-container text-white font-button text-button py-4 rounded-lg uppercase tracking-wider font-semibold active:scale-95 transition-all shadow-md">
                     Submit Inquiry
                 </button>
             </form>
@@ -597,102 +507,12 @@
 </div>
 </footer>
 <script>
-    // Theme toggle functions
-    function initTheme() {
-        const theme = localStorage.getItem('theme') || 'light';
-        if (theme === 'dark') {
-            document.documentElement.classList.add('dark');
-            const icon = document.getElementById('theme-toggle-icon');
-            if (icon) icon.innerText = 'light_mode';
-        } else {
-            document.documentElement.classList.remove('dark');
-            const icon = document.getElementById('theme-toggle-icon');
-            if (icon) icon.innerText = 'dark_mode';
-        }
+    // All theme and menu navigation functions are loaded from shared.js
+    function handleContactSubmit(e) {
+        e.preventDefault();
+        alert("Thank you for your inquiry! Our designer team will contact you shortly.");
+        e.target.reset();
     }
-
-    function toggleTheme() {
-        if (document.documentElement.classList.contains('dark')) {
-            document.documentElement.classList.remove('dark');
-            localStorage.setItem('theme', 'light');
-            const icon = document.getElementById('theme-toggle-icon');
-            if (icon) icon.innerText = 'dark_mode';
-        } else {
-            document.documentElement.classList.add('dark');
-            localStorage.setItem('theme', 'dark');
-            const icon = document.getElementById('theme-toggle-icon');
-            if (icon) icon.innerText = 'light_mode';
-        }
-    }
-
-    // Mobile Menu Functions
-    function toggleMobileMenu() {
-        const drawer = document.getElementById('mobile-drawer');
-        const overlay = document.getElementById('mobile-overlay');
-        const isClosed = drawer.classList.contains('translate-x-full');
-        if (isClosed) {
-            drawer.classList.remove('translate-x-full');
-            overlay.classList.remove('opacity-0', 'pointer-events-none');
-            overlay.classList.add('opacity-100');
-        } else {
-            drawer.classList.add('translate-x-full');
-            overlay.classList.add('opacity-0', 'pointer-events-none');
-            overlay.classList.remove('opacity-100');
-        }
-    }
-
-    // Dynamic Active Menu Underlining
-    function highlightActiveNav() {
-        const path = window.location.pathname;
-        const hash = window.location.hash;
-        
-        const ids = ['nav-home', 'nav-services', 'nav-shop', 'nav-gallery', 'nav-reviews', 'nav-about', 'nav-contact'];
-        ids.forEach(id => {
-            const el = document.getElementById(id);
-            if (el) {
-                el.classList.remove('border-b-2', 'border-[#ffdad4]', 'text-[#ffdad4]');
-                el.classList.add('text-[#eeeeee]');
-            }
-        });
-
-        let activeId = 'nav-home';
-        if (path.includes('book_a_service')) {
-            activeId = 'nav-services';
-        } else if (path.includes('materials_store')) {
-            activeId = 'nav-shop';
-        } else if (path.includes('designer_gallery')) {
-            activeId = 'nav-gallery';
-        } else if (hash === '#reviews') {
-            activeId = 'nav-reviews';
-        } else if (hash === '#about') {
-            activeId = 'nav-about';
-        } else if (hash === '#contact') {
-            activeId = 'nav-contact';
-        }
-
-        const activeEl = document.getElementById(activeId);
-        if (activeEl) {
-            activeEl.classList.add('border-b-2', 'border-[#ffdad4]', 'text-[#ffdad4]');
-            activeEl.classList.remove('text-[#eeeeee]');
-        }
-    }
-
-    window.addEventListener('hashchange', highlightActiveNav);
-    window.addEventListener('DOMContentLoaded', () => {
-        initTheme();
-        highlightActiveNav();
-    });
-
-    window.addEventListener('scroll', () => {
-        const header = document.getElementById('main-header');
-        if (window.scrollY > 50) {
-            header.classList.remove('bg-transparent', 'border-transparent');
-            header.classList.add('bg-[#111111]/95', 'backdrop-blur-md', 'border-b', 'border-white/10', 'shadow-lg');
-        } else {
-            header.classList.add('bg-transparent', 'border-transparent');
-            header.classList.remove('bg-[#111111]/95', 'backdrop-blur-md', 'border-b', 'border-white/10', 'shadow-lg');
-        }
-    });
 </script>
 
 <!-- Floating WhatsApp Button -->

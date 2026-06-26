@@ -1,6 +1,257 @@
 // HEENA TAILOR - Shared State & Catalog Manager
 // This script runs on all pages to ensure auth state, wishlist, and cart are in sync.
 
+const BACKEND_URL = "https://heena-tailor-backend.onrender.com";
+
+// Helper for backend API requests
+async function apiCall(endpoint, method = 'GET', body = null) {
+    const token = localStorage.getItem('heena_token');
+    const headers = {
+        'Content-Type': 'application/json'
+    };
+    if (token) {
+        headers['Authorization'] = `Bearer ${token}`;
+    }
+    const config = {
+        method,
+        headers
+    };
+    if (body) {
+        config.body = JSON.stringify(body);
+    }
+    try {
+        const res = await fetch(`${BACKEND_URL}${endpoint}`, config);
+        const data = await res.json();
+        return data;
+    } catch (err) {
+        console.error(`API Call failed on ${endpoint}:`, err);
+        return { success: false, message: 'Network connection failed.' };
+    }
+}
+
+// Immediate execution to prevent FOUC & Inject styles/config
+(function() {
+    const theme = localStorage.getItem('theme') || 'light';
+    if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+    } else {
+        document.documentElement.classList.remove('dark');
+    }
+    
+    // Inject dynamic CSS variables stylesheet
+    const style = document.createElement('style');
+    style.innerHTML = `
+:root {
+  --primary-fixed: #ffdad4;
+  --tertiary-container: #4d3829;
+  --on-surface: #1b1b1b;
+  --secondary-fixed-dim: #e9c349;
+  --primary: #570000;
+  --primary-container: #800000;
+  --inverse-surface: #303030;
+  --surface-container-low: #f3f3f3;
+  --on-tertiary: #ffffff;
+  --error-container: #ffdad6;
+  --tertiary-fixed-dim: #dfc1ac;
+  --secondary-fixed: #ffe088;
+  --surface-container-lowest: #ffffff;
+  --background: #f9f9f9;
+  --on-primary-fixed-variant: #8f0f07;
+  --on-secondary-fixed: #241a00;
+  --tertiary: #352315;
+  --on-primary-fixed: #410000;
+  --surface: #f9f9f9;
+  --inverse-on-surface: #f1f1f1;
+  --surface-tint: #b22b1d;
+  --on-secondary: #ffffff;
+  --on-error: #ffffff;
+  --on-surface-variant: #5a413d;
+  --error: #ba1a1a;
+  --on-primary-container: #ff8371;
+  --inverse-primary: #ffb4a8;
+  --surface-dim: #dadada;
+  --secondary-container: #fed65b;
+  --on-error-container: #93000a;
+  --primary-fixed-dim: #ffb4a8;
+  --surface-variant: #e2e2e2;
+  --surface-container-highest: #e2e2e2;
+  --secondary: #735c00;
+  --surface-container-high: #e8e8e8;
+  --surface-container: #eeeeee;
+  --on-tertiary-fixed-variant: #584233;
+  --outline: #8e706c;
+  --on-background: #1b1b1b;
+  --on-tertiary-fixed: #28180b;
+  --tertiary-fixed: #fddcc7;
+  --surface-bright: #f9f9f9;
+  --on-tertiary-container: #bea18e;
+  --on-secondary-container: #745c00;
+  --on-secondary-fixed-variant: #574500;
+  --outline-variant: #e2bfb9;
+  --on-primary: #ffffff;
+  
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(242, 210, 189, 0.3);
+}
+
+html.dark {
+  --primary-fixed: #ffdad4;
+  --tertiary-container: #ffdcc7;
+  --on-surface: #e6e1e0;
+  --secondary-fixed-dim: #e9c349;
+  --primary: #ffb4a8;
+  --primary-container: #800000;
+  --inverse-surface: #e6e1e0;
+  --surface-container-low: #1e1918;
+  --on-tertiary: #570000;
+  --error-container: #93000a;
+  --tertiary-fixed-dim: #dfc1ac;
+  --secondary-fixed: #ffe088;
+  --surface-container-lowest: #0f0b0a;
+  --background: #141212;
+  --on-primary-fixed-variant: #ffb4a8;
+  --on-secondary-fixed: #241a00;
+  --tertiary: #fddcc7;
+  --on-primary-fixed: #570000;
+  --surface: #141212;
+  --inverse-on-surface: #211a19;
+  --surface-tint: #ffb4a8;
+  --on-secondary: #413000;
+  --on-error: #690005;
+  --on-surface-variant: #d5c2be;
+  --error: #ffb4ab;
+  --on-primary-container: #ffdad4;
+  --inverse-primary: #570000;
+  --surface-dim: #141212;
+  --secondary-container: #574500;
+  --on-error-container: #ffdad6;
+  --primary-fixed-dim: #ffb4a8;
+  --surface-variant: #534341;
+  --surface-container-highest: #362a29;
+  --secondary: #ffe088;
+  --surface-container-high: #2b201f;
+  --surface-container: #211a19;
+  --on-tertiary-fixed-variant: #ffdcc7;
+  --outline: #9c8d8a;
+  --on-background: #eeeeee;
+  --on-tertiary-fixed: #28180b;
+  --tertiary-fixed: #fddcc7;
+  --surface-bright: #3b3838;
+  --on-tertiary-container: #ffdcc7;
+  --on-secondary-container: #ffe088;
+  --on-secondary-fixed-variant: #ffe088;
+  --outline-variant: #534341;
+  --on-primary: #570000;
+  
+  --glass-bg: rgba(20, 18, 18, 0.7);
+  --glass-border: rgba(242, 210, 189, 0.15);
+}
+
+.glass-card {
+  background: var(--glass-bg) !important;
+  border-color: var(--glass-border) !important;
+}
+
+body, main, section, footer, div, aside, header, nav, a, button, h1, h2, h3, h4, h5, p, span, input, select, textarea {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.2s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+}
+`;
+    document.head.appendChild(style);
+})();
+
+window.getTailwindConfig = function(extraColors = {}) {
+    return {
+        darkMode: "class",
+        theme: {
+            extend: {
+                "colors": {
+                    "primary-fixed": "var(--primary-fixed, #ffdad4)",
+                    "tertiary-container": "var(--tertiary-container, #4d3829)",
+                    "on-surface": "var(--on-surface, #1b1b1b)",
+                    "secondary-fixed-dim": "var(--secondary-fixed-dim, #e9c349)",
+                    "primary": "var(--primary, #570000)",
+                    "primary-container": "var(--primary-container, #800000)",
+                    "inverse-surface": "var(--inverse-surface, #303030)",
+                    "surface-container-low": "var(--surface-container-low, #f3f3f3)",
+                    "on-tertiary": "var(--on-tertiary, #ffffff)",
+                    "error-container": "var(--error-container, #ffdad6)",
+                    "tertiary-fixed-dim": "var(--tertiary-fixed-dim, #dfc1ac)",
+                    "secondary-fixed": "var(--secondary-fixed, #ffe088)",
+                    "surface-container-lowest": "var(--surface-container-lowest, #ffffff)",
+                    "background": "var(--background, #f9f9f9)",
+                    "on-primary-fixed-variant": "var(--on-primary-fixed-variant, #8f0f07)",
+                    "on-secondary-fixed": "var(--on-secondary-fixed, #241a00)",
+                    "tertiary": "var(--tertiary, #352315)",
+                    "on-primary-fixed": "var(--on-primary-fixed, #410000)",
+                    "surface": "var(--surface, #f9f9f9)",
+                    "inverse-on-surface": "var(--inverse-on-surface, #f1f1f1)",
+                    "surface-tint": "var(--surface-tint, #b22b1d)",
+                    "on-secondary": "var(--on-secondary, #ffffff)",
+                    "on-error": "var(--on-error, #ffffff)",
+                    "on-surface-variant": "var(--on-surface-variant, #5a413d)",
+                    "error": "var(--error, #ba1a1a)",
+                    "on-primary-container": "var(--on-primary-container, #ff8371)",
+                    "inverse-primary": "var(--inverse-primary, #ffb4a8)",
+                    "surface-dim": "var(--surface-dim, #dadada)",
+                    "secondary-container": "var(--secondary-container, #fed65b)",
+                    "on-error-container": "var(--on-error-container, #93000a)",
+                    "primary-fixed-dim": "var(--primary-fixed-dim, #ffb4a8)",
+                    "surface-variant": "var(--surface-variant, #e2e2e2)",
+                    "surface-container-highest": "var(--surface-container-highest, #e2e2e2)",
+                    "secondary": "var(--secondary, #735c00)",
+                    "surface-container-high": "var(--surface-container-high, #e8e8e8)",
+                    "surface-container": "var(--surface-container, #eeeeee)",
+                    "on-tertiary-fixed-variant": "var(--on-tertiary-fixed-variant, #584233)",
+                    "outline": "var(--outline, #8e706c)",
+                    "on-background": "var(--on-background, #1b1b1b)",
+                    "on-tertiary-fixed": "var(--on-tertiary-fixed, #28180b)",
+                    "tertiary-fixed": "var(--tertiary-fixed, #fddcc7)",
+                    "surface-bright": "var(--surface-bright, #f9f9f9)",
+                    "on-tertiary-container": "var(--on-tertiary-container, #bea18e)",
+                    "on-secondary-container": "var(--on-secondary-container, #745c00)",
+                    "on-secondary-fixed-variant": "var(--on-secondary-fixed-variant, #574500)",
+                    "outline-variant": "var(--outline-variant, #e2bfb9)",
+                    "on-primary": "var(--on-primary, #ffffff)",
+                    ...extraColors
+                },
+                "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+                },
+                "spacing": {
+                    "margin-desktop": "64px",
+                    "container-max": "1280px",
+                    "margin-mobile": "16px",
+                    "gutter": "24px",
+                    "unit": "8px"
+                },
+                "fontFamily": {
+                    "label-caps": ["Montserrat"],
+                    "headline-md": ["Playfair Display"],
+                    "body-lg": ["Montserrat"],
+                    "headline-sm": ["Playfair Display"],
+                    "display-lg-mobile": ["Playfair Display"],
+                    "body-md": ["Montserrat"],
+                    "display-lg": ["Playfair Display"],
+                    "button": ["Montserrat"]
+                },
+                "fontSize": {
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "button": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+                }
+            }
+        }
+    };
+};
+
 // --- PRODUCT CATALOG (34 Items) ---
 window.HEENA_PRODUCTS = [
     {
@@ -412,40 +663,38 @@ window.saveCurrentUser = function(user) {
 };
 
 // Login user
-window.loginUser = function(email, password) {
-    const db = window.getUserDatabase();
-    const user = db.find(u => u.email.toLowerCase() === email.toLowerCase() && u.password === password);
-    if (user) {
-        localStorage.setItem("heena_currentUser", JSON.stringify(user));
-        return { success: true, user };
+window.loginUser = async function(email, password) {
+    const res = await apiCall('/api/auth/login', 'POST', { email, password });
+    if (res.success) {
+        localStorage.setItem("heena_token", res.token);
+        localStorage.setItem("heena_currentUser", JSON.stringify(res.user));
+        // Run initial background syncs
+        await Promise.all([
+            window.syncUserWishlist(),
+            window.syncUserAppointments()
+        ]);
+        return { success: true, user: res.user };
     }
-    return { success: false, message: "Invalid email or password." };
+    return { success: false, message: res.message || "Invalid email or password." };
 };
 
 // Register user
-window.registerUser = function(name, email, phone, password) {
-    const db = window.getUserDatabase();
-    if (db.some(u => u.email.toLowerCase() === email.toLowerCase())) {
-        return { success: false, message: "Email is already registered." };
+window.registerUser = async function(name, email, phone, password) {
+    const res = await apiCall('/api/auth/register', 'POST', { name, email, phone, password });
+    if (res.success) {
+        localStorage.setItem("heena_token", res.token);
+        localStorage.setItem("heena_currentUser", JSON.stringify(res.user));
+        // Run initial background syncs
+        await Promise.all([
+            window.syncUserWishlist(),
+            window.syncUserAppointments()
+        ]);
+        return { success: true, user: res.user };
     }
-    const newUser = {
-        name,
-        email,
-        phone,
-        password,
-        address: "",
-        favorites: [], // holds product IDs
-        cart: [],      // holds objects {productId, quantity}
-        appointments: [], // list of appointments
-        orders: []       // list of orders
-    };
-    db.push(newUser);
-    window.saveUserDatabase(db);
-    localStorage.setItem("heena_currentUser", JSON.stringify(newUser));
-    return { success: true, user: newUser };
+    return { success: false, message: res.message || "Registration failed." };
 };
 
-// Reset Password
+// Reset Password (local simulation because there's no reset endpoint in backend)
 window.resetUserPassword = function(email, newPassword) {
     const db = window.getUserDatabase();
     const idx = db.findIndex(u => u.email.toLowerCase() === email.toLowerCase());
@@ -460,6 +709,7 @@ window.resetUserPassword = function(email, newPassword) {
 // Logout user
 window.logoutUser = function() {
     localStorage.removeItem("heena_currentUser");
+    localStorage.removeItem("heena_token");
     // Redirect to home page
     const currentLoc = window.location.pathname;
     if (currentLoc.includes('auth/')) {
@@ -539,29 +789,52 @@ window.toggleWishlist = function(productId) {
     }
     window.saveCurrentUser(user);
     window.updateHeaderBadges();
+    
+    // Background sync with MongoDB Atlas
+    if (added) {
+        apiCall('/api/wishlist', 'POST', { productId }).then(res => {
+            console.log('Wishlist sync (add):', res);
+        });
+    } else {
+        apiCall('/api/wishlist', 'GET').then(res => {
+            if (res.success) {
+                // Find wishlist entry database ID
+                const entry = res.wishlist.find(w => w.productId && (w.productId === productId || w.productId._id === productId));
+                if (entry) {
+                    apiCall(`/api/wishlist/${entry._id}`, 'DELETE').then(delRes => {
+                        console.log('Wishlist sync (delete):', delRes);
+                    });
+                }
+            }
+        });
+    }
+    
     return added;
 };
 
 // Book Appointment
-window.createAppointment = function(details) {
+window.createAppointment = async function(details) {
     const user = window.getCurrentUser();
     if (!user) return false;
     
-    const newAppointment = {
-        id: "APPT-" + Date.now().toString().slice(-6),
-        date: details.date,
-        style: details.style,
-        urgency: details.urgency,
-        price: details.price,
-        status: "Scheduled",
-        createdAt: new Date().toLocaleDateString()
-    };
-    user.appointments.unshift(newAppointment);
-    window.saveCurrentUser(user);
-    return true;
+    const res = await apiCall('/api/appointments', 'POST', {
+        name: user.name,
+        phone: user.phone || "9930503752",
+        email: user.email,
+        service: details.style || "Bespoke Fitting",
+        appointmentDate: details.date,
+        appointmentTime: "11:00 AM", // default time slot
+        notes: `Urgency: ${details.urgency || 'STANDARD'}. Style: ${details.style}`
+    });
+    
+    if (res.success) {
+        await window.syncUserAppointments();
+        return true;
+    }
+    return false;
 };
 
-// Create Order (Checkout)
+// Create Order (Checkout - local simulation since there is no order model in database)
 window.createOrder = function(details) {
     const user = window.getCurrentUser();
     if (!user) return false;
@@ -579,6 +852,61 @@ window.createOrder = function(details) {
     window.saveCurrentUser(user);
     window.updateHeaderBadges();
     return true;
+};
+
+// Sync functions
+window.syncUserWishlist = async function() {
+    const user = window.getCurrentUser();
+    if (!user) return;
+    const res = await apiCall('/api/wishlist', 'GET');
+    if (res.success) {
+        user.favorites = res.wishlist.map(w => w.productId ? (w.productId._id || w.productId) : null).filter(Boolean);
+        window.saveCurrentUser(user);
+        window.updateHeaderBadges();
+    }
+};
+
+window.syncUserAppointments = async function() {
+    const user = window.getCurrentUser();
+    if (!user) return;
+    const res = await apiCall('/api/appointments', 'GET');
+    if (res.success) {
+        user.appointments = res.appointments.map(appt => ({
+            id: appt._id,
+            date: appt.appointmentDate.split('T')[0],
+            style: appt.service,
+            urgency: appt.notes.includes('RUSH') ? 'RUSH' : 'STANDARD',
+            price: appt.price || 1550,
+            status: appt.status === 'pending' ? 'Scheduled' : appt.status,
+            createdAt: new Date(appt.createdAt).toLocaleDateString()
+        }));
+        window.saveCurrentUser(user);
+    }
+};
+
+window.syncProductsWithBackend = async function() {
+    try {
+        const res = await apiCall('/api/products', 'GET');
+        if (res.success && res.products.length > 0) {
+            window.HEENA_PRODUCTS = res.products.map(p => ({
+                id: p._id,
+                name: p.productName,
+                category: p.category,
+                price: p.price,
+                originalPrice: Math.round(p.price * 1.35),
+                unit: p.category.includes('Fabric') || p.category.includes('Laces') ? 'meter' : 'piece',
+                image: p.image || "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=600&q=80",
+                description: p.description,
+                synonyms: []
+            }));
+            
+            if (window.renderProducts) {
+                window.renderProducts();
+            }
+        }
+    } catch (error) {
+        console.error('Error syncing products:', error.message);
+    }
 };
 
 
@@ -623,23 +951,23 @@ window.syncHeaderDOM = function() {
         userButtonHtml = `
             <!-- User Menu -->
             <div class="relative group z-50">
-                <button class="text-[#eeeeee] hover:text-[#ffdad4] bg-[#800000] border border-[#ffdad4]/30 w-10 h-10 rounded-full flex items-center justify-center font-button text-xs uppercase tracking-wider transition-all duration-300 font-bold">
+                <button class="text-current bg-[#800000] border border-[#ffdad4]/30 w-10 h-10 rounded-full flex items-center justify-center font-button text-xs uppercase tracking-wider transition-all duration-300 font-bold">
                     ${initials}
                 </button>
-                <div class="absolute right-0 mt-2 w-48 bg-[#111111] border border-white/10 rounded-lg shadow-xl py-2 hidden group-hover:block transition-all duration-300">
-                    <a href="../auth/code.html#profile" class="block px-4 py-2 text-sm text-[#eeeeee] hover:bg-[#800000]/30 hover:text-white transition-colors">Profile Details</a>
-                    <a href="../auth/code.html#appointments" class="block px-4 py-2 text-sm text-[#eeeeee] hover:bg-[#800000]/30 hover:text-white transition-colors">My Appointments</a>
-                    <a href="../auth/code.html#orders" class="block px-4 py-2 text-sm text-[#eeeeee] hover:bg-[#800000]/30 hover:text-white transition-colors">My Orders</a>
-                    <a href="../auth/code.html#wishlist" class="block px-4 py-2 text-sm text-[#eeeeee] hover:bg-[#800000]/30 hover:text-white transition-colors">Favorites</a>
-                    <a href="../auth/code.html#cart" class="block px-4 py-2 text-sm text-[#eeeeee] hover:bg-[#800000]/30 hover:text-white transition-colors">Shopping Bag</a>
-                    <hr class="border-white/5 my-1" />
-                    <button onclick="window.logoutUser()" class="w-full text-left block px-4 py-2 text-sm text-[#ffdad4] hover:bg-[#800000]/30 transition-colors">Logout</button>
+                <div class="absolute right-0 mt-2 w-48 bg-surface-container-highest border border-outline/10 rounded-lg shadow-xl py-2 hidden group-hover:block transition-all duration-300 text-on-surface">
+                    <a href="../auth/code.html#profile" class="block px-4 py-2 text-sm text-on-surface hover:bg-[#800000]/10 hover:text-primary transition-colors">Profile Details</a>
+                    <a href="../auth/code.html#appointments" class="block px-4 py-2 text-sm text-on-surface hover:bg-[#800000]/10 hover:text-primary transition-colors">My Appointments</a>
+                    <a href="../auth/code.html#orders" class="block px-4 py-2 text-sm text-on-surface hover:bg-[#800000]/10 hover:text-primary transition-colors">My Orders</a>
+                    <a href="../auth/code.html#wishlist" class="block px-4 py-2 text-sm text-on-surface hover:bg-[#800000]/10 hover:text-primary transition-colors">Favorites</a>
+                    <a href="../auth/code.html#cart" class="block px-4 py-2 text-sm text-on-surface hover:bg-[#800000]/10 hover:text-primary transition-colors">Shopping Bag</a>
+                    <hr class="border-outline-variant/10 my-1" />
+                    <button onclick="window.logoutUser()" class="w-full text-left block px-4 py-2 text-sm text-primary hover:bg-[#800000]/10 transition-colors">Logout</button>
                 </div>
             </div>
         `;
     } else {
         userButtonHtml = `
-            <a href="../auth/code.html" class="text-[#eeeeee] hover:text-[#ffdad4] active:scale-95 transition-all p-2 rounded-full" title="Login / Register">
+            <a href="../auth/code.html" class="text-current hover:opacity-85 active:scale-95 transition-all p-2 rounded-full" title="Login / Register">
                 <span class="material-symbols-outlined text-2xl">account_circle</span>
             </a>
         `;
@@ -652,18 +980,18 @@ window.syncHeaderDOM = function() {
     // Rewrite entire innerHTML of actions container
     headerActions.innerHTML = `
         <!-- Theme Toggle -->
-        <button id="theme-toggle-btn" onclick="toggleTheme()" class="text-[#eeeeee] hover:text-[#ffdad4] active:scale-95 transition-all p-2 rounded-full">
+        <button id="theme-toggle-btn" onclick="toggleTheme()" class="text-current hover:opacity-85 active:scale-95 transition-all p-2 rounded-full">
             <span class="material-symbols-outlined text-2xl" id="theme-toggle-icon">${themeIcon}</span>
         </button>
         
         <!-- Wishlist -->
-        <a href="${pathPrefix}auth/code.html#wishlist" class="text-[#eeeeee] hover:text-[#ffdad4] active:scale-95 transition-all p-2 rounded-full relative hidden sm:block">
+        <a href="${pathPrefix}auth/code.html#wishlist" class="text-current hover:opacity-85 active:scale-95 transition-all p-2 rounded-full relative hidden sm:block">
             <span class="material-symbols-outlined text-2xl">favorite</span>
             <span id="wishlist-count-badge" class="absolute top-1 right-1 bg-[#ffdad4] text-[#111111] text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center hidden">0</span>
         </a>
         
         <!-- Shopping Bag -->
-        <a href="${pathPrefix}auth/code.html#cart" class="text-[#eeeeee] hover:text-[#ffdad4] active:scale-95 transition-all p-2 rounded-full relative">
+        <a href="${pathPrefix}auth/code.html#cart" class="text-current hover:opacity-85 active:scale-95 transition-all p-2 rounded-full relative">
             <span class="material-symbols-outlined text-2xl">shopping_bag</span>
             <span id="cart-count-badge" class="absolute top-1 right-1 bg-[#ffdad4] text-[#111111] text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center hidden">0</span>
         </a>
@@ -678,7 +1006,7 @@ window.syncHeaderDOM = function() {
         </a>
         
         <!-- Mobile Menu Toggle -->
-        <button id="mobile-menu-toggle" onclick="toggleMobileMenu()" class="lg:hidden text-[#eeeeee] hover:text-[#ffdad4] active:scale-95 transition-all p-2 rounded-full">
+        <button id="mobile-menu-toggle" onclick="toggleMobileMenu()" class="lg:hidden text-current hover:opacity-85 active:scale-95 transition-all p-2 rounded-full">
             <span class="material-symbols-outlined text-2xl" id="menu-btn-icon">menu</span>
         </button>
     `;
@@ -689,26 +1017,26 @@ window.syncHeaderDOM = function() {
         let mobileUserLinksHtml = '';
         if (user) {
             mobileUserLinksHtml = `
-                <a href="${pathPrefix}auth/code.html#profile" class="flex items-center gap-3 py-2 text-[#eeeeee] hover:text-[#ffdad4] border-b border-white/5 font-label-caps uppercase" onclick="toggleMobileMenu()">
+                <a href="${pathPrefix}auth/code.html#profile" class="flex items-center gap-3 py-2 text-on-surface hover:text-primary border-b border-outline-variant/20 font-label-caps uppercase" onclick="toggleMobileMenu()">
                     <span class="material-symbols-outlined text-xl">person</span>
                     <span>MY PROFILE</span>
                 </a>
-                <a href="${pathPrefix}auth/code.html#wishlist" class="flex items-center gap-3 py-2 text-[#eeeeee] hover:text-[#ffdad4] border-b border-white/5 font-label-caps uppercase" onclick="toggleMobileMenu()">
+                <a href="${pathPrefix}auth/code.html#wishlist" class="flex items-center gap-3 py-2 text-on-surface hover:text-primary border-b border-outline-variant/20 font-label-caps uppercase" onclick="toggleMobileMenu()">
                     <span class="material-symbols-outlined text-xl">favorite</span>
                     <span>WISHLIST</span>
                 </a>
-                <a href="${pathPrefix}auth/code.html#cart" class="flex items-center gap-3 py-2 text-[#eeeeee] hover:text-[#ffdad4] border-b border-white/5 font-label-caps uppercase" onclick="toggleMobileMenu()">
+                <a href="${pathPrefix}auth/code.html#cart" class="flex items-center gap-3 py-2 text-on-surface hover:text-primary border-b border-outline-variant/20 font-label-caps uppercase" onclick="toggleMobileMenu()">
                     <span class="material-symbols-outlined text-xl">shopping_bag</span>
                     <span>CART</span>
                 </a>
-                <button onclick="window.logoutUser(); toggleMobileMenu();" class="flex items-center gap-3 py-2 text-[#ffdad4] hover:text-[#ff8371] text-left border-b border-white/5 font-label-caps uppercase w-full">
+                <button onclick="window.logoutUser(); toggleMobileMenu();" class="flex items-center gap-3 py-2 text-primary hover:text-primary-container text-left border-b border-outline-variant/20 font-label-caps uppercase w-full">
                     <span class="material-symbols-outlined text-xl">logout</span>
                     <span>LOGOUT</span>
                 </button>
             `;
         } else {
             mobileUserLinksHtml = `
-                <a href="${pathPrefix}auth/code.html" class="flex items-center gap-3 py-2 text-[#eeeeee] hover:text-[#ffdad4] border-b border-white/5 font-label-caps uppercase" onclick="toggleMobileMenu()">
+                <a href="${pathPrefix}auth/code.html" class="flex items-center gap-3 py-2 text-on-surface hover:text-primary border-b border-outline-variant/20 font-label-caps uppercase" onclick="toggleMobileMenu()">
                     <span class="material-symbols-outlined text-xl">login</span>
                     <span>LOGIN / REGISTER</span>
                 </a>
@@ -725,6 +1053,7 @@ window.syncHeaderDOM = function() {
         `;
     }
     
+    window.updateHeaderStyle();
     window.updateHeaderBadges();
 };
 
@@ -738,6 +1067,159 @@ window.gatekeepUser = function(reason) {
     }
     return true;
 };
+
+// Theme toggle functions
+window.initTheme = function() {
+    const theme = localStorage.getItem('theme') || 'light';
+    if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+    } else {
+        document.documentElement.classList.remove('dark');
+    }
+    const icon = document.getElementById('theme-toggle-icon');
+    if (icon) {
+        icon.innerText = theme === 'dark' ? 'light_mode' : 'dark_mode';
+    }
+    window.updateHeaderStyle();
+};
+
+window.toggleTheme = function() {
+    const isDark = document.documentElement.classList.contains('dark');
+    if (isDark) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+    } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+    }
+    // Update all theme toggle icons
+    const icons = document.querySelectorAll('#theme-toggle-icon');
+    icons.forEach(icon => {
+        icon.innerText = isDark ? 'dark_mode' : 'light_mode';
+    });
+    
+    // Update header background / text colors immediately
+    window.updateHeaderStyle();
+    window.highlightActiveNav();
+    
+    // Redraw products/wishlist if pages define those functions
+    if (window.renderProducts) {
+        window.renderProducts();
+    }
+    if (window.renderWishlist) {
+        window.renderWishlist();
+    }
+};
+
+window.toggleMobileMenu = function() {
+    const drawer = document.getElementById('mobile-drawer');
+    const overlay = document.getElementById('mobile-overlay');
+    if (!drawer || !overlay) return;
+    const isClosed = drawer.classList.contains('translate-x-full');
+    if (isClosed) {
+        drawer.classList.remove('translate-x-full');
+        overlay.classList.remove('opacity-0', 'pointer-events-none');
+        overlay.classList.add('opacity-100');
+    } else {
+        drawer.classList.add('translate-x-full');
+        overlay.classList.add('opacity-0', 'pointer-events-none');
+        overlay.classList.remove('opacity-100');
+    }
+};
+
+window.updateHeaderStyle = function() {
+    const header = document.getElementById('main-header');
+    if (!header) return;
+    const isDark = document.documentElement.classList.contains('dark');
+    const isHomepage = window.location.pathname.includes('home_heena_tailor/code.html') || window.location.pathname.endsWith('/') || window.location.pathname.endsWith('index.html');
+    
+    // Check scroll position
+    const isScrolled = window.scrollY > 50;
+    
+    if (isHomepage && !isScrolled) {
+        // Homepage at top - transparent background
+        header.classList.remove('bg-white/95', 'text-[#1b1b1b]', 'border-[#1b1b1b]/10', 'shadow-lg', 'bg-[#111111]/95', 'border-white/10');
+        header.classList.add('bg-transparent', 'text-white', 'border-transparent');
+        
+        const links = header.querySelectorAll('nav a, nav button:not(#theme-toggle-btn):not(#mobile-menu-toggle)');
+        links.forEach(el => {
+            if (!el.classList.contains('bg-[#800000]')) {
+                el.classList.remove('text-[#1b1b1b]');
+                el.classList.add('text-[#eeeeee]');
+            }
+        });
+    } else {
+        // Solid background
+        header.classList.remove('bg-transparent', 'text-white', 'border-transparent');
+        if (isDark) {
+            header.classList.add('bg-[#111111]/95', 'backdrop-blur-md', 'text-white', 'border-b', 'border-white/10', 'shadow-lg');
+            header.classList.remove('bg-white/95', 'text-[#1b1b1b]', 'border-[#1b1b1b]/10');
+            
+            const links = header.querySelectorAll('nav a, nav button:not(#theme-toggle-btn):not(#mobile-menu-toggle)');
+            links.forEach(el => {
+                if (!el.classList.contains('bg-[#800000]')) {
+                    el.classList.remove('text-[#1b1b1b]');
+                    el.classList.add('text-[#eeeeee]');
+                }
+            });
+        } else {
+            header.classList.add('bg-white/95', 'backdrop-blur-md', 'text-[#1b1b1b]', 'border-b', 'border-[#1b1b1b]/10', 'shadow-lg');
+            header.classList.remove('bg-[#111111]/95', 'text-white', 'border-white/10');
+            
+            const links = header.querySelectorAll('nav a, nav button:not(#theme-toggle-btn):not(#mobile-menu-toggle)');
+            links.forEach(el => {
+                if (!el.classList.contains('bg-[#800000]')) {
+                    el.classList.remove('text-[#eeeeee]');
+                    el.classList.add('text-[#1b1b1b]');
+                }
+            });
+        }
+    }
+};
+
+window.highlightActiveNav = function() {
+    const path = window.location.pathname;
+    const hash = window.location.hash;
+    const isDark = document.documentElement.classList.contains('dark');
+    
+    const ids = ['nav-home', 'nav-services', 'nav-shop', 'nav-gallery', 'nav-reviews', 'nav-about', 'nav-contact'];
+    ids.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+            el.classList.remove('border-b-2', 'border-[#ffdad4]', 'border-primary', 'text-[#ffdad4]', 'text-primary');
+            el.classList.add(isDark ? 'text-[#eeeeee]' : 'text-[#1b1b1b]');
+        }
+    });
+
+    let activeId = 'nav-home';
+    if (path.includes('book_a_service')) {
+        activeId = 'nav-services';
+    } else if (path.includes('materials_store')) {
+        activeId = 'nav-shop';
+    } else if (path.includes('designer_gallery')) {
+        activeId = 'nav-gallery';
+    } else if (hash === '#reviews') {
+        activeId = 'nav-reviews';
+    } else if (hash === '#about') {
+        activeId = 'nav-about';
+    } else if (hash === '#contact') {
+        activeId = 'nav-contact';
+    }
+
+    const activeEl = document.getElementById(activeId);
+    if (activeEl) {
+        if (isDark) {
+            activeEl.classList.add('border-b-2', 'border-[#ffdad4]', 'text-[#ffdad4]');
+            activeEl.classList.remove('text-[#eeeeee]', 'text-[#1b1b1b]');
+        } else {
+            activeEl.classList.add('border-b-2', 'border-primary', 'text-primary');
+            activeEl.classList.remove('text-[#eeeeee]', 'text-[#1b1b1b]');
+        }
+    }
+};
+
+window.addEventListener('hashchange', window.highlightActiveNav);
+window.addEventListener('scroll', window.updateHeaderStyle);
 
 // Run automatically on load
 window.addEventListener("DOMContentLoaded", () => {
@@ -802,5 +1284,15 @@ window.addEventListener("DOMContentLoaded", () => {
     }
     
     // Update DOM
+    window.initTheme();
     window.syncHeaderDOM();
+    window.highlightActiveNav();
+
+    // Sync with MongoDB Atlas backend in background
+    if (window.getCurrentUser()) {
+        window.syncUserWishlist();
+        window.syncUserAppointments();
+    }
+    window.syncProductsWithBackend();
 });
+

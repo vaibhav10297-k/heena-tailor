@@ -10,96 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "primary-fixed": "#ffdad4",
-                        "tertiary-container": "#4d3829",
-                        "on-surface": "#1b1b1b",
-                        "secondary-fixed-dim": "#e9c349",
-                        "primary": "#570000",
-                        "primary-container": "#800000",
-                        "inverse-surface": "#303030",
-                        "surface-container-low": "#f3f3f3",
-                        "on-tertiary": "#ffffff",
-                        "error-container": "#ffdad6",
-                        "tertiary-fixed-dim": "#dfc1ac",
-                        "secondary-fixed": "#ffe088",
-                        "surface-container-lowest": "#ffffff",
-                        "background": "#f9f9f9",
-                        "on-primary-fixed-variant": "#8f0f07",
-                        "on-secondary-fixed": "#241a00",
-                        "tertiary": "#352315",
-                        "on-primary-fixed": "#410000",
-                        "surface": "#f9f9f9",
-                        "inverse-on-surface": "#f1f1f1",
-                        "surface-tint": "#b22b1d",
-                        "on-secondary": "#ffffff",
-                        "on-error": "#ffffff",
-                        "on-surface-variant": "#5a413d",
-                        "error": "#ba1a1a",
-                        "on-primary-container": "#ff8371",
-                        "inverse-primary": "#ffb4a8",
-                        "surface-dim": "#dadada",
-                        "secondary-container": "#fed65b",
-                        "on-error-container": "#93000a",
-                        "primary-fixed-dim": "#ffb4a8",
-                        "surface-variant": "#e2e2e2",
-                        "surface-container-highest": "#e2e2e2",
-                        "secondary": "#735c00",
-                        "surface-container-high": "#e8e8e8",
-                        "surface-container": "#eeeeee",
-                        "on-tertiary-fixed-variant": "#584233",
-                        "outline": "#8e706c",
-                        "on-background": "#1b1b1b",
-                        "on-tertiary-fixed": "#28180b",
-                        "tertiary-fixed": "#fddcc7",
-                        "surface-bright": "#f9f9f9",
-                        "on-tertiary-container": "#bea18e",
-                        "on-secondary-container": "#745c00",
-                        "on-secondary-fixed-variant": "#574500",
-                        "outline-variant": "#e2bfb9",
-                        "on-primary": "#ffffff",
-                        "gold-accent": "#F2D2BD"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                    "spacing": {
-                        "margin-desktop": "64px",
-                        "container-max": "1280px",
-                        "margin-mobile": "16px",
-                        "gutter": "24px",
-                        "unit": "8px"
-                    },
-                    "fontFamily": {
-                        "label-caps": ["Montserrat"],
-                        "headline-md": ["Playfair Display"],
-                        "body-lg": ["Montserrat"],
-                        "headline-sm": ["Playfair Display"],
-                        "display-lg-mobile": ["Playfair Display"],
-                        "body-md": ["Montserrat"],
-                        "display-lg": ["Playfair Display"],
-                        "button": ["Montserrat"]
-                    },
-                    "fontSize": {
-                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600"}],
-                        "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
-                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
-                        "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
-                        "display-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
-                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
-                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                        "button": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}]
-                    }
-                },
-            },
-        }
+        tailwind.config = window.getTailwindConfig({"gold-accent": "#F2D2BD"});
     </script>
 <style>
         .material-symbols-outlined {
@@ -230,31 +141,29 @@
 </div>
 <h4 class="font-label-caps text-[#800000] mb-4 uppercase tracking-widest font-bold">Blouse Designs</h4>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-<!-- Card 1 -->
-<div class="group cursor-pointer bg-white rounded-xl border border-gold-accent overflow-hidden transition-all duration-300 hover:shadow-xl active-card" onclick="selectStyle(this, 'Princess Cut Blouse', 1200)">
-<div class="aspect-[3/4] relative">
-<img class="w-full h-full object-cover" data-alt="High-end fashion editorial photography of a luxury silk princess-cut blouse with intricate hand-stitched detailing." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEyDFGlc8dvyzaGDJMBL16Geqr1lYqURrbJzPfCxOypf5Oa8Y_HJBn3ld8fFgquyZAKghCHE6hwP4dC3A0lLz818hVciCfX7Cscl4BrDjf98qH3Q6C2N4bmyz53O7g2JnbhDM9vlymkQtapZuB-vjIU-Df4kRSC6DFLPHhkaMrJj7D2CbLgFGpuD9tmOFgtAstGm6AJECxG8l0jOWZg4eSkcc4z8fY5YuGhsUlMNuImHUmEVZAakrMAHfLluAp4sl1mNdgZaHSNsw"/>
-<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<!-- Style card 1 -->
+<div class="group cursor-pointer bg-surface-container-lowest rounded-xl border border-gold-accent overflow-hidden transition-all duration-300 hover:shadow-xl active-card" onclick="selectStyle(this, 'Princess Cut Blouse', 1200)">
+    <div class="aspect-[4/3] overflow-hidden bg-slate-50 relative">
+        <img class="w-full h-full object-cover transition-transform duration-750 group-hover:scale-105" data-alt="An exquisite close-up of a designer blouse back design, showing premium gold thread details." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTk0p23QpxN36vNqS364qHk2-p9k5s58s758373-w480"/>
+        <div class="absolute top-3 right-3 bg-primary text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">POPULAR</div>
+    </div>
+    <div class="p-5">
+        <h4 class="font-headline-sm text-lg text-primary mb-1">Princess Cut Blouse</h4>
+        <p class="text-xs text-on-surface-variant font-body-md">Sleek, architectural panels that contour perfectly. Ideal for heavy silks.</p>
+    </div>
 </div>
-<div class="p-4">
-<p class="font-label-caps text-label-caps text-secondary mb-1">MOST POPULAR</p>
-<h4 class="font-headline-sm text-[20px] text-primary">Princess Cut</h4>
-<p class="text-body-md text-on-surface-variant mt-2">Starting from ₹1,200</p>
+<!-- Style card 2 -->
+<div class="group cursor-pointer bg-surface-container-lowest rounded-xl border border-gold-accent overflow-hidden transition-all duration-300 hover:shadow-xl" onclick="selectStyle(this, 'Padded Classic Blouse', 1500)">
+    <div class="aspect-[4/3] overflow-hidden bg-slate-50">
+        <img class="w-full h-full object-cover transition-transform duration-750 group-hover:scale-105" data-alt="A classic padded blouse in luxury silk fabric, displayed on a tailor dummy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfk2839djd-kdjs839d-kdj839d2"/>
+    </div>
+    <div class="p-5">
+        <h4 class="font-headline-sm text-lg text-primary mb-1">Padded Classic Blouse</h4>
+        <p class="text-xs text-on-surface-variant font-body-md">Double lined with high-density foam cups for clean structured fits.</p>
+    </div>
 </div>
-</div>
-<!-- Card 2 -->
-<div class="group cursor-pointer bg-white rounded-xl border border-gold-accent overflow-hidden transition-all duration-300 hover:shadow-xl" onclick="selectStyle(this, 'Padded Classic Blouse', 1500)">
-<div class="aspect-[3/4] relative">
-<img class="w-full h-full object-cover" data-alt="Close-up luxury fashion photography of a padded designer blouse in deep maroon velvet." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvdqBal2pJkkmHUxsNkhVv-AEvxmTsxNIdTHOSKVmsZ_e6eprASUnhUp50Fm_Jq8VKNXnjs8q5E_VSzlUMfPyIWKRla2Ugrsg2eAZg-QB-mchVbcwGhql-UFFzng3eBzm9TLYENYxDrTSHvxfvwe7g7Wyhn52ok8aEQLwpZuqlPKe9yZyjofhfqcLscfbg2YEOwloI39Qsv2IciBOJrt6Wk-dE_wNt1pnmExu7BL5-1ZbmnzuOBLHcGbzcAw-OQchZ2HyOrSC63hQ"/>
-</div>
-<div class="p-4">
-<p class="font-label-caps text-label-caps text-on-surface-variant mb-1">EXTRA COMFORT</p>
-<h4 class="font-headline-sm text-[20px] text-primary">Padded Classic</h4>
-<p class="text-body-md text-on-surface-variant mt-2">Starting from ₹1,500</p>
-</div>
-</div>
-<!-- Card 3 -->
-<div class="group cursor-pointer bg-white rounded-xl border border-gold-accent overflow-hidden transition-all duration-300 hover:shadow-xl" onclick="selectStyle(this, 'Bridal Couture Blouse', 4500)">
+<!-- Style card 3 -->
+<div class="group cursor-pointer bg-surface-container-lowest rounded-xl border border-gold-accent overflow-hidden transition-all duration-300 hover:shadow-xl" onclick="selectStyle(this, 'Bridal Couture Blouse', 4500)">
 <div class="aspect-[3/4] relative">
 <img class="w-full h-full object-cover" data-alt="Exquisite bridal tailoring showcase featuring a heavily embellished gold and red wedding blouse." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-U2v4kLLOrz8kYOkMGKOZb50EhuE8PP8vipcWH6z4I8IJPwCxKs6QvHDgqfBAixtYdFg0iSUTpyi9cgzzQmMBJnzdYfrcp-01taWrCLZsP8Z5f9gisregLnfJJVba50z7rsq1Zta_AgpDSxgAKvIAxmNiKQHwPeiedX4jj1mIzKhs-6QVKi5vx-gqEu_h3GV8HObtDoJE1brv_ZU989e7vZMTFKh5ytDed_qJZfsa_8zBagAdsNSum1EdZmcCRg27y9VemayZgZk"/>
 </div>
@@ -270,16 +179,14 @@
 <section>
 <h4 class="font-label-caps text-[#800000] mb-4 uppercase tracking-widest font-bold">Kurti Designs</h4>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-<div class="flex items-center gap-4 p-4 bg-white rounded-xl border border-gold-accent/30 group hover:border-primary hover:shadow-md transition-all cursor-pointer" onclick="selectStyle(this, 'Straight Cut Kurti', 800)">
-<div class="w-20 h-20 rounded-lg overflow-hidden shrink-0 bg-slate-50">
-<img class="w-full h-full object-cover" data-alt="A minimalist line of elegantly tailored long kurtis in soft linen fabrics." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-L2m8Ac5eJ0S6pL_hB4gBC4-JUbqALtDyeEd1dRnKToj55YCDQo_vVL-P9ANvk0MLAviH_xnb3TMpI9bJoyl_5J6AhMS2qXM22OyQmSXiJ7nZNWEGV_S4eFWqDArSDqQr4P20-tHsOm98IZKx9IjeIzUBHUAJOnW3qBBNfpKr342feMCZPBBlYaXTbAW5bwPqbrwOx1pvcZS5PHnogI7Tz_RnItdiXQ3RtjLF9qQSwm-Ib_jbOKp6xxOdhC2l_sUYHj1wH5bA6YI"/>
+<div class="flex items-center gap-4 p-4 bg-surface-container-lowest rounded-xl border border-gold-accent/30 group hover:border-primary hover:shadow-md transition-all cursor-pointer" onclick="selectStyle(this, 'Straight Cut Kurti', 800)">
+    <span class="material-symbols-outlined text-3xl text-primary">dresser</span>
+    <div>
+        <h4 class="font-headline-sm text-base text-primary mb-1 font-semibold">Straight Cut Kurti</h4>
+        <p class="text-xs text-on-surface-variant">Classic daily wear straight line stitch.</p>
+    </div>
 </div>
-<div>
-<h4 class="font-headline-sm text-[18px] text-primary font-bold">Straight Cut Kurti</h4>
-<p class="text-body-md text-on-surface-variant">Classic silhouette starting from ₹800</p>
-</div>
-</div>
-<div class="flex items-center gap-4 p-4 bg-white rounded-xl border border-gold-accent/30 group hover:border-primary hover:shadow-md transition-all cursor-pointer" onclick="selectStyle(this, 'Anarkali Flare Kurti', 2200)">
+<div class="flex items-center gap-4 p-4 bg-surface-container-lowest rounded-xl border border-gold-accent/30 group hover:border-primary hover:shadow-md transition-all cursor-pointer" onclick="selectStyle(this, 'Anarkali Flare Kurti', 2200)">
 <div class="w-20 h-20 rounded-lg overflow-hidden shrink-0 bg-slate-50">
 <img class="w-full h-full object-cover" data-alt="Flowing Anarkali style garment with heavy volume and delicate pleats." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvy0GNCIfsIB2ULOXREk1kQQBvKObTxo4sQI5l9H29rpa9OVXkbnv52MJXI-kNFvT1IofAuSummcj69iWIQogZTbJ3AO1lrshr2iDy-4zB5dvT2MMl3L-jnVoAAr-5jFBt360guUN0CYxbow3R7JDCtCpCq7pScw81SfvkgPadqVaba6yXb-fOQbWs6CBhim0TnTyIpjgbXdU7pZ3bpkQTpqHnP2OqWTGrVdj_LBMJ5w6UwMl2fPn3cFRUTd9s8DAn3p_2fmp2RAo"/>
 </div>
@@ -349,7 +256,7 @@
 <div class="flex items-center justify-between mb-6">
 <h3 class="font-headline-sm text-headline-sm text-on-surface">Measurement Profile</h3>
 <div class="flex bg-surface-variant rounded-full p-1">
-<button class="px-6 py-2 rounded-full bg-white shadow-sm text-primary font-button text-button" type="button">USE SAVED</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-low shadow-sm text-primary font-button text-button" type="button">USE SAVED</button>
 <button class="px-6 py-2 rounded-full text-on-surface-variant font-button text-button" type="button">ADD NEW</button>
 </div>
 </div>
@@ -370,7 +277,7 @@
 <!-- Right Column: Form details & Pricing -->
 <aside class="lg:col-span-4 sticky top-24 space-y-8">
 <!-- Date Picker & Details -->
-<div class="bg-white p-8 rounded-xl shadow-[0_4px_30px_rgba(0,0,0,0.05)] border border-secondary-fixed/30">
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-[0_4px_30px_rgba(0,0,0,0.05)] border border-secondary-fixed/30">
 <h3 class="font-headline-sm text-headline-sm text-primary mb-6">Schedule Fitting</h3>
 <div class="space-y-6">
 <div>
@@ -479,77 +386,10 @@
     let selectedStyleName = 'Princess Cut Blouse';
     let selectedPrice = 1200;
 
-    // Theme toggle functions
-    function initTheme() {
-        const theme = localStorage.getItem('theme') || 'light';
-        if (theme === 'dark') {
-            document.documentElement.classList.add('dark');
-            const icon = document.getElementById('theme-toggle-icon');
-            if (icon) icon.innerText = 'light_mode';
-        } else {
-            document.documentElement.classList.remove('dark');
-            const icon = document.getElementById('theme-toggle-icon');
-            if (icon) icon.innerText = 'dark_mode';
-        }
-    }
-
-    function toggleTheme() {
-        if (document.documentElement.classList.contains('dark')) {
-            document.documentElement.classList.remove('dark');
-            localStorage.setItem('theme', 'light');
-            const icon = document.getElementById('theme-toggle-icon');
-            if (icon) icon.innerText = 'dark_mode';
-        } else {
-            document.documentElement.classList.add('dark');
-            localStorage.setItem('theme', 'dark');
-            const icon = document.getElementById('theme-toggle-icon');
-            if (icon) icon.innerText = 'light_mode';
-        }
-        if (window.syncHeaderDOM) window.syncHeaderDOM();
-    }
-
-    // Mobile Menu Functions
-    function toggleMobileMenu() {
-        const drawer = document.getElementById('mobile-drawer');
-        const overlay = document.getElementById('mobile-overlay');
-        const isClosed = drawer.classList.contains('translate-x-full');
-        if (isClosed) {
-            drawer.classList.remove('translate-x-full');
-            overlay.classList.remove('opacity-0', 'pointer-events-none');
-            overlay.classList.add('opacity-100');
-        } else {
-            drawer.classList.add('translate-x-full');
-            overlay.classList.add('opacity-0', 'pointer-events-none');
-            overlay.classList.remove('opacity-100');
-        }
-    }
-
-    // Dynamic Active Menu Underlining
-    function highlightActiveNav() {
-        const path = window.location.pathname;
-        const hash = window.location.hash;
-        
-        const ids = ['nav-home', 'nav-services', 'nav-shop', 'nav-gallery', 'nav-reviews', 'nav-about', 'nav-contact'];
-        ids.forEach(id => {
-            const el = document.getElementById(id);
-            if (el) {
-                el.classList.remove('border-b-2', 'border-[#ffdad4]', 'text-[#ffdad4]');
-                el.classList.add('text-[#eeeeee]');
-            }
-        });
-
-        let activeId = 'nav-services'; // default for services page
-        const activeEl = document.getElementById(activeId);
-        if (activeEl) {
-            activeEl.classList.add('border-b-2', 'border-[#ffdad4]', 'text-[#ffdad4]');
-            activeEl.classList.remove('text-[#eeeeee]');
-        }
-    }
-
-    window.addEventListener('hashchange', highlightActiveNav);
+    // Theme and menu toggles removed ( central in shared.js )
     window.addEventListener('DOMContentLoaded', () => {
-        initTheme();
-        highlightActiveNav();
+        if (window.initTheme) window.initTheme();
+        if (window.highlightActiveNav) window.highlightActiveNav();
     });
 
     function selectStyle(element, styleName, price) {
@@ -573,7 +413,7 @@
         if (totalEl) totalEl.innerText = `₹${(price + 350).toLocaleString()}`;
     }
 
-    function handleBookingSubmit(e) {
+    async function handleBookingSubmit(e) {
         e.preventDefault();
         
         // Gatekeep authentication
@@ -598,7 +438,7 @@
             price: selectedPrice + 350
         };
         
-        const success = window.createAppointment(details);
+        const success = await window.createAppointment(details);
         if (success) {
             alert(`Fitting appointment scheduled successfully for ${details.date}!`);
             window.location.href = "../auth/code.html#appointments";

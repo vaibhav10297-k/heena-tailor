@@ -5,82 +5,12 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Atelier Portal | Heena Tailor</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="../shared.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&amp;family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
     
     <script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            "colors": {
-              "primary-fixed": "#ffdad4",
-              "tertiary-container": "#4d3829",
-              "on-surface": "#1b1b1b",
-              "secondary-fixed-dim": "#e9c349",
-              "primary": "#570000",
-              "primary-container": "#800000",
-              "inverse-surface": "#303030",
-              "surface-container-low": "#f3f3f3",
-              "on-tertiary": "#ffffff",
-              "error-container": "#ffdad6",
-              "tertiary-fixed-dim": "#dfc1ac",
-              "secondary-fixed": "#ffe088",
-              "surface-container-lowest": "#ffffff",
-              "background": "#f9f9f9",
-              "on-primary-fixed-variant": "#8f0f07",
-              "on-secondary-fixed": "#241a00",
-              "tertiary": "#352315",
-              "on-primary-fixed": "#410000",
-              "surface": "#f9f9f9",
-              "inverse-on-surface": "#f1f1f1",
-              "surface-tint": "#b22b1d",
-              "on-secondary": "#ffffff",
-              "on-error": "#ffffff",
-              "on-surface-variant": "#5a413d",
-              "error": "#ba1a1a",
-              "on-primary-container": "#ff8371",
-              "inverse-primary": "#ffb4a8",
-              "surface-dim": "#dadada",
-              "secondary-container": "#fed65b",
-              "on-error-container": "#93000a",
-              "primary-fixed-dim": "#ffb4a8",
-              "surface-variant": "#e2e2e2",
-              "surface-container-highest": "#e2e2e2",
-              "secondary": "#735c00",
-              "surface-container-high": "#e8e8e8",
-              "surface-container": "#eeeeee",
-              "on-tertiary-fixed-variant": "#584233",
-              "outline": "#8e706c",
-              "on-background": "#1b1b1b",
-              "on-tertiary-fixed": "#28180b",
-              "tertiary-fixed": "#fddcc7",
-              "surface-bright": "#f9f9f9",
-              "on-tertiary-container": "#bea18e",
-              "on-secondary-container": "#745c00",
-              "on-secondary-fixed-variant": "#574500",
-              "outline-variant": "#e2bfb9",
-              "on-primary": "#ffffff",
-              "gold-accent": "#F2D2BD"
-            },
-            "borderRadius": {
-              "DEFAULT": "0.25rem",
-              "lg": "0.5rem",
-              "xl": "0.75rem",
-              "full": "9999px"
-            },
-            "fontFamily": {
-              "label-caps": ["Montserrat"],
-              "headline-md": ["Playfair Display"],
-              "body-lg": ["Montserrat"],
-              "headline-sm": ["Playfair Display"],
-              "body-md": ["Montserrat"],
-              "display-lg": ["Playfair Display"],
-              "button": ["Montserrat"]
-            }
-          }
-        }
-      }
+      tailwind.config = window.getTailwindConfig({"gold-accent": "#F2D2BD"});
     </script>
 
     <style>
@@ -103,8 +33,7 @@
         }
     </style>
     
-    <!-- Central State Script -->
-    <script src="../shared.js"></script>
+
 </head>
 <body class="bg-background text-on-surface selection:bg-primary-fixed selection:text-primary overflow-x-hidden min-h-screen flex flex-col">
 
@@ -146,7 +75,7 @@
 <main class="flex-grow pt-32 pb-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
     
     <!-- AUTH GUEST VIEW -->
-    <div id="auth-guest-container" class="max-w-md mx-auto bg-white rounded-xl shadow-[0_4px_30px_rgba(0,0,0,0.05)] border border-[#F2D2BD] overflow-hidden hidden">
+    <div id="auth-guest-container" class="max-w-md mx-auto bg-surface-container-lowest rounded-xl shadow-[0_4px_30px_rgba(0,0,0,0.05)] border border-[#F2D2BD] overflow-hidden hidden">
         <div class="p-8 text-center border-b border-[#F2D2BD]/30 bg-[#570000] text-white">
             <span class="font-label-caps text-xs text-[#ffdad4] tracking-widest uppercase block mb-1">Digital Atelier</span>
             <h2 id="auth-title" class="font-headline-md text-2xl">Enter Heena Tailor</h2>
@@ -160,11 +89,11 @@
         <form id="login-form" class="p-8 space-y-6" onsubmit="handleLoginSubmit(event)">
             <div>
                 <label class="font-label-caps text-xs text-on-surface-variant block mb-2 uppercase font-semibold">Email Address</label>
-                <input id="login-email" type="email" required class="w-full bg-white border border-[#8e706c]/40 rounded-lg px-4 py-3 text-body-md text-on-surface focus:ring-1 focus:ring-primary outline-none" placeholder="name@example.com">
+                <input id="login-email" type="email" required class="w-full bg-surface border border-[#8e706c]/40 rounded-lg px-4 py-3 text-body-md text-on-surface focus:ring-1 focus:ring-primary outline-none" placeholder="name@example.com">
             </div>
             <div>
                 <label class="font-label-caps text-xs text-on-surface-variant block mb-2 uppercase font-semibold">Password</label>
-                <input id="login-password" type="password" required class="w-full bg-white border border-[#8e706c]/40 rounded-lg px-4 py-3 text-body-md text-on-surface focus:ring-1 focus:ring-primary outline-none" placeholder="••••••••">
+                <input id="login-password" type="password" required class="w-full bg-surface border border-[#8e706c]/40 rounded-lg px-4 py-3 text-body-md text-on-surface focus:ring-1 focus:ring-primary outline-none" placeholder="••••••••">
             </div>
             <div class="flex justify-between items-center text-xs">
                 <button type="button" onclick="switchAuthView('forgot')" class="text-primary hover:underline font-semibold uppercase tracking-wider">Forgot Password?</button>
@@ -181,23 +110,23 @@
         <form id="register-form" class="p-8 space-y-6 hidden" onsubmit="handleRegisterSubmit(event)">
             <div>
                 <label class="font-label-caps text-xs text-on-surface-variant block mb-2 uppercase font-semibold">Full Name</label>
-                <input id="register-name" type="text" required class="w-full bg-white border border-[#8e706c]/40 rounded-lg px-4 py-3 text-body-md text-on-surface focus:ring-1 focus:ring-primary outline-none" placeholder="e.g. Priya Sharma">
+                <input id="register-name" type="text" required class="w-full bg-surface border border-[#8e706c]/40 rounded-lg px-4 py-3 text-body-md text-on-surface focus:ring-1 focus:ring-primary outline-none" placeholder="e.g. Priya Sharma">
             </div>
             <div>
                 <label class="font-label-caps text-xs text-on-surface-variant block mb-2 uppercase font-semibold">Email Address</label>
-                <input id="register-email" type="email" required class="w-full bg-white border border-[#8e706c]/40 rounded-lg px-4 py-3 text-body-md text-on-surface focus:ring-1 focus:ring-primary outline-none" placeholder="name@example.com">
+                <input id="register-email" type="email" required class="w-full bg-surface border border-[#8e706c]/40 rounded-lg px-4 py-3 text-body-md text-on-surface focus:ring-1 focus:ring-primary outline-none" placeholder="name@example.com">
             </div>
             <div>
                 <label class="font-label-caps text-xs text-on-surface-variant block mb-2 uppercase font-semibold">Phone Number</label>
-                <input id="register-phone" type="tel" required class="w-full bg-white border border-[#8e706c]/40 rounded-lg px-4 py-3 text-body-md text-on-surface focus:ring-1 focus:ring-primary outline-none" placeholder="e.g. 9930503752">
+                <input id="register-phone" type="tel" required class="w-full bg-surface border border-[#8e706c]/40 rounded-lg px-4 py-3 text-body-md text-on-surface focus:ring-1 focus:ring-primary outline-none" placeholder="e.g. 9930503752">
             </div>
             <div>
                 <label class="font-label-caps text-xs text-on-surface-variant block mb-2 uppercase font-semibold">Password</label>
-                <input id="register-password" type="password" required class="w-full bg-white border border-[#8e706c]/40 rounded-lg px-4 py-3 text-body-md text-on-surface focus:ring-1 focus:ring-primary outline-none" placeholder="Min 6 characters">
+                <input id="register-password" type="password" required class="w-full bg-surface border border-[#8e706c]/40 rounded-lg px-4 py-3 text-body-md text-on-surface focus:ring-1 focus:ring-primary outline-none" placeholder="Min 6 characters">
             </div>
             <div>
                 <label class="font-label-caps text-xs text-on-surface-variant block mb-2 uppercase font-semibold">Confirm Password</label>
-                <input id="register-confirm-password" type="password" required class="w-full bg-white border border-[#8e706c]/40 rounded-lg px-4 py-3 text-body-md text-on-surface focus:ring-1 focus:ring-primary outline-none" placeholder="Confirm password">
+                <input id="register-confirm-password" type="password" required class="w-full bg-surface border border-[#8e706c]/40 rounded-lg px-4 py-3 text-body-md text-on-surface focus:ring-1 focus:ring-primary outline-none" placeholder="Confirm password">
             </div>
             <button type="submit" class="w-full bg-primary hover:bg-[#800000] text-white font-button text-button py-4 rounded-lg uppercase tracking-[0.1em] font-semibold active:scale-95 transition-all shadow-md">
                 Create Account
@@ -211,15 +140,15 @@
         <form id="forgot-form" class="p-8 space-y-6 hidden" onsubmit="handleForgotSubmit(event)">
             <div>
                 <label class="font-label-caps text-xs text-on-surface-variant block mb-2 uppercase font-semibold">Registered Email</label>
-                <input id="forgot-email" type="email" required class="w-full bg-white border border-[#8e706c]/40 rounded-lg px-4 py-3 text-body-md text-on-surface focus:ring-1 focus:ring-primary outline-none" placeholder="name@example.com">
+                <input id="forgot-email" type="email" required class="w-full bg-surface border border-[#8e706c]/40 rounded-lg px-4 py-3 text-body-md text-on-surface focus:ring-1 focus:ring-primary outline-none" placeholder="name@example.com">
             </div>
             <div>
                 <label class="font-label-caps text-xs text-on-surface-variant block mb-2 uppercase font-semibold">New Password</label>
-                <input id="forgot-new-password" type="password" required class="w-full bg-white border border-[#8e706c]/40 rounded-lg px-4 py-3 text-body-md text-on-surface focus:ring-1 focus:ring-primary outline-none" placeholder="Min 6 characters">
+                <input id="forgot-new-password" type="password" required class="w-full bg-surface border border-[#8e706c]/40 rounded-lg px-4 py-3 text-body-md text-on-surface focus:ring-1 focus:ring-primary outline-none" placeholder="Min 6 characters">
             </div>
             <div>
                 <label class="font-label-caps text-xs text-on-surface-variant block mb-2 uppercase font-semibold">Confirm New Password</label>
-                <input id="forgot-confirm-password" type="password" required class="w-full bg-white border border-[#8e706c]/40 rounded-lg px-4 py-3 text-body-md text-on-surface focus:ring-1 focus:ring-primary outline-none" placeholder="Confirm new password">
+                <input id="forgot-confirm-password" type="password" required class="w-full bg-surface border border-[#8e706c]/40 rounded-lg px-4 py-3 text-body-md text-on-surface focus:ring-1 focus:ring-primary outline-none" placeholder="Confirm new password">
             </div>
             <button type="submit" class="w-full bg-primary hover:bg-[#800000] text-white font-button text-button py-4 rounded-lg uppercase tracking-[0.1em] font-semibold active:scale-95 transition-all shadow-md">
                 Reset Password
@@ -235,7 +164,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
             
             <!-- Dashboard Sidebar -->
-            <aside class="lg:col-span-3 bg-white p-6 rounded-xl border border-gold-accent/40 shadow-sm space-y-6">
+            <aside class="lg:col-span-3 bg-surface-container-lowest p-6 rounded-xl border border-gold-accent/40 shadow-sm space-y-6">
                 <div class="text-center border-b border-[#F2D2BD]/20 pb-6">
                     <div id="dashboard-avatar" class="w-16 h-16 bg-[#800000] text-white font-headline-sm text-xl uppercase font-bold rounded-full flex items-center justify-center mx-auto mb-3 shadow-md">
                         US
@@ -271,7 +200,7 @@
                         <span id="badge-cart-count" class="absolute right-4 bg-[#ffe088] text-[#111111] text-[10px] w-5 h-5 rounded-full flex items-center justify-center font-bold hidden">0</span>
                     </button>
                     <hr class="border-[#F2D2BD]/20 my-2" />
-                    <button onclick="window.logoutUser()" class="flex items-center gap-3 w-full text-left py-3 px-4 rounded-lg text-body-md text-[#ba1a1a] hover:bg-red-50 transition-all font-bold">
+                    <button onclick="window.logoutUser()" class="flex items-center gap-3 w-full text-left py-3 px-4 rounded-lg text-body-md text-[#ba1a1a] hover:bg-[#ba1a1a]/10 transition-all font-bold">
                         <span class="material-symbols-outlined">logout</span>
                         <span>Logout</span>
                     </button>
@@ -279,7 +208,7 @@
             </aside>
             
             <!-- Dashboard Content Panels -->
-            <section class="lg:col-span-9 bg-white p-8 rounded-xl border border-gold-accent/40 shadow-sm min-h-[500px]">
+            <section class="lg:col-span-9 bg-surface-container-lowest p-8 rounded-xl border border-gold-accent/40 shadow-sm min-h-[500px]">
                 
                 <!-- TAB: PROFILE DETAILS -->
                 <div id="panel-profile" class="tab-panel hidden space-y-8">
@@ -295,20 +224,20 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
                                 <label class="font-label-caps text-xs text-on-surface-variant block mb-2 uppercase font-semibold">Full Name</label>
-                                <input id="profile-name" type="text" required class="w-full bg-white border border-[#8e706c]/40 rounded-lg px-4 py-3 text-body-md text-on-surface focus:ring-1 focus:ring-primary outline-none">
+                                <input id="profile-name" type="text" required class="w-full bg-surface-container border border-[#8e706c]/40 rounded-lg px-4 py-3 text-body-md text-on-surface focus:ring-1 focus:ring-primary outline-none">
                             </div>
                             <div>
                                 <label class="font-label-caps text-xs text-on-surface-variant block mb-2 uppercase font-semibold">Phone Number</label>
-                                <input id="profile-phone" type="tel" required class="w-full bg-white border border-[#8e706c]/40 rounded-lg px-4 py-3 text-body-md text-on-surface focus:ring-1 focus:ring-primary outline-none">
+                                <input id="profile-phone" type="tel" required class="w-full bg-surface-container border border-[#8e706c]/40 rounded-lg px-4 py-3 text-body-md text-on-surface focus:ring-1 focus:ring-primary outline-none">
                             </div>
                         </div>
                         <div>
                             <label class="font-label-caps text-xs text-on-surface-variant block mb-2 uppercase font-semibold">Email Address (Registered)</label>
-                            <input id="profile-email" type="email" disabled class="w-full bg-slate-100 border border-[#8e706c]/20 rounded-lg px-4 py-3 text-body-md text-on-surface-variant cursor-not-allowed">
+                            <input id="profile-email" type="email" disabled class="w-full bg-surface-container-low border border-[#8e706c]/20 rounded-lg px-4 py-3 text-body-md text-on-surface-variant cursor-not-allowed">
                         </div>
                         <div>
                             <label class="font-label-caps text-xs text-on-surface-variant block mb-2 uppercase font-semibold">Delivery Address</label>
-                            <textarea id="profile-address" rows="4" required class="w-full bg-white border border-[#8e706c]/40 rounded-lg px-4 py-3 text-body-md text-on-surface focus:ring-1 focus:ring-primary outline-none" placeholder="Provide complete delivery address for materials store checkouts..."></textarea>
+                            <textarea id="profile-address" rows="4" required class="w-full bg-surface-container border border-[#8e706c]/40 rounded-lg px-4 py-3 text-body-md text-on-surface focus:ring-1 focus:ring-primary outline-none" placeholder="Provide complete delivery address for materials store checkouts..."></textarea>
                         </div>
                         <button type="submit" class="bg-primary hover:bg-[#800000] text-white font-button text-button px-8 py-4 rounded-lg uppercase tracking-wider transition-all font-semibold active:scale-95 shadow-md">
                             Save Changes
@@ -414,50 +343,8 @@
 </footer>
 
 <script>
-    // Theme toggle functions
-    function initTheme() {
-        const theme = localStorage.getItem('theme') || 'light';
-        if (theme === 'dark') {
-            document.documentElement.classList.add('dark');
-            const icon = document.getElementById('theme-toggle-icon');
-            if (icon) icon.innerText = 'light_mode';
-        } else {
-            document.documentElement.classList.remove('dark');
-            const icon = document.getElementById('theme-toggle-icon');
-            if (icon) icon.innerText = 'dark_mode';
-        }
-    }
+    // Theme toggle and menu toggles removed ( central in shared.js )
 
-    function toggleTheme() {
-        if (document.documentElement.classList.contains('dark')) {
-            document.documentElement.classList.remove('dark');
-            localStorage.setItem('theme', 'light');
-            const icon = document.getElementById('theme-toggle-icon');
-            if (icon) icon.innerText = 'dark_mode';
-        } else {
-            document.documentElement.classList.add('dark');
-            localStorage.setItem('theme', 'dark');
-            const icon = document.getElementById('theme-toggle-icon');
-            if (icon) icon.innerText = 'light_mode';
-        }
-        if (window.syncHeaderDOM) window.syncHeaderDOM();
-    }
-
-    // Mobile Menu
-    function toggleMobileMenu() {
-        const drawer = document.getElementById('mobile-drawer');
-        const overlay = document.getElementById('mobile-overlay');
-        const isClosed = drawer.classList.contains('translate-x-full');
-        if (isClosed) {
-            drawer.classList.remove('translate-x-full');
-            overlay.classList.remove('opacity-0', 'pointer-events-none');
-            overlay.classList.add('opacity-100');
-        } else {
-            drawer.classList.add('translate-x-full');
-            overlay.classList.add('opacity-0', 'pointer-events-none');
-            overlay.classList.remove('opacity-100');
-        }
-    }
 
     // --- AUTH FLOW CONTROLLERS ---
 
@@ -489,12 +376,13 @@
         box.classList.remove("hidden");
     }
 
-    function handleLoginSubmit(e) {
+    async function handleLoginSubmit(e) {
         e.preventDefault();
         const email = document.getElementById("login-email").value;
         const pass = document.getElementById("login-password").value;
         
-        const res = window.loginUser(email, pass);
+        showAuthStatus("Connecting to secure server...", true);
+        const res = await window.loginUser(email, pass);
         if (res.success) {
             showAuthStatus("Login successful! Loading dashboard...", true);
             setTimeout(checkAuthState, 1000);
@@ -503,7 +391,7 @@
         }
     }
 
-    function handleRegisterSubmit(e) {
+    async function handleRegisterSubmit(e) {
         e.preventDefault();
         const name = document.getElementById("register-name").value;
         const email = document.getElementById("register-email").value;
@@ -520,7 +408,8 @@
             return;
         }
         
-        const res = window.registerUser(name, email, phone, pass);
+        showAuthStatus("Creating your digital atelier account...", true);
+        const res = await window.registerUser(name, email, phone, pass);
         if (res.success) {
             showAuthStatus("Registration successful! Opening dashboard...", true);
             setTimeout(checkAuthState, 1000);
@@ -699,7 +588,7 @@
                         <th class="px-6 py-4 font-semibold">Base Cost</th>
                     </tr>
                 </thead>
-                <tbody class="divide-y divide-[#F2D2BD]/10 bg-white">
+                <tbody class="divide-y divide-[#F2D2BD]/10 bg-surface-container-lowest">
                     ${tableRows}
                 </tbody>
             </table>
@@ -723,7 +612,7 @@
         let tableRows = user.orders.map(order => {
             const itemsSummary = order.items.map(item => `${item.name} (x${item.quantity})`).join(', ');
             return `
-                <tr class="border-b border-[#F2D2BD]/10 hover:bg-slate-50/50">
+                <tr class="border-b border-[#F2D2BD]/10 hover:bg-surface-container-high/50">
                     <td class="px-6 py-4 font-semibold text-primary font-body-md">${order.id}</td>
                     <td class="px-6 py-4 text-on-surface-variant text-sm">${order.createdAt}</td>
                     <td class="px-6 py-4 text-on-surface-variant text-sm max-w-xs truncate" title="${itemsSummary}">${itemsSummary}</td>
@@ -748,7 +637,7 @@
                         <th class="px-6 py-4 font-semibold">Total Price</th>
                     </tr>
                 </thead>
-                <tbody class="divide-y divide-[#F2D2BD]/10 bg-white">
+                <tbody class="divide-y divide-[#F2D2BD]/10 bg-surface-container-lowest">
                     ${tableRows}
                 </tbody>
             </table>
@@ -772,10 +661,10 @@
         const favProducts = window.HEENA_PRODUCTS.filter(p => user.favorites.includes(p.id));
         
         container.innerHTML = favProducts.map(p => `
-            <div class="bg-white rounded-xl border border-[#F2D2BD]/40 overflow-hidden shadow-sm flex flex-col group hover:shadow-lg transition-all duration-300">
+            <div class="bg-surface-container-lowest rounded-xl border border-[#F2D2BD]/40 overflow-hidden shadow-sm flex flex-col group hover:shadow-lg transition-all duration-300">
                 <div class="aspect-[3/4] relative overflow-hidden bg-slate-50">
                     <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                    <button onclick="removeWishlistItem(${p.id})" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm text-[#ba1a1a] flex items-center justify-center shadow-md hover:bg-white active:scale-90 transition-all">
+                    <button onclick="removeWishlistItem(${p.id})" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-container-high/80 backdrop-blur-sm text-[#ba1a1a] flex items-center justify-center shadow-md hover:bg-surface-container-highest active:scale-90 transition-all">
                         <span class="material-symbols-outlined text-lg fill-current">favorite</span>
                     </button>
                 </div>
@@ -846,7 +735,7 @@
             
             return `
                 <div class="flex flex-col sm:flex-row items-center gap-6 p-4 bg-surface rounded-xl border border-[#F2D2BD]/20">
-                    <div class="w-20 h-20 rounded-lg overflow-hidden shrink-0 bg-white">
+                    <div class="w-20 h-20 rounded-lg overflow-hidden shrink-0 bg-surface-container-low">
                         <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover">
                     </div>
                     <div class="flex-grow text-center sm:text-left space-y-1">
@@ -855,9 +744,9 @@
                         <p class="text-xs font-bold text-on-surface">₹${product.price} / ${product.unit}</p>
                     </div>
                     <div class="flex items-center gap-3">
-                        <button onclick="updateCartItemQty(${product.id}, -1)" class="w-8 h-8 rounded-full border border-secondary-fixed/50 hover:bg-white flex items-center justify-center text-primary font-bold active:scale-90 transition-all">-</button>
+                        <button onclick="updateCartItemQty(${product.id}, -1)" class="w-8 h-8 rounded-full border border-secondary-fixed/50 hover:bg-primary-fixed/20 flex items-center justify-center text-primary font-bold active:scale-90 transition-all">-</button>
                         <span class="font-bold text-sm text-on-surface w-4 text-center">${cItem.quantity}</span>
-                        <button onclick="updateCartItemQty(${product.id}, 1)" class="w-8 h-8 rounded-full border border-secondary-fixed/50 hover:bg-white flex items-center justify-center text-primary font-bold active:scale-90 transition-all">+</button>
+                        <button onclick="updateCartItemQty(${product.id}, 1)" class="w-8 h-8 rounded-full border border-secondary-fixed/50 hover:bg-primary-fixed/20 flex items-center justify-center text-primary font-bold active:scale-90 transition-all">+</button>
                     </div>
                     <div class="text-center sm:text-right shrink-0 min-w-[100px]">
                         <p class="font-bold text-sm text-primary">₹${cost.toLocaleString()}</p>
@@ -899,7 +788,7 @@
                     </div>
                     
                     <!-- Delivery address validation before checkout -->
-                    <div class="space-y-3 bg-white p-4 rounded-lg border border-[#F2D2BD]/20">
+                    <div class="space-y-3 bg-surface-container-low p-4 rounded-lg border border-[#F2D2BD]/20">
                         <h4 class="font-label-caps text-xs text-on-surface font-semibold uppercase tracking-wider">Confirm Shipping Address</h4>
                         <p id="checkout-address-preview" class="text-xs text-on-surface-variant leading-relaxed line-clamp-3">${user.address || '<span class="text-[#ba1a1a] italic font-semibold">No address saved. Please update in Profile tab.</span>'}</p>
                         <button onclick="activateTab('profile')" class="text-xs text-primary font-bold hover:underline block">Edit Address</button>
@@ -1036,7 +925,7 @@
     });
 
     window.addEventListener('DOMContentLoaded', () => {
-        initTheme();
+        if (window.initTheme) window.initTheme();
         checkAuthState();
     });
 </script>

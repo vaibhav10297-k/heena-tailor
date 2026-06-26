@@ -1,0 +1,9 @@
+# Ignore backend repository folder in frontend project
+heena-tailor-backend/
+
+# IDE files
+.gemini/
+.idea/
+.vscode/
+node_modules/
+.DS_Store
