@@ -646,12 +646,8 @@ window.syncHeaderDOM = function() {
     }
     
     // Check path to adjust links if inside subdirectories
-    const pathDepth = window.location.pathname.split('/').filter(p => p).length;
-    let pathPrefix = "../";
-    // Adjust if running directly under root (not common in this structure but good precaution)
-    if (window.location.pathname.endsWith('index.html') || window.location.pathname === '/' || window.location.pathname.split('/').pop() === 'stitch_heena_tailor_premium_boutique') {
-        pathPrefix = "./";
-    }
+    const isSubfolder = ['/auth/', '/book_a_service/', '/designer_gallery/', '/home_heena_tailor/', '/materials_store/', '/atelier_heritage/'].some(folder => window.location.pathname.includes(folder));
+    let pathPrefix = isSubfolder ? "../" : "./";
     
     // Rewrite entire innerHTML of actions container
     headerActions.innerHTML = `
