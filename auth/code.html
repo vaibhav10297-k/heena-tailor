@@ -75,88 +75,445 @@
 <main class="flex-grow pt-32 pb-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
     
     <!-- AUTH GUEST VIEW -->
-    <div id="auth-guest-container" class="max-w-md mx-auto bg-surface-container-lowest rounded-xl shadow-[0_4px_30px_rgba(0,0,0,0.05)] border border-[#F2D2BD] overflow-hidden hidden">
-        <div class="p-8 text-center border-b border-[#F2D2BD]/30 bg-[#570000] text-white">
-            <span class="font-label-caps text-xs text-[#ffdad4] tracking-widest uppercase block mb-1">Digital Atelier</span>
-            <h2 id="auth-title" class="font-headline-md text-2xl">Enter Heena Tailor</h2>
-            <p id="auth-desc" class="text-sm text-white/70 mt-2 font-body-md">Sign in or register to book fittings, order materials, and save designs.</p>
+    <div id="auth-guest-container" class="max-w-[1000px] mx-auto bg-surface-container-lowest rounded-2xl shadow-[0_10px_50px_rgba(0,0,0,0.06)] border border-[#F2D2BD]/40 overflow-hidden hidden transition-all duration-300 ease-in-out">
+        <div class="grid grid-cols-1 lg:grid-cols-12 min-h-[600px]">
+            
+            <!-- Left Banner Column (Visual / Branding Showcase) -->
+            <div class="lg:col-span-5 bg-gradient-to-br from-[#400000] via-[#570000] to-[#111111] text-white p-8 md:p-12 flex flex-col justify-between relative overflow-hidden border-r border-[#F2D2BD]/20">
+                <div class="absolute inset-0 boutique-note opacity-20 pointer-events-none"></div>
+                <div class="absolute -left-16 -top-16 w-48 h-48 rounded-full bg-[#F2D2BD]/10 blur-2xl"></div>
+                <div class="absolute -right-16 -bottom-16 w-64 h-64 rounded-full bg-[#800000]/30 blur-3xl"></div>
+                
+                <!-- Brand Info -->
+                <div class="relative z-10">
+                    <span class="font-label-caps text-xs text-[#F2D2BD] tracking-widest uppercase block mb-2">Digital Atelier</span>
+                    <h2 class="font-headline-md text-3xl font-bold tracking-wide leading-tight">Heena Tailor</h2>
+                    <p class="text-white/60 text-sm mt-3 leading-relaxed font-body-md">
+                        Masterfully crafting bespoke attire since 1984. Enter our atelier portal to access trial schedules, customize sizes, and order tailor-made accessories.
+                    </p>
+                </div>
+
+                <!-- Testimonial/Quote slider in Left panel -->
+                <div class="relative z-10 mt-12 lg:mt-0 pt-8 border-t border-[#F2D2BD]/20">
+                    <p class="text-xs italic text-white/80 font-body-md leading-relaxed">
+                        "The tailoring here is absolute perfection. My custom sherwani fits like a second skin. Truly a premium experience."
+                    </p>
+                    <div class="flex items-center gap-3 mt-4">
+                        <div class="w-8 h-8 rounded-full bg-[#F2D2BD] text-[#570000] flex items-center justify-center text-xs font-bold font-label-caps">VS</div>
+                        <div>
+                            <h4 class="text-xs font-bold text-white">Vaibhav Sharma</h4>
+                            <p class="text-[10px] text-white/40">Verified Customer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column (Forms) -->
+            <div class="lg:col-span-7 p-8 md:p-12 flex flex-col justify-center relative bg-surface-bright">
+                
+                <!-- Status Box -->
+                <div id="auth-status-box" class="mb-6 p-4 rounded-xl text-sm hidden font-body-md"></div>
+
+                <!-- 1. OPTIONS CHOICES VIEW -->
+                <div id="auth-choices-view" class="space-y-6">
+                    <div class="text-center lg:text-left">
+                        <h2 class="font-headline-sm text-2xl font-bold text-primary">Sign up or log in</h2>
+                        <p class="text-sm text-on-surface-variant/80 mt-1">Select your preferred method to access the digital atelier portal.</p>
+                    </div>
+
+                    <div class="space-y-3 pt-4">
+                        <!-- Google Login Button wrapper -->
+                        <div id="google-signin-btn-container" class="w-full">
+                            <button type="button" onclick="triggerGoogleSignIn()" class="w-full flex items-center justify-center gap-3 bg-surface hover:bg-surface-container border border-outline/30 text-on-surface py-3.5 px-4 rounded-xl font-semibold hover:border-primary/50 transition-all shadow-sm active:scale-[0.98]">
+                                <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24">
+                                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                                </svg>
+                                <span class="font-button text-sm tracking-wide">Continue with Google</span>
+                            </button>
+                        </div>
+
+                        <!-- Microsoft Button -->
+                        <button type="button" onclick="triggerMicrosoftSignIn()" class="w-full flex items-center justify-center gap-3 bg-surface hover:bg-surface-container border border-outline/30 text-on-surface py-3.5 px-4 rounded-xl font-semibold hover:border-primary/50 transition-all shadow-sm active:scale-[0.98]">
+                            <svg class="w-5 h-5 shrink-0" viewBox="0 0 23 23">
+                                <rect x="0" y="0" width="11" height="11" fill="#F25022"/>
+                                <rect x="12" y="0" width="11" height="11" fill="#7FBA00"/>
+                                <rect x="0" y="12" width="11" height="11" fill="#00A4EF"/>
+                                <rect x="12" y="12" width="11" height="11" fill="#FFB900"/>
+                            </svg>
+                            <span class="font-button text-sm tracking-wide">Continue with Microsoft</span>
+                        </button>
+
+                        <!-- Apple Button -->
+                        <button type="button" onclick="triggerAppleSignIn()" class="w-full flex items-center justify-center gap-3 bg-surface hover:bg-surface-container border border-outline/30 text-on-surface py-3.5 px-4 rounded-xl font-semibold hover:border-primary/50 transition-all shadow-sm active:scale-[0.98]">
+                            <svg class="w-5 h-5 shrink-0 fill-current" viewBox="0 0 24 24">
+                                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.21.67-2.93 1.49-.62.69-1.16 1.84-1.01 2.96 1.12.09 2.27-.56 2.95-1.39z"/>
+                            </svg>
+                            <span class="font-button text-sm tracking-wide">Continue with Apple</span>
+                        </button>
+
+                        <div class="flex items-center gap-4 py-2">
+                            <hr class="flex-grow border-outline/20" />
+                            <span class="text-xs text-on-surface-variant/50 font-bold uppercase tracking-wider">or</span>
+                            <hr class="flex-grow border-outline/20" />
+                        </div>
+
+                        <!-- Continue with Email Button -->
+                        <button type="button" onclick="switchAuthSubView('login')" class="w-full flex items-center justify-center gap-3 bg-primary hover:bg-[#800000] text-white py-3.5 px-4 rounded-xl font-bold transition-all shadow-md active:scale-[0.98]">
+                            <span class="material-symbols-outlined text-xl">mail</span>
+                            <span class="font-button text-sm tracking-wide uppercase">Continue with Email</span>
+                        </button>
+                    </div>
+
+                    <!-- Remember Me placement outside -->
+                    <div class="flex items-center pt-2">
+                        <input id="choices-remember-me" type="checkbox" class="h-4 w-4 rounded border-outline/30 text-primary focus:ring-primary/20 focus:ring-2 bg-surface cursor-pointer">
+                        <label for="choices-remember-me" class="ml-2.5 text-xs text-on-surface-variant/95 select-none cursor-pointer font-semibold">Keep me signed in securely (Remember Me)</label>
+                    </div>
+
+                    <div class="text-center pt-6 border-t border-outline/10">
+                        <p class="text-xs text-on-surface-variant/70 leading-relaxed font-body-md">
+                            By continuing, you agree to our <a href="#" class="text-primary font-semibold hover:underline">Terms of Service</a> and <a href="#" class="text-primary font-semibold hover:underline">Privacy Policy</a>.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 2. LOGIN FORM -->
+                <form id="login-form" class="space-y-5 hidden" onsubmit="handleLoginSubmit(event)">
+                    <div class="flex items-center gap-2 mb-2">
+                        <button type="button" onclick="switchAuthSubView('choices')" class="p-1 rounded-full hover:bg-surface-container text-primary transition-all active:scale-90">
+                            <span class="material-symbols-outlined text-xl font-bold">arrow_back</span>
+                        </button>
+                        <div>
+                            <h2 class="font-headline-sm text-2xl font-bold text-primary">Enter Heena Tailor</h2>
+                            <p class="text-xs text-on-surface-variant/80 mt-0.5">Sign in with your email credentials.</p>
+                        </div>
+                    </div>
+
+                    <!-- Email Input -->
+                    <div class="space-y-1">
+                        <label class="font-label-caps text-[10px] text-on-surface-variant block uppercase font-bold tracking-wider">Email Address</label>
+                        <input id="login-email" type="email" required onblur="validateEmailField(this)" class="w-full bg-surface border border-outline/30 rounded-xl px-4 py-3 text-sm text-on-surface focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all placeholder-on-surface-variant/30" placeholder="name@example.com">
+                        <span id="login-email-error" class="text-xs text-error font-semibold hidden">Please enter a valid email address.</span>
+                    </div>
+
+                    <!-- Password Input -->
+                    <div class="space-y-1 relative">
+                        <div class="flex justify-between items-center">
+                            <label class="font-label-caps text-[10px] text-on-surface-variant block uppercase font-bold tracking-wider">Password</label>
+                            <button type="button" onclick="switchAuthSubView('forgot')" class="text-[10px] text-primary hover:underline font-bold uppercase tracking-wider">Forgot Password?</button>
+                        </div>
+                        <div class="relative">
+                            <input id="login-password" type="password" required class="w-full bg-surface border border-outline/30 rounded-xl pl-4 pr-11 py-3 text-sm text-on-surface focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all placeholder-on-surface-variant/30" placeholder="••••••••">
+                            <button type="button" onclick="togglePasswordVisibility('login-password')" class="absolute right-3.5 top-1/2 -translate-y-1/2 text-on-surface-variant/60 hover:text-primary transition-colors focus:outline-none">
+                                <span class="material-symbols-outlined text-xl select-none" id="login-password-eye">visibility</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Remember Me -->
+                    <div class="flex items-center">
+                        <input id="login-remember-me" type="checkbox" class="h-4 w-4 rounded border-outline/30 text-primary focus:ring-primary/20 focus:ring-2 bg-surface cursor-pointer">
+                        <label for="login-remember-me" class="ml-2.5 text-xs text-on-surface-variant/95 select-none cursor-pointer font-semibold">Keep me signed in securely (Remember Me)</label>
+                    </div>
+
+                    <!-- Button -->
+                    <button type="submit" id="login-submit-btn" class="w-full bg-primary hover:bg-[#800000] text-white py-4 rounded-xl font-bold transition-all shadow-md active:scale-[0.98] flex items-center justify-center gap-2">
+                        <span id="login-btn-spinner" class="animate-spin h-5 w-5 border-2 border-white border-t-transparent rounded-full hidden"></span>
+                        <span id="login-btn-text" class="font-button text-sm uppercase tracking-wider">Sign In</span>
+                    </button>
+
+                    <div class="text-center text-xs pt-4 border-t border-outline/10 text-on-surface-variant/80">
+                        Don't have an account? <button type="button" onclick="switchAuthSubView('register')" class="text-primary font-bold hover:underline">Register here</button>
+                    </div>
+                </form>
+
+                <!-- 3. REGISTER FORM -->
+                <form id="register-form" class="space-y-4 hidden" onsubmit="handleRegisterSubmit(event)">
+                    <div class="flex items-center gap-2 mb-2">
+                        <button type="button" onclick="switchAuthSubView('choices')" class="p-1 rounded-full hover:bg-surface-container text-primary transition-all active:scale-90">
+                            <span class="material-symbols-outlined text-xl font-bold">arrow_back</span>
+                        </button>
+                        <div>
+                            <h2 class="font-headline-sm text-2xl font-bold text-primary">Join the Atelier</h2>
+                            <p class="text-xs text-on-surface-variant/80 mt-0.5">Create your luxury portfolio profile.</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="space-y-1">
+                            <label class="font-label-caps text-[10px] text-on-surface-variant block uppercase font-bold tracking-wider">Full Name</label>
+                            <input id="register-name" type="text" required class="w-full bg-surface border border-outline/30 rounded-xl px-4 py-2.5 text-sm text-on-surface focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all placeholder-on-surface-variant/30" placeholder="Priya Sharma">
+                        </div>
+                        <div class="space-y-1">
+                            <label class="font-label-caps text-[10px] text-on-surface-variant block uppercase font-bold tracking-wider">Phone Number</label>
+                            <input id="register-phone" type="tel" required class="w-full bg-surface border border-outline/30 rounded-xl px-4 py-2.5 text-sm text-on-surface focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all placeholder-on-surface-variant/30" placeholder="e.g. 9930503752">
+                        </div>
+                    </div>
+
+                    <div class="space-y-1">
+                        <label class="font-label-caps text-[10px] text-on-surface-variant block uppercase font-bold tracking-wider">Email Address</label>
+                        <input id="register-email" type="email" required onblur="validateEmailField(this)" class="w-full bg-surface border border-outline/30 rounded-xl px-4 py-2.5 text-sm text-on-surface focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all placeholder-on-surface-variant/30" placeholder="name@example.com">
+                        <span id="register-email-error" class="text-xs text-error font-semibold hidden">Please enter a valid email address.</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <!-- Password -->
+                        <div class="space-y-1 relative">
+                            <label class="font-label-caps text-[10px] text-on-surface-variant block uppercase font-bold tracking-wider">Password</label>
+                            <div class="relative">
+                                <input id="register-password" type="password" required oninput="handlePasswordInput(this.value)" class="w-full bg-surface border border-outline/30 rounded-xl pl-4 pr-11 py-2.5 text-sm text-on-surface focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all placeholder-on-surface-variant/30" placeholder="••••••••">
+                                <button type="button" onclick="togglePasswordVisibility('register-password')" class="absolute right-3.5 top-1/2 -translate-y-1/2 text-on-surface-variant/60 hover:text-primary transition-colors focus:outline-none">
+                                    <span class="material-symbols-outlined text-xl select-none" id="register-password-eye">visibility</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Confirm Password -->
+                        <div class="space-y-1 relative">
+                            <label class="font-label-caps text-[10px] text-on-surface-variant block uppercase font-bold tracking-wider">Confirm Password</label>
+                            <div class="relative">
+                                <input id="register-confirm-password" type="password" required oninput="checkConfirmPassword(this.value)" class="w-full bg-surface border border-outline/30 rounded-xl pl-4 pr-11 py-2.5 text-sm text-on-surface focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all placeholder-on-surface-variant/30" placeholder="••••••••">
+                                <button type="button" onclick="togglePasswordVisibility('register-confirm-password')" class="absolute right-3.5 top-1/2 -translate-y-1/2 text-on-surface-variant/60 hover:text-primary transition-colors focus:outline-none">
+                                    <span class="material-symbols-outlined text-xl select-none" id="register-confirm-password-eye">visibility</span>
+                                </button>
+                            </div>
+                            <span id="confirm-password-error" class="text-xs text-error font-semibold hidden">Passwords do not match.</span>
+                        </div>
+                    </div>
+
+                    <!-- Password strength indicator & checklists -->
+                    <div id="password-reqs-box" class="p-3.5 bg-surface-container rounded-xl space-y-2.5 hidden">
+                        <div class="flex items-center justify-between text-xs font-semibold">
+                            <span class="text-on-surface-variant">Password Strength:</span>
+                            <span id="pass-strength-text" class="text-error uppercase">Weak</span>
+                        </div>
+                        <div class="w-full h-1.5 bg-surface rounded-full overflow-hidden">
+                            <div id="pass-strength-bar" class="w-1/5 h-full bg-error transition-all duration-300"></div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2 text-[10px] text-on-surface-variant/90 font-medium">
+                            <div id="req-length" class="flex items-center gap-1.5 transition-all"><span class="material-symbols-outlined text-sm">circle</span>Minimum 8 characters</div>
+                            <div id="req-uppercase" class="flex items-center gap-1.5 transition-all"><span class="material-symbols-outlined text-sm">circle</span>Uppercase letter</div>
+                            <div id="req-number" class="flex items-center gap-1.5 transition-all"><span class="material-symbols-outlined text-sm">circle</span>Number</div>
+                            <div id="req-special" class="flex items-center gap-1.5 transition-all"><span class="material-symbols-outlined text-sm">circle</span>Special character</div>
+                        </div>
+                    </div>
+
+                    <!-- Terms checkbox & Remember me checkbox in registration -->
+                    <div class="space-y-2 pt-2 select-none cursor-pointer text-xs font-semibold text-on-surface-variant/90">
+                        <div class="flex items-center">
+                            <input id="register-remember-me" type="checkbox" class="h-4 w-4 rounded border-outline/30 text-primary focus:ring-primary/20 focus:ring-2 bg-surface cursor-pointer">
+                            <label for="register-remember-me" class="ml-2.5 cursor-pointer">Keep me signed in securely (Remember Me)</label>
+                        </div>
+                    </div>
+
+                    <button type="submit" id="register-submit-btn" class="w-full bg-primary hover:bg-[#800000] text-white py-3.5 rounded-xl font-bold transition-all shadow-md active:scale-[0.98] flex items-center justify-center gap-2">
+                        <span id="register-btn-spinner" class="animate-spin h-5 w-5 border-2 border-white border-t-transparent rounded-full hidden"></span>
+                        <span id="register-btn-text" class="font-button text-sm uppercase tracking-wider">Create Account</span>
+                    </button>
+
+                    <div class="text-center text-xs pt-4 border-t border-outline/10 text-on-surface-variant/80">
+                        Already registered? <button type="button" onclick="switchAuthSubView('login')" class="text-primary font-bold hover:underline">Sign in</button>
+                    </div>
+                </form>
+
+                <!-- 4. OTP EMAIL VERIFICATION VIEW -->
+                <div id="otp-verify-view" class="space-y-6 hidden">
+                    <div>
+                        <h2 class="font-headline-sm text-2xl font-bold text-primary">Verify Your Email</h2>
+                        <p class="text-xs text-on-surface-variant/80 mt-1 leading-relaxed">
+                            We have sent a 6-digit verification code to <span id="verification-email-label" class="font-bold text-on-surface">your email</span>. Please enter it below.
+                        </p>
+                    </div>
+
+                    <!-- 6 Digit Inputs -->
+                    <div class="flex justify-between items-center gap-2.5 py-4 max-w-sm mx-auto" id="otp-inputs-wrapper">
+                        <input type="text" maxlength="1" onpaste="handleOtpPaste(event)" onkeyup="handleOtpKeyup(this, event)" class="w-12 h-12 bg-surface border border-outline/30 focus:border-primary focus:ring-2 focus:ring-primary/20 rounded-xl text-center font-bold text-lg outline-none transition-all">
+                        <input type="text" maxlength="1" onkeyup="handleOtpKeyup(this, event)" class="w-12 h-12 bg-surface border border-outline/30 focus:border-primary focus:ring-2 focus:ring-primary/20 rounded-xl text-center font-bold text-lg outline-none transition-all">
+                        <input type="text" maxlength="1" onkeyup="handleOtpKeyup(this, event)" class="w-12 h-12 bg-surface border border-outline/30 focus:border-primary focus:ring-2 focus:ring-primary/20 rounded-xl text-center font-bold text-lg outline-none transition-all">
+                        <input type="text" maxlength="1" onkeyup="handleOtpKeyup(this, event)" class="w-12 h-12 bg-surface border border-outline/30 focus:border-primary focus:ring-2 focus:ring-primary/20 rounded-xl text-center font-bold text-lg outline-none transition-all">
+                        <input type="text" maxlength="1" onkeyup="handleOtpKeyup(this, event)" class="w-12 h-12 bg-surface border border-outline/30 focus:border-primary focus:ring-2 focus:ring-primary/20 rounded-xl text-center font-bold text-lg outline-none transition-all">
+                        <input type="text" maxlength="1" onkeyup="handleOtpKeyup(this, event)" class="w-12 h-12 bg-surface border border-outline/30 focus:border-primary focus:ring-2 focus:ring-primary/20 rounded-xl text-center font-bold text-lg outline-none transition-all">
+                    </div>
+
+                    <!-- Autofill helper in dev mode -->
+                    <div id="demo-otp-helper" class="text-center p-2.5 bg-surface-container rounded-xl text-xs text-[#8f0f07] font-semibold hidden">
+                        <span>Development Mode: </span>
+                        <button onclick="autofillDemoOtp()" class="underline hover:text-primary">Click here to autofill verification code</button>
+                    </div>
+
+                    <!-- Resend OTP links -->
+                    <div class="text-center text-xs text-on-surface-variant/80 font-semibold">
+                        Didn't receive code? 
+                        <button id="resend-otp-btn" onclick="handleResendCode()" class="text-primary font-bold hover:underline disabled:opacity-50 disabled:no-underline">Resend code</button>
+                        <span id="otp-timer-label" class="hidden text-on-surface-variant/50">in <span id="otp-timer-count" class="font-bold">60</span>s</span>
+                    </div>
+
+                    <button onclick="handleVerifyCodeSubmit()" id="otp-submit-btn" class="w-full bg-primary hover:bg-[#800000] text-white py-4 rounded-xl font-bold transition-all shadow-md active:scale-[0.98] flex items-center justify-center gap-2">
+                        <span id="otp-btn-spinner" class="animate-spin h-5 w-5 border-2 border-white border-t-transparent rounded-full hidden"></span>
+                        <span id="otp-btn-text" class="font-button text-sm uppercase tracking-wider">Verify Account</span>
+                    </button>
+
+                    <div class="text-center text-xs pt-4 border-t border-outline/10">
+                        <button onclick="switchAuthSubView('choices')" class="text-primary font-bold hover:underline">Back to Options</button>
+                    </div>
+                </div>
+
+                <!-- 5. FORGOT PASSWORD VIEW -->
+                <form id="forgot-form" class="space-y-5 hidden" onsubmit="handleForgotSubmit(event)">
+                    <div class="flex items-center gap-2 mb-2">
+                        <button type="button" onclick="switchAuthSubView('login')" class="p-1 rounded-full hover:bg-surface-container text-primary transition-all active:scale-90">
+                            <span class="material-symbols-outlined text-xl font-bold">arrow_back</span>
+                        </button>
+                        <div>
+                            <h2 class="font-headline-sm text-2xl font-bold text-primary">Forgot Password?</h2>
+                            <p class="text-xs text-on-surface-variant/80 mt-0.5">We will send a 6-digit password reset code to your email.</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-1">
+                        <label class="font-label-caps text-[10px] text-on-surface-variant block uppercase font-bold tracking-wider">Registered Email</label>
+                        <input id="forgot-email" type="email" required class="w-full bg-surface border border-outline/30 rounded-xl px-4 py-3 text-sm text-on-surface focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all placeholder-on-surface-variant/30" placeholder="name@example.com">
+                    </div>
+
+                    <button type="submit" id="forgot-submit-btn" class="w-full bg-primary hover:bg-[#800000] text-white py-4 rounded-xl font-bold transition-all shadow-md active:scale-[0.98] flex items-center justify-center gap-2">
+                        <span id="forgot-btn-spinner" class="animate-spin h-5 w-5 border-2 border-white border-t-transparent rounded-full hidden"></span>
+                        <span id="forgot-btn-text" class="font-button text-sm uppercase tracking-wider">Send Reset Code</span>
+                    </button>
+                </form>
+
+                <!-- 6. RESET PASSWORD FORM VIEW -->
+                <form id="reset-form" class="space-y-4 hidden" onsubmit="handleResetSubmit(event)">
+                    <div>
+                        <h2 class="font-headline-sm text-2xl font-bold text-primary">Reset Password</h2>
+                        <p class="text-xs text-on-surface-variant/80 mt-0.5">Enter the reset code and choose a strong password.</p>
+                    </div>
+
+                    <!-- Email prefills/stays hidden or disabled -->
+                    <div class="space-y-1">
+                        <label class="font-label-caps text-[10px] text-on-surface-variant block uppercase font-bold tracking-wider">Email Address</label>
+                        <input id="reset-email" type="email" required disabled class="w-full bg-surface-container-low border border-outline/25 rounded-xl px-4 py-2.5 text-sm text-on-surface-variant/70 outline-none">
+                    </div>
+
+                    <!-- Reset Code input -->
+                    <div class="space-y-1">
+                        <label class="font-label-caps text-[10px] text-on-surface-variant block uppercase font-bold tracking-wider">6-Digit Reset Code</label>
+                        <input id="reset-code" type="text" required maxlength="6" class="w-full bg-surface border border-outline/30 rounded-xl px-4 py-2.5 text-sm text-on-surface focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all font-bold tracking-wider text-center" placeholder="123456">
+                        <!-- Autofill helper in dev mode for reset code -->
+                        <div id="demo-reset-helper" class="text-center p-2.5 mt-2 bg-surface-container rounded-xl text-xs text-[#8f0f07] font-semibold hidden">
+                            <span>Development Mode: </span>
+                            <button type="button" onclick="autofillDemoResetOtp()" class="underline hover:text-primary">Click here to autofill reset code</button>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <!-- New Password -->
+                        <div class="space-y-1 relative">
+                            <label class="font-label-caps text-[10px] text-on-surface-variant block uppercase font-bold tracking-wider">New Password</label>
+                            <div class="relative">
+                                <input id="reset-password" type="password" required oninput="handleResetPasswordInput(this.value)" class="w-full bg-surface border border-outline/30 rounded-xl pl-4 pr-11 py-2.5 text-sm text-on-surface focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all placeholder-on-surface-variant/30" placeholder="••••••••">
+                                <button type="button" onclick="togglePasswordVisibility('reset-password')" class="absolute right-3.5 top-1/2 -translate-y-1/2 text-on-surface-variant/60 hover:text-primary transition-colors focus:outline-none">
+                                    <span class="material-symbols-outlined text-xl select-none" id="reset-password-eye">visibility</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Confirm Password -->
+                        <div class="space-y-1 relative">
+                            <label class="font-label-caps text-[10px] text-on-surface-variant block uppercase font-bold tracking-wider">Confirm New Password</label>
+                            <div class="relative">
+                                <input id="reset-confirm-password" type="password" required oninput="checkResetConfirmPassword(this.value)" class="w-full bg-surface border border-outline/30 rounded-xl pl-4 pr-11 py-2.5 text-sm text-on-surface focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all placeholder-on-surface-variant/30" placeholder="••••••••">
+                                <button type="button" onclick="togglePasswordVisibility('reset-confirm-password')" class="absolute right-3.5 top-1/2 -translate-y-1/2 text-on-surface-variant/60 hover:text-primary transition-colors focus:outline-none">
+                                    <span class="material-symbols-outlined text-xl select-none" id="reset-confirm-password-eye">visibility</span>
+                                </button>
+                            </div>
+                            <span id="reset-confirm-password-error" class="text-xs text-error font-semibold hidden">Passwords do not match.</span>
+                        </div>
+                    </div>
+
+                    <!-- Password strength bar for reset -->
+                    <div id="reset-password-reqs-box" class="p-3.5 bg-surface-container rounded-xl space-y-2.5 hidden">
+                        <div class="flex items-center justify-between text-xs font-semibold">
+                            <span class="text-on-surface-variant">Password Strength:</span>
+                            <span id="reset-pass-strength-text" class="text-error uppercase">Weak</span>
+                        </div>
+                        <div class="w-full h-1.5 bg-surface rounded-full overflow-hidden">
+                            <div id="reset-pass-strength-bar" class="w-1/5 h-full bg-error transition-all duration-300"></div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2 text-[10px] text-on-surface-variant/90 font-medium">
+                            <div id="reset-req-length" class="flex items-center gap-1.5 transition-all"><span class="material-symbols-outlined text-sm">circle</span>Minimum 8 characters</div>
+                            <div id="reset-req-uppercase" class="flex items-center gap-1.5 transition-all"><span class="material-symbols-outlined text-sm">circle</span>Uppercase letter</div>
+                            <div id="reset-req-number" class="flex items-center gap-1.5 transition-all"><span class="material-symbols-outlined text-sm">circle</span>Number</div>
+                            <div id="reset-req-special" class="flex items-center gap-1.5 transition-all"><span class="material-symbols-outlined text-sm">circle</span>Special character</div>
+                        </div>
+                    </div>
+
+                    <button type="submit" id="reset-submit-btn" class="w-full bg-primary hover:bg-[#800000] text-white py-3.5 rounded-xl font-bold transition-all shadow-md active:scale-[0.98] flex items-center justify-center gap-2">
+                        <span id="reset-btn-spinner" class="animate-spin h-5 w-5 border-2 border-white border-t-transparent rounded-full hidden"></span>
+                        <span id="reset-btn-text" class="font-button text-sm uppercase tracking-wider">Save Password</span>
+                    </button>
+                </form>
+
+            </div>
         </div>
-        
-        <!-- Status Box -->
-        <div id="auth-status-box" class="mx-8 mt-6 p-4 rounded-lg text-sm hidden font-body-md"></div>
-        
-        <!-- LOGIN FORM -->
-        <form id="login-form" class="p-8 space-y-6" onsubmit="handleLoginSubmit(event)">
-            <div>
-                <label class="font-label-caps text-xs text-on-surface-variant block mb-2 uppercase font-semibold">Email Address</label>
-                <input id="login-email" type="email" required class="w-full bg-surface border border-[#8e706c]/40 rounded-lg px-4 py-3 text-body-md text-on-surface focus:ring-1 focus:ring-primary outline-none" placeholder="name@example.com">
-            </div>
-            <div>
-                <label class="font-label-caps text-xs text-on-surface-variant block mb-2 uppercase font-semibold">Password</label>
-                <input id="login-password" type="password" required class="w-full bg-surface border border-[#8e706c]/40 rounded-lg px-4 py-3 text-body-md text-on-surface focus:ring-1 focus:ring-primary outline-none" placeholder="••••••••">
-            </div>
-            <div class="flex justify-between items-center text-xs">
-                <button type="button" onclick="switchAuthView('forgot')" class="text-primary hover:underline font-semibold uppercase tracking-wider">Forgot Password?</button>
-            </div>
-            <button type="submit" class="w-full bg-primary hover:bg-[#800000] text-white font-button text-button py-4 rounded-lg uppercase tracking-[0.1em] font-semibold active:scale-95 transition-all shadow-md">
-                Sign In
-            </button>
-            <div class="text-center text-sm pt-2 text-on-surface-variant/75">
-                Don't have an account? <button type="button" onclick="switchAuthView('register')" class="text-primary font-bold hover:underline">Register here</button>
-            </div>
-        </form>
+    </div>
 
-        <!-- REGISTER FORM -->
-        <form id="register-form" class="p-8 space-y-6 hidden" onsubmit="handleRegisterSubmit(event)">
-            <div>
-                <label class="font-label-caps text-xs text-on-surface-variant block mb-2 uppercase font-semibold">Full Name</label>
-                <input id="register-name" type="text" required class="w-full bg-surface border border-[#8e706c]/40 rounded-lg px-4 py-3 text-body-md text-on-surface focus:ring-1 focus:ring-primary outline-none" placeholder="e.g. Priya Sharma">
+    <!-- MOCK GOOGLE AUTHENTICATION CHOOSER MODAL -->
+    <div id="google-chooser-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm opacity-0 pointer-events-none transition-all duration-300">
+        <div class="bg-white text-gray-800 rounded-2xl shadow-2xl max-w-md w-full mx-4 overflow-hidden border border-gray-200 transform scale-95 transition-transform duration-300">
+            <!-- Modal Header -->
+            <div class="p-6 text-center border-b border-gray-100 flex flex-col items-center">
+                <svg class="w-10 h-10 mb-2" viewBox="0 0 24 24">
+                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                </svg>
+                <h3 class="text-lg font-bold text-gray-900">Sign in with Google</h3>
+                <p class="text-xs text-gray-500 mt-1">to continue to Heena Tailor Boutique</p>
             </div>
-            <div>
-                <label class="font-label-caps text-xs text-on-surface-variant block mb-2 uppercase font-semibold">Email Address</label>
-                <input id="register-email" type="email" required class="w-full bg-surface border border-[#8e706c]/40 rounded-lg px-4 py-3 text-body-md text-on-surface focus:ring-1 focus:ring-primary outline-none" placeholder="name@example.com">
-            </div>
-            <div>
-                <label class="font-label-caps text-xs text-on-surface-variant block mb-2 uppercase font-semibold">Phone Number</label>
-                <input id="register-phone" type="tel" required class="w-full bg-surface border border-[#8e706c]/40 rounded-lg px-4 py-3 text-body-md text-on-surface focus:ring-1 focus:ring-primary outline-none" placeholder="e.g. 9930503752">
-            </div>
-            <div>
-                <label class="font-label-caps text-xs text-on-surface-variant block mb-2 uppercase font-semibold">Password</label>
-                <input id="register-password" type="password" required class="w-full bg-surface border border-[#8e706c]/40 rounded-lg px-4 py-3 text-body-md text-on-surface focus:ring-1 focus:ring-primary outline-none" placeholder="Min 6 characters">
-            </div>
-            <div>
-                <label class="font-label-caps text-xs text-on-surface-variant block mb-2 uppercase font-semibold">Confirm Password</label>
-                <input id="register-confirm-password" type="password" required class="w-full bg-surface border border-[#8e706c]/40 rounded-lg px-4 py-3 text-body-md text-on-surface focus:ring-1 focus:ring-primary outline-none" placeholder="Confirm password">
-            </div>
-            <button type="submit" class="w-full bg-primary hover:bg-[#800000] text-white font-button text-button py-4 rounded-lg uppercase tracking-[0.1em] font-semibold active:scale-95 transition-all shadow-md">
-                Create Account
-            </button>
-            <div class="text-center text-sm pt-2 text-on-surface-variant/75">
-                Already registered? <button type="button" onclick="switchAuthView('login')" class="text-primary font-bold hover:underline">Sign in</button>
-            </div>
-        </form>
 
-        <!-- FORGOT PASSWORD FORM -->
-        <form id="forgot-form" class="p-8 space-y-6 hidden" onsubmit="handleForgotSubmit(event)">
-            <div>
-                <label class="font-label-caps text-xs text-on-surface-variant block mb-2 uppercase font-semibold">Registered Email</label>
-                <input id="forgot-email" type="email" required class="w-full bg-surface border border-[#8e706c]/40 rounded-lg px-4 py-3 text-body-md text-on-surface focus:ring-1 focus:ring-primary outline-none" placeholder="name@example.com">
+            <!-- List of accounts -->
+            <div class="p-6 space-y-3" id="google-accounts-list">
+                <button type="button" onclick="handleMockGoogleSelect('vaibhav.sharma@gmail.com')" class="w-full flex items-center gap-3.5 p-3 rounded-xl border border-gray-150 hover:border-blue-400 hover:bg-blue-50/20 text-left transition-all group">
+                    <div class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-sm">V</div>
+                    <div>
+                        <h4 class="text-sm font-semibold text-gray-800 group-hover:text-blue-600">Vaibhav Sharma</h4>
+                        <p class="text-xs text-gray-400">vaibhav.sharma@gmail.com</p>
+                    </div>
+                </button>
+                <button type="button" onclick="handleMockGoogleSelect('heena.designer@gmail.com')" class="w-full flex items-center gap-3.5 p-3 rounded-xl border border-gray-150 hover:border-blue-400 hover:bg-blue-50/20 text-left transition-all group">
+                    <div class="w-8 h-8 rounded-full bg-red-500 text-white flex items-center justify-center font-bold text-sm">H</div>
+                    <div>
+                        <h4 class="text-sm font-semibold text-gray-800 group-hover:text-blue-600">Heena Designer</h4>
+                        <p class="text-xs text-gray-400">heena.designer@gmail.com</p>
+                    </div>
+                </button>
+                <div class="border-t border-gray-100 my-2 pt-3">
+                    <button type="button" onclick="toggleGoogleCustomInput(true)" id="google-use-custom-btn" class="w-full flex items-center gap-3.5 p-3 rounded-xl hover:bg-gray-50 text-left transition-all group">
+                        <span class="material-symbols-outlined text-gray-400 group-hover:text-blue-600">person_add</span>
+                        <span class="text-sm font-semibold text-gray-600 group-hover:text-blue-600">Use another email account</span>
+                    </button>
+                </div>
+                
+                <!-- Custom input input -->
+                <div id="google-custom-email-box" class="space-y-2 hidden">
+                    <input id="google-custom-email-input" type="email" placeholder="Enter google email..." class="w-full px-4 py-3 text-sm border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-200 focus:border-blue-500 outline-none">
+                    <div class="flex gap-2">
+                        <button type="button" onclick="toggleGoogleCustomInput(false)" class="w-1/2 py-2.5 text-xs font-bold text-gray-500 hover:bg-gray-100 rounded-xl">Cancel</button>
+                        <button type="button" onclick="submitCustomMockGoogle()" class="w-1/2 py-2.5 text-xs font-bold bg-blue-600 hover:bg-blue-700 text-white rounded-xl shadow-sm">Continue</button>
+                    </div>
+                </div>
             </div>
-            <div>
-                <label class="font-label-caps text-xs text-on-surface-variant block mb-2 uppercase font-semibold">New Password</label>
-                <input id="forgot-new-password" type="password" required class="w-full bg-surface border border-[#8e706c]/40 rounded-lg px-4 py-3 text-body-md text-on-surface focus:ring-1 focus:ring-primary outline-none" placeholder="Min 6 characters">
+
+            <!-- Modal Footer -->
+            <div class="p-4 bg-gray-50 text-center border-t border-gray-100 flex justify-between items-center text-[10px] text-gray-400">
+                <span>To continue, Google will share your name, email, and photo.</span>
+                <button type="button" onclick="toggleGoogleChooser(false)" class="text-red-500 font-bold hover:underline uppercase">Close</button>
             </div>
-            <div>
-                <label class="font-label-caps text-xs text-on-surface-variant block mb-2 uppercase font-semibold">Confirm New Password</label>
-                <input id="forgot-confirm-password" type="password" required class="w-full bg-surface border border-[#8e706c]/40 rounded-lg px-4 py-3 text-body-md text-on-surface focus:ring-1 focus:ring-primary outline-none" placeholder="Confirm new password">
-            </div>
-            <button type="submit" class="w-full bg-primary hover:bg-[#800000] text-white font-button text-button py-4 rounded-lg uppercase tracking-[0.1em] font-semibold active:scale-95 transition-all shadow-md">
-                Reset Password
-            </button>
-            <div class="text-center text-sm pt-2 text-on-surface-variant/75">
-                Remembered it? <button type="button" onclick="switchAuthView('login')" class="text-primary font-bold hover:underline">Sign in</button>
-            </div>
-        </form>
+        </div>
     </div>
 
     <!-- AUTH LOGGED-IN USER VIEW (DASHBOARD) -->
@@ -345,49 +702,133 @@
 <script>
     // Theme toggle and menu toggles removed ( central in shared.js )
 
+    // --- AUTH FLOW STATE VARIABLES ---
+    let otpEmail = '';
+    let devDemoVerificationCode = '';
+    let devDemoResetCode = '';
+    let otpCountdownInterval = null;
 
     // --- AUTH FLOW CONTROLLERS ---
 
     function switchAuthView(view) {
+        // Redirection adapter for existing shared.js references
+        if (view === 'login') {
+            switchAuthSubView('login');
+        } else if (view === 'register') {
+            switchAuthSubView('register');
+        } else if (view === 'forgot') {
+            switchAuthSubView('forgot');
+        }
+    }
+
+    function switchAuthSubView(view) {
+        document.getElementById("auth-choices-view").classList.add("hidden");
         document.getElementById("login-form").classList.add("hidden");
         document.getElementById("register-form").classList.add("hidden");
         document.getElementById("forgot-form").classList.add("hidden");
+        document.getElementById("otp-verify-view").classList.add("hidden");
+        document.getElementById("reset-form").classList.add("hidden");
+        
+        // Hide standard error status boxes
         document.getElementById("auth-status-box").classList.add("hidden");
         
-        if (view === 'login') {
+        // Reset subview fields and requirements boxes
+        document.getElementById("password-reqs-box").classList.add("hidden");
+        document.getElementById("reset-password-reqs-box").classList.add("hidden");
+
+        if (view === 'choices') {
+            document.getElementById("auth-choices-view").classList.remove("hidden");
+        } else if (view === 'login') {
             document.getElementById("login-form").classList.remove("hidden");
-            document.getElementById("auth-title").innerText = "Enter Heena Tailor";
-            document.getElementById("auth-desc").innerText = "Sign in or register to book fittings, order materials, and save designs.";
+            document.getElementById("login-email").focus();
         } else if (view === 'register') {
             document.getElementById("register-form").classList.remove("hidden");
-            document.getElementById("auth-title").innerText = "Join the Atelier";
-            document.getElementById("auth-desc").innerText = "Create your account for personalized customization services.";
+            document.getElementById("register-name").focus();
         } else if (view === 'forgot') {
             document.getElementById("forgot-form").classList.remove("hidden");
-            document.getElementById("auth-title").innerText = "Reset Password";
-            document.getElementById("auth-desc").innerText = "Provide your registered email to update your secure password.";
+            document.getElementById("forgot-email").focus();
+        } else if (view === 'otp') {
+            document.getElementById("otp-verify-view").classList.remove("hidden");
+            document.getElementById("verification-email-label").innerText = otpEmail;
+            
+            // Clear and focus first digit input
+            const inputs = document.querySelectorAll("#otp-inputs-wrapper input");
+            inputs.forEach(i => i.value = '');
+            inputs[0].focus();
+
+            // Setup demo autofill helper in development mode
+            const helper = document.getElementById("demo-otp-helper");
+            if (devDemoVerificationCode && helper) {
+                helper.classList.remove("hidden");
+            } else if (helper) {
+                helper.classList.add("hidden");
+            }
+
+            startOtpCountdown();
+        } else if (view === 'reset') {
+            document.getElementById("reset-form").classList.remove("hidden");
+            document.getElementById("reset-email").value = otpEmail;
+            document.getElementById("reset-code").value = devDemoResetCode || '';
+            document.getElementById("reset-password").value = '';
+            document.getElementById("reset-confirm-password").value = '';
+            document.getElementById("reset-code").focus();
+
+            // Setup demo reset helper in development mode
+            const helper = document.getElementById("demo-reset-helper");
+            if (devDemoResetCode && helper) {
+                helper.classList.remove("hidden");
+            } else if (helper) {
+                helper.classList.add("hidden");
+            }
         }
     }
 
     function showAuthStatus(message, isSuccess) {
         const box = document.getElementById("auth-status-box");
         box.innerText = message;
-        box.className = `mx-8 mt-6 p-4 rounded-lg text-sm font-body-md ${isSuccess ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`;
+        box.className = `p-4 rounded-xl text-sm font-body-md shadow-sm mb-6 ${
+            isSuccess 
+                ? 'bg-green-500/10 text-green-700 dark:text-green-400 border border-green-500/30' 
+                : 'bg-red-500/10 text-error border border-red-500/30'
+        }`;
         box.classList.remove("hidden");
     }
+
+    // --- FORM ACTIONS ---
 
     async function handleLoginSubmit(e) {
         e.preventDefault();
         const email = document.getElementById("login-email").value;
         const pass = document.getElementById("login-password").value;
+        const rememberMe = document.getElementById("login-remember-me").checked || document.getElementById("choices-remember-me").checked;
         
-        showAuthStatus("Connecting to secure server...", true);
-        const res = await window.loginUser(email, pass);
-        if (res.success) {
-            showAuthStatus("Login successful! Loading dashboard...", true);
-            setTimeout(checkAuthState, 1000);
-        } else {
-            showAuthStatus(res.message, false);
+        if (!validateEmail(email)) {
+            showAuthStatus("Please enter a valid email address.", false);
+            return;
+        }
+
+        showAuthStatus("Signing in...", true);
+        toggleBtnLoading("login-submit-btn", true, "Sign In", "Signing in...");
+        
+        try {
+            const res = await window.loginUser(email, pass, rememberMe);
+            if (res.success) {
+                showAuthStatus("Welcome back!", true);
+                setTimeout(checkAuthState, 1000);
+            } else if (res.requiresVerification) {
+                otpEmail = res.email;
+                devDemoVerificationCode = res.demoCode || '';
+                showAuthStatus(res.message, false);
+                setTimeout(() => {
+                    switchAuthSubView('otp');
+                }, 1200);
+            } else {
+                showAuthStatus(res.message || "Incorrect email or password.", false);
+            }
+        } catch (err) {
+            showAuthStatus("Network connection failed. Please check your connection and try again.", false);
+        } finally {
+            toggleBtnLoading("login-submit-btn", false, "Sign In", "Signing in...");
         }
     }
 
@@ -399,55 +840,479 @@
         const pass = document.getElementById("register-password").value;
         const confPass = document.getElementById("register-confirm-password").value;
         
-        if (pass.length < 6) {
-            showAuthStatus("Password must be at least 6 characters.", false);
+        if (!validateEmail(email)) {
+            showAuthStatus("Please enter a valid email address.", false);
             return;
         }
+
+        // Validate password rules
+        const checks = getPasswordChecks(pass);
+        if (!checks.length || !checks.uppercase || !checks.number || !checks.special) {
+            showAuthStatus("Please make sure your password satisfies all requirements.", false);
+            return;
+        }
+
         if (pass !== confPass) {
             showAuthStatus("Passwords do not match.", false);
             return;
         }
+
+        showAuthStatus("Creating account...", true);
+        toggleBtnLoading("register-submit-btn", true, "Create Account", "Creating account...");
         
-        showAuthStatus("Creating your digital atelier account...", true);
-        const res = await window.registerUser(name, email, phone, pass);
-        if (res.success) {
-            showAuthStatus("Registration successful! Opening dashboard...", true);
-            setTimeout(checkAuthState, 1000);
-        } else {
-            showAuthStatus(res.message, false);
+        try {
+            const res = await window.registerUser(name, email, phone, pass);
+            if (res.success) {
+                showAuthStatus("Account created successfully. Loading verification...", true);
+                otpEmail = email;
+                devDemoVerificationCode = res.demoCode || '';
+                setTimeout(() => {
+                    switchAuthSubView('otp');
+                }, 1200);
+            } else {
+                showAuthStatus(res.message || "Account creation failed.", false);
+            }
+        } catch (err) {
+            showAuthStatus("Network error occurred. Please try again.", false);
+        } finally {
+            toggleBtnLoading("register-submit-btn", false, "Create Account", "Creating account...");
         }
     }
 
-    function handleForgotSubmit(e) {
+    async function handleForgotSubmit(e) {
         e.preventDefault();
         const email = document.getElementById("forgot-email").value;
-        const newPass = document.getElementById("forgot-new-password").value;
-        const confNewPass = document.getElementById("forgot-confirm-password").value;
-        
-        if (newPass.length < 6) {
-            showAuthStatus("Password must be at least 6 characters.", false);
+
+        if (!validateEmail(email)) {
+            showAuthStatus("Please enter a valid email address.", false);
             return;
         }
-        if (newPass !== confNewPass) {
+
+        showAuthStatus("Sending code...", true);
+        toggleBtnLoading("forgot-submit-btn", true, "Send Reset Code", "Sending code...");
+
+        try {
+            const res = await window.forgotUserPassword(email);
+            if (res.success) {
+                showAuthStatus("Password reset code sent successfully!", true);
+                otpEmail = email;
+                devDemoResetCode = res.demoCode || '';
+                setTimeout(() => {
+                    switchAuthSubView('reset');
+                }, 1200);
+            } else {
+                showAuthStatus(res.message || "Email not registered.", false);
+            }
+        } catch (err) {
+            showAuthStatus("Network error. Please try again later.", false);
+        } finally {
+            toggleBtnLoading("forgot-submit-btn", false, "Send Reset Code", "Send Reset Code");
+        }
+    }
+
+    async function handleResetSubmit(e) {
+        e.preventDefault();
+        const email = otpEmail;
+        const code = document.getElementById("reset-code").value;
+        const pass = document.getElementById("reset-password").value;
+        const confPass = document.getElementById("reset-confirm-password").value;
+
+        if (code.length < 6) {
+            showAuthStatus("Please enter a valid 6-digit code.", false);
+            return;
+        }
+
+        // Validate password rules
+        const checks = getPasswordChecks(pass);
+        if (!checks.length || !checks.uppercase || !checks.number || !checks.special) {
+            showAuthStatus("Please make sure your new password satisfies all requirements.", false);
+            return;
+        }
+
+        if (pass !== confPass) {
             showAuthStatus("Passwords do not match.", false);
             return;
         }
-        
-        const res = window.resetUserPassword(email, newPass);
-        if (res.success) {
-            showAuthStatus("Password reset successfully! Toggling back to Login...", true);
-            setTimeout(() => {
-                switchAuthView('login');
-            }, 1500);
-        } else {
-            showAuthStatus(res.message, false);
+
+        showAuthStatus("Resetting password...", true);
+        toggleBtnLoading("reset-submit-btn", true, "Save Password", "Saving password...");
+
+        try {
+            const res = await window.resetUserPasswordConfirm(email, code, pass);
+            if (res.success) {
+                showAuthStatus("Password reset successfully! Redirecting to login...", true);
+                // Sync email to login field for convenience
+                document.getElementById("login-email").value = email;
+                document.getElementById("login-password").value = '';
+                setTimeout(() => {
+                    switchAuthSubView('login');
+                }, 1500);
+            } else {
+                showAuthStatus(res.message || "Invalid or expired reset code.", false);
+            }
+        } catch (err) {
+            showAuthStatus("Network error during reset. Please try again.", false);
+        } finally {
+            toggleBtnLoading("reset-submit-btn", false, "Save Password", "Save Password");
         }
+    }
+
+    // --- EMAIL VERIFICATION OTP CORE LOGIC ---
+
+    async function handleVerifyCodeSubmit() {
+        const inputs = document.querySelectorAll("#otp-inputs-wrapper input");
+        let code = '';
+        inputs.forEach(i => code += i.value.trim());
+
+        if (code.length < 6) {
+            showAuthStatus("Please enter the full 6-digit verification code.", false);
+            return;
+        }
+
+        const rememberMe = document.getElementById("choices-remember-me").checked || document.getElementById("login-remember-me").checked || document.getElementById("register-remember-me").checked;
+
+        showAuthStatus("Verifying code...", true);
+        toggleBtnLoading("otp-submit-btn", true, "Verify Account", "Verifying...");
+
+        try {
+            const res = await window.verifyEmailCode(otpEmail, code, rememberMe);
+            if (res.success) {
+                showAuthStatus("Account verified successfully! Welcome back!", true);
+                setTimeout(checkAuthState, 1000);
+            } else {
+                showAuthStatus(res.message || "Invalid or expired verification code.", false);
+            }
+        } catch (err) {
+            showAuthStatus("Network error occurred during verification.", false);
+        } finally {
+            toggleBtnLoading("otp-submit-btn", false, "Verify Account", "Verify Account");
+        }
+    }
+
+    async function handleResendCode() {
+        showAuthStatus("Resending code...", true);
+        try {
+            const res = await window.resendVerificationCode(otpEmail);
+            if (res.success) {
+                showAuthStatus("New verification code sent successfully!", true);
+                devDemoVerificationCode = res.demoCode || '';
+                
+                // Show developer helper again if code updated
+                const helper = document.getElementById("demo-otp-helper");
+                if (devDemoVerificationCode && helper) {
+                    helper.classList.remove("hidden");
+                }
+                
+                startOtpCountdown();
+            } else {
+                showAuthStatus(res.message || "Resend failed. Please try again.", false);
+            }
+        } catch (err) {
+            showAuthStatus("Network error during code resending.", false);
+        }
+    }
+
+    function startOtpCountdown() {
+        const btn = document.getElementById("resend-otp-btn");
+        const timerLabel = document.getElementById("otp-timer-label");
+        const timerCount = document.getElementById("otp-timer-count");
+        
+        btn.disabled = true;
+        timerLabel.classList.remove("hidden");
+        let timeLeft = 60;
+        timerCount.innerText = timeLeft;
+
+        clearInterval(otpCountdownInterval);
+        otpCountdownInterval = setInterval(() => {
+            timeLeft--;
+            timerCount.innerText = timeLeft;
+            if (timeLeft <= 0) {
+                clearInterval(otpCountdownInterval);
+                btn.disabled = false;
+                timerLabel.classList.add("hidden");
+            }
+        }, 1000);
+    }
+
+    // OTP Input Navigation Tabbing
+    function handleOtpKeyup(input, e) {
+        const key = e.key;
+        const inputs = document.querySelectorAll("#otp-inputs-wrapper input");
+        const idx = Array.from(inputs).indexOf(input);
+
+        if (key === "Backspace" || key === "ArrowLeft") {
+            if (idx > 0 && input.value.length === 0) {
+                inputs[idx - 1].focus();
+            }
+        } else if (key >= "0" && key <= "9") {
+            if (idx < inputs.length - 1 && input.value.length > 0) {
+                inputs[idx + 1].focus();
+            }
+        }
+
+        // Auto-submit verification code if 6 digits entered
+        let code = '';
+        inputs.forEach(i => code += i.value);
+        if (code.length === 6 && key >= "0" && key <= "9") {
+            handleVerifyCodeSubmit();
+        }
+    }
+
+    function handleOtpPaste(e) {
+        e.preventDefault();
+        const pasted = (e.clipboardData || window.clipboardData).getData('Text').trim();
+        if (/^\d{6}$/.test(pasted)) {
+            const inputs = document.querySelectorAll("#otp-inputs-wrapper input");
+            for (let i = 0; i < inputs.length; i++) {
+                inputs[i].value = pasted[i];
+            }
+            inputs[inputs.length - 1].focus();
+            handleVerifyCodeSubmit();
+        }
+    }
+
+    // --- MOCK/REAL GOOGLE AUTH HELPERS ---
+
+    function triggerGoogleSignIn() {
+        // Toggle the chooser pop-up dialog
+        toggleGoogleChooser(true);
+    }
+
+    function toggleGoogleChooser(isOpen) {
+        const modal = document.getElementById("google-chooser-modal");
+        const modalContent = modal.querySelector(".bg-white");
+        if (isOpen) {
+            modal.classList.remove("pointer-events-none", "opacity-0");
+            modalContent.classList.remove("scale-95");
+        } else {
+            modal.classList.add("pointer-events-none", "opacity-0");
+            modalContent.classList.add("scale-95");
+            toggleGoogleCustomInput(false);
+        }
+    }
+
+    function toggleGoogleCustomInput(show) {
+        document.getElementById("google-custom-email-box").classList.toggle("hidden", !show);
+        document.getElementById("google-accounts-list").classList.toggle("hidden", show);
+        if (show) {
+            document.getElementById("google-custom-email-input").focus();
+            document.getElementById("google-custom-email-input").value = '';
+        }
+    }
+
+    async function handleMockGoogleSelect(email) {
+        toggleGoogleChooser(false);
+        const rememberMe = document.getElementById("choices-remember-me").checked || document.getElementById("login-remember-me").checked || document.getElementById("register-remember-me").checked;
+        
+        showAuthStatus("Signing in with Google...", true);
+        try {
+            const res = await window.loginWithGoogle('mock_google_token_' + email, rememberMe);
+            if (res.success) {
+                showAuthStatus("Google Sign-In successful!", true);
+                setTimeout(checkAuthState, 1000);
+            } else {
+                showAuthStatus(res.message || "Google authentication failed.", false);
+            }
+        } catch (err) {
+            showAuthStatus("Network connection error. Google authentication failed.", false);
+        }
+    }
+
+    function submitCustomMockGoogle() {
+        const email = document.getElementById("google-custom-email-input").value;
+        if (!validateEmail(email)) {
+            alert("Please enter a valid email address.");
+            return;
+        }
+        handleMockGoogleSelect(email);
+    }
+
+    function triggerMicrosoftSignIn() {
+        showAuthStatus("Microsoft authentication service is in preview mode.", true);
+    }
+
+    function triggerAppleSignIn() {
+        showAuthStatus("Apple authentication is only supported on iOS/macOS Safari browsers.", false);
+    }
+
+    // --- FORM INTERACTIVE VALIDATION HELPERS ---
+
+    function validateEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    function validateEmailField(input) {
+        const errorSpan = document.getElementById(input.id + "-error");
+        if (input.value && !validateEmail(input.value)) {
+            errorSpan.classList.remove("hidden");
+            input.classList.add("border-error", "focus:ring-error/20");
+        } else {
+            errorSpan.classList.add("hidden");
+            input.classList.remove("border-error", "focus:ring-error/20");
+        }
+    }
+
+    function togglePasswordVisibility(inputId) {
+        const input = document.getElementById(inputId);
+        const eyeIcon = document.getElementById(inputId + "-eye");
+        if (input.type === "password") {
+            input.type = "text";
+            eyeIcon.innerText = "visibility_off";
+        } else {
+            input.type = "password";
+            eyeIcon.innerText = "visibility";
+        }
+    }
+
+    function getPasswordChecks(password) {
+        return {
+            length: password.length >= 8,
+            uppercase: /[A-Z]/.test(password),
+            number: /[0-9]/.test(password),
+            special: /[^A-Za-z0-9]/.test(password)
+        };
+    }
+
+    function handlePasswordInput(password) {
+        const reqsBox = document.getElementById("password-reqs-box");
+        reqsBox.classList.toggle("hidden", password.length === 0);
+
+        const checks = getPasswordChecks(password);
+        let score = 0;
+        if (checks.length) score++;
+        if (checks.uppercase) score++;
+        if (checks.number) score++;
+        if (checks.special) score++;
+
+        updateChecklistIcon("req-length", checks.length);
+        updateChecklistIcon("req-uppercase", checks.uppercase);
+        updateChecklistIcon("req-number", checks.number);
+        updateChecklistIcon("req-special", checks.special);
+
+        const bar = document.getElementById("pass-strength-bar");
+        const text = document.getElementById("pass-strength-text");
+
+        if (score <= 2) {
+            bar.className = "h-full bg-error transition-all duration-300";
+            bar.style.width = "33%";
+            text.innerText = "Weak";
+            text.className = "text-error uppercase font-bold text-xs";
+        } else if (score === 3) {
+            bar.className = "h-full bg-yellow-500 transition-all duration-300";
+            bar.style.width = "66%";
+            text.innerText = "Medium";
+            text.className = "text-yellow-600 dark:text-yellow-400 uppercase font-bold text-xs";
+        } else if (score >= 4) {
+            bar.className = "h-full bg-green-600 transition-all duration-300";
+            bar.style.width = "100%";
+            text.innerText = "Strong";
+            text.className = "text-green-600 dark:text-green-400 uppercase font-bold text-xs";
+        }
+    }
+
+    function handleResetPasswordInput(password) {
+        const reqsBox = document.getElementById("reset-password-reqs-box");
+        reqsBox.classList.toggle("hidden", password.length === 0);
+
+        const checks = getPasswordChecks(password);
+        let score = 0;
+        if (checks.length) score++;
+        if (checks.uppercase) score++;
+        if (checks.number) score++;
+        if (checks.special) score++;
+
+        updateChecklistIcon("reset-req-length", checks.length);
+        updateChecklistIcon("reset-req-uppercase", checks.uppercase);
+        updateChecklistIcon("reset-req-number", checks.number);
+        updateChecklistIcon("reset-req-special", checks.special);
+
+        const bar = document.getElementById("reset-pass-strength-bar");
+        const text = document.getElementById("reset-pass-strength-text");
+
+        if (score <= 2) {
+            bar.className = "h-full bg-error transition-all duration-300";
+            bar.style.width = "33%";
+            text.innerText = "Weak";
+            text.className = "text-error uppercase font-bold text-xs";
+        } else if (score === 3) {
+            bar.className = "h-full bg-yellow-500 transition-all duration-300";
+            bar.style.width = "66%";
+            text.innerText = "Medium";
+            text.className = "text-yellow-600 dark:text-yellow-400 uppercase font-bold text-xs";
+        } else if (score >= 4) {
+            bar.className = "h-full bg-green-600 transition-all duration-300";
+            bar.style.width = "100%";
+            text.innerText = "Strong";
+            text.className = "text-green-600 dark:text-green-400 uppercase font-bold text-xs";
+        }
+    }
+
+    function updateChecklistIcon(elementId, passed) {
+        const element = document.getElementById(elementId);
+        const icon = element.querySelector(".material-symbols-outlined");
+        if (passed) {
+            icon.innerText = "check_circle";
+            icon.className = "material-symbols-outlined text-sm text-green-600 font-bold fill-current shrink-0";
+            element.className = "flex items-center gap-1.5 text-green-700 dark:text-green-400 font-bold";
+        } else {
+            icon.innerText = "circle";
+            icon.className = "material-symbols-outlined text-sm text-on-surface-variant/40 shrink-0";
+            element.className = "flex items-center gap-1.5 text-on-surface-variant/90 font-medium";
+        }
+    }
+
+    function checkConfirmPassword(confPass) {
+        const pass = document.getElementById("register-password").value;
+        const err = document.getElementById("confirm-password-error");
+        err.classList.toggle("hidden", pass === confPass || !confPass);
+    }
+
+    function checkResetConfirmPassword(confPass) {
+        const pass = document.getElementById("reset-password").value;
+        const err = document.getElementById("reset-confirm-password-error");
+        err.classList.toggle("hidden", pass === confPass || !confPass);
+    }
+
+    function toggleBtnLoading(submitBtnId, isLoading, defaultText, loadingText) {
+        const btn = document.getElementById(submitBtnId);
+        if (!btn) return;
+        const spinner = document.getElementById(submitBtnId.replace("-submit-btn", "-btn-spinner").replace("-submit", "-btn-spinner"));
+        const btnText = document.getElementById(submitBtnId.replace("-submit-btn", "-btn-text").replace("-submit", "-btn-text"));
+
+        btn.disabled = isLoading;
+        if (isLoading) {
+            if (spinner) spinner.classList.remove("hidden");
+            if (btnText) btnText.innerText = loadingText;
+            btn.classList.add("opacity-80");
+            btn.style.pointerEvents = 'none';
+        } else {
+            if (spinner) spinner.classList.add("hidden");
+            if (btnText) btnText.innerText = defaultText;
+            btn.classList.remove("opacity-80");
+            btn.style.pointerEvents = 'auto';
+        }
+    }
+
+    // --- DEVELOPMENT MOCK AUTOFILL HELPERS ---
+
+    function autofillDemoOtp() {
+        if (!devDemoVerificationCode) return;
+        const inputs = document.querySelectorAll("#otp-inputs-wrapper input");
+        for (let i = 0; i < inputs.length; i++) {
+            inputs[i].value = devDemoVerificationCode[i];
+        }
+        inputs[inputs.length - 1].focus();
+    }
+
+    function autofillDemoResetOtp() {
+        if (!devDemoResetCode) return;
+        document.getElementById("reset-code").value = devDemoResetCode;
+        document.getElementById("reset-password").focus();
     }
 
     // --- DASHBOARD TAB CONTROLLERS ---
 
     function activateTab(tabId) {
-        // Toggle tab button states
         const tabs = ['profile', 'appointments', 'orders', 'wishlist', 'cart'];
         tabs.forEach(t => {
             const btn = document.getElementById(`btn-tab-${t}`);
@@ -461,17 +1326,14 @@
         if (activeBtn) activeBtn.className += ' bg-[#800000]/10 text-primary border-l-4 border-primary';
         if (activePanel) activePanel.classList.remove("hidden");
         
-        // Update URL hash without reload
         window.history.replaceState(null, null, `#${tabId}`);
         
-        // Render dynamic contents for specific tabs
         if (tabId === 'profile') loadProfileDetails();
         if (tabId === 'appointments') renderAppointments();
         if (tabId === 'orders') renderOrders();
         if (tabId === 'wishlist') renderWishlist();
         if (tabId === 'cart') renderCart();
         
-        // Sync badge numbers
         updateDashboardBadges();
     }
 
@@ -535,13 +1397,11 @@
         window.saveCurrentUser(user);
         window.syncHeaderDOM();
         
-        // Show status message
         const statusBox = document.getElementById("profile-status");
         statusBox.innerText = "Profile details saved successfully!";
-        statusBox.className = "p-4 rounded-lg text-sm bg-green-100 text-green-800 font-body-md";
+        statusBox.className = "p-4 rounded-lg text-sm bg-green-100 text-green-800 dark:bg-green-950 dark:text-green-300 font-body-md";
         statusBox.classList.remove("hidden");
         
-        // Sync initials avatar
         const initials = user.name.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase();
         document.getElementById("dashboard-avatar").innerText = initials;
         document.getElementById("dashboard-name").innerText = user.name;
@@ -564,15 +1424,15 @@
         }
         
         let tableRows = user.appointments.map(appt => `
-            <tr class="border-b border-[#F2D2BD]/10 hover:bg-slate-50/50">
+            <tr class="border-b border-[#F2D2BD]/10 hover:bg-slate-50/5">
                 <td class="px-6 py-4 font-semibold text-primary font-body-md">${appt.id}</td>
                 <td class="px-6 py-4 text-on-surface-variant text-sm">${appt.createdAt}</td>
                 <td class="px-6 py-4 text-on-surface-variant font-bold text-sm">${appt.style}</td>
                 <td class="px-6 py-4 text-sm font-semibold">${appt.date}</td>
                 <td class="px-6 py-4 text-sm">
-                    <span class="px-2.5 py-1 text-[11px] rounded-full font-bold bg-green-100 text-green-800">${appt.status}</span>
+                    <span class="px-2.5 py-1 text-[11px] rounded-full font-bold bg-green-100 dark:bg-green-950 text-green-800 dark:text-green-300">${appt.status}</span>
                 </td>
-                <td class="px-6 py-4 font-bold text-[#800000] text-sm">₹${appt.price.toLocaleString()}</td>
+                <td class="px-6 py-4 font-bold text-[#800000] dark:text-inverse-primary text-sm">₹${appt.price.toLocaleString()}</td>
             </tr>
         `).join('');
         
@@ -612,15 +1472,15 @@
         let tableRows = user.orders.map(order => {
             const itemsSummary = order.items.map(item => `${item.name} (x${item.quantity})`).join(', ');
             return `
-                <tr class="border-b border-[#F2D2BD]/10 hover:bg-surface-container-high/50">
+                <tr class="border-b border-[#F2D2BD]/10 hover:bg-surface-container-high/20">
                     <td class="px-6 py-4 font-semibold text-primary font-body-md">${order.id}</td>
                     <td class="px-6 py-4 text-on-surface-variant text-sm">${order.createdAt}</td>
                     <td class="px-6 py-4 text-on-surface-variant text-sm max-w-xs truncate" title="${itemsSummary}">${itemsSummary}</td>
                     <td class="px-6 py-4 text-sm font-semibold">${order.address}</td>
                     <td class="px-6 py-4 text-sm">
-                        <span class="px-2.5 py-1 text-[11px] rounded-full font-bold ${order.status === 'Delivered' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'}">${order.status}</span>
+                        <span class="px-2.5 py-1 text-[11px] rounded-full font-bold ${order.status === 'Delivered' ? 'bg-green-100 dark:bg-green-950 text-green-800 dark:text-green-300' : 'bg-yellow-100 dark:bg-yellow-950 text-yellow-800 dark:text-yellow-300'}">${order.status}</span>
                     </td>
-                    <td class="px-6 py-4 font-bold text-[#800000] text-sm">₹${order.total.toLocaleString()}</td>
+                    <td class="px-6 py-4 font-bold text-[#800000] dark:text-inverse-primary text-sm">₹${order.total.toLocaleString()}</td>
                 </tr>
             `;
         }).join('');
@@ -698,7 +1558,6 @@
         window.updateHeaderBadges();
         updateDashboardBadges();
         
-        // Soft message trigger
         const btn = event.currentTarget;
         const originalText = btn.innerHTML;
         btn.innerHTML = '<span class="material-symbols-outlined text-sm">check</span><span>In Bag</span>';
@@ -724,7 +1583,6 @@
             return;
         }
         
-        // Compute prices
         let subtotal = 0;
         let cartItemsHtml = user.cart.map(cItem => {
             const product = window.HEENA_PRODUCTS.find(p => p.id === cItem.productId);
@@ -761,12 +1619,10 @@
         
         container.innerHTML = `
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                <!-- Items list -->
                 <div class="lg:col-span-8 space-y-4">
                     ${cartItemsHtml}
                 </div>
                 
-                <!-- Order Summary -->
                 <div class="lg:col-span-4 bg-surface p-6 rounded-xl border border-secondary-fixed/20 space-y-6">
                     <h3 class="font-headline-sm text-lg text-primary font-bold">Cart Summary</h3>
                     
@@ -777,7 +1633,7 @@
                         </div>
                         <div class="flex justify-between">
                             <span>Delivery Fees</span>
-                            <span class="font-bold text-on-surface">${deliveryCharge === 0 ? '<span class="text-green-700 uppercase font-bold">FREE</span>' : '₹' + deliveryCharge}</span>
+                            <span class="font-bold text-on-surface">${deliveryCharge === 0 ? '<span class="text-green-700 dark:text-green-400 uppercase font-bold">FREE</span>' : '₹' + deliveryCharge}</span>
                         </div>
                         <p class="text-[10px] text-on-surface-variant/80 italic mt-1">* Enjoy Free Shipping on orders above ₹1,000!</p>
                     </div>
@@ -787,7 +1643,6 @@
                         <span>₹${finalTotal.toLocaleString()}</span>
                     </div>
                     
-                    <!-- Delivery address validation before checkout -->
                     <div class="space-y-3 bg-surface-container-low p-4 rounded-lg border border-[#F2D2BD]/20">
                         <h4 class="font-label-caps text-xs text-on-surface font-semibold uppercase tracking-wider">Confirm Shipping Address</h4>
                         <p id="checkout-address-preview" class="text-xs text-on-surface-variant leading-relaxed line-clamp-3">${user.address || '<span class="text-[#ba1a1a] italic font-semibold">No address saved. Please update in Profile tab.</span>'}</p>
@@ -840,7 +1695,6 @@
         const user = window.getCurrentUser();
         if (!user || user.cart.length === 0) return;
         
-        // Prepare order items
         const orderItems = user.cart.map(c => {
             const p = window.HEENA_PRODUCTS.find(prod => prod.id === c.productId);
             return {
@@ -874,13 +1728,11 @@
             document.getElementById("auth-guest-container").classList.add("hidden");
             document.getElementById("auth-user-container").classList.remove("hidden");
             
-            // Populate dashboard basic details
             const initials = user.name.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase();
             document.getElementById("dashboard-avatar").innerText = initials;
             document.getElementById("dashboard-name").innerText = user.name;
             document.getElementById("dashboard-email").innerText = user.email;
             
-            // Redirect check from query params
             const params = new URLSearchParams(window.location.search);
             const redirect = params.get('redirect');
             if (redirect) {
@@ -888,7 +1740,6 @@
                 return;
             }
             
-            // Handle Tab via hash
             let activeTabId = 'profile';
             const hash = window.location.hash.replace("#", "");
             if (hash && ['profile', 'appointments', 'orders', 'wishlist', 'cart'].includes(hash)) {
@@ -900,7 +1751,6 @@
             document.getElementById("auth-user-container").classList.add("hidden");
             document.getElementById("auth-guest-container").classList.remove("hidden");
             
-            // Render redirect messages if any
             const params = new URLSearchParams(window.location.search);
             const reason = params.get('reason');
             if (reason) {
@@ -909,7 +1759,7 @@
                 document.getElementById("auth-status-box").classList.add("hidden");
             }
             
-            switchAuthView('login');
+            switchAuthSubView('choices');
         }
     }
 

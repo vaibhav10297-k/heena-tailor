@@ -1,11 +1,16 @@
 // HEENA TAILOR - Shared State & Catalog Manager
 // This script runs on all pages to ensure auth state, wishlist, and cart are in sync.
 
-const BACKEND_URL = "https://heena-tailor-backend.onrender.com";
+const BACKEND_URL = (
+    window.location.hostname === 'localhost' || 
+    window.location.hostname === '127.0.0.1' || 
+    window.location.hostname === '' || 
+    window.location.protocol === 'file:'
+) ? "http://localhost:5000" : "https://heena-tailor-backend.onrender.com";
 
 // Helper for backend API requests
 async function apiCall(endpoint, method = 'GET', body = null) {
-    const token = localStorage.getItem('heena_token');
+    const token = localStorage.getItem('heena_token') || sessionStorage.getItem('heena_token');
     const headers = {
         'Content-Type': 'application/json'
     };
@@ -634,7 +639,7 @@ window.HEENA_PRODUCTS = [
 
 // Fetch current logged-in user
 window.getCurrentUser = function() {
-    const userJson = localStorage.getItem("heena_currentUser");
+    const userJson = localStorage.getItem("heena_currentUser") || sessionStorage.getItem("heena_currentUser");
     return userJson ? JSON.parse(userJson) : null;
 };
 
@@ -651,50 +656,95 @@ window.saveUserDatabase = function(db) {
 
 // Update active user in session and db
 window.saveCurrentUser = function(user) {
-    localStorage.setItem("heena_currentUser", JSON.stringify(user));
     if (user) {
+        const isRememberMe = localStorage.getItem("heena_rememberMe") === "true";
+        const storage = isRememberMe ? localStorage : sessionStorage;
+        storage.setItem("heena_currentUser", JSON.stringify(user));
+        
         const db = window.getUserDatabase();
         const idx = db.findIndex(u => u.email.toLowerCase() === user.email.toLowerCase());
         if (idx !== -1) {
             db[idx] = user;
             window.saveUserDatabase(db);
         }
+    } else {
+        localStorage.removeItem("heena_currentUser");
+        sessionStorage.removeItem("heena_currentUser");
     }
 };
 
 // Login user
-window.loginUser = async function(email, password) {
+window.loginUser = async function(email, password, rememberMe = false) {
     const res = await apiCall('/api/auth/login', 'POST', { email, password });
     if (res.success) {
-        localStorage.setItem("heena_token", res.token);
-        localStorage.setItem("heena_currentUser", JSON.stringify(res.user));
+        localStorage.setItem("heena_rememberMe", rememberMe ? "true" : "false");
+        const storage = rememberMe ? localStorage : sessionStorage;
+        storage.setItem("heena_token", res.token);
+        storage.setItem("heena_currentUser", JSON.stringify(res.user));
         // Run initial background syncs
         await Promise.all([
             window.syncUserWishlist(),
             window.syncUserAppointments()
         ]);
-        return { success: true, user: res.user };
     }
-    return { success: false, message: res.message || "Invalid email or password." };
+    return res;
 };
 
 // Register user
 window.registerUser = async function(name, email, phone, password) {
-    const res = await apiCall('/api/auth/register', 'POST', { name, email, phone, password });
+    return await apiCall('/api/auth/register', 'POST', { name, email, phone, password });
+};
+
+// Verify email verification code
+window.verifyEmailCode = async function(email, code, rememberMe = false) {
+    const res = await apiCall('/api/auth/verify-email', 'POST', { email, code });
     if (res.success) {
-        localStorage.setItem("heena_token", res.token);
-        localStorage.setItem("heena_currentUser", JSON.stringify(res.user));
+        localStorage.setItem("heena_rememberMe", rememberMe ? "true" : "false");
+        const storage = rememberMe ? localStorage : sessionStorage;
+        storage.setItem("heena_token", res.token);
+        storage.setItem("heena_currentUser", JSON.stringify(res.user));
         // Run initial background syncs
         await Promise.all([
             window.syncUserWishlist(),
             window.syncUserAppointments()
         ]);
-        return { success: true, user: res.user };
     }
-    return { success: false, message: res.message || "Registration failed." };
+    return res;
 };
 
-// Reset Password (local simulation because there's no reset endpoint in backend)
+// Resend email verification code
+window.resendVerificationCode = async function(email) {
+    return await apiCall('/api/auth/resend-verification', 'POST', { email });
+};
+
+// Google Login
+window.loginWithGoogle = async function(idToken, rememberMe = false) {
+    const res = await apiCall('/api/auth/google', 'POST', { idToken });
+    if (res.success) {
+        localStorage.setItem("heena_rememberMe", rememberMe ? "true" : "false");
+        const storage = rememberMe ? localStorage : sessionStorage;
+        storage.setItem("heena_token", res.token);
+        storage.setItem("heena_currentUser", JSON.stringify(res.user));
+        // Run initial background syncs
+        await Promise.all([
+            window.syncUserWishlist(),
+            window.syncUserAppointments()
+        ]);
+    }
+    return res;
+};
+
+// Request password reset code
+window.forgotUserPassword = async function(email) {
+    return await apiCall('/api/auth/forgot-password', 'POST', { email });
+};
+
+// Confirm password reset using code
+window.resetUserPasswordConfirm = async function(email, code, password) {
+    return await apiCall('/api/auth/reset-password', 'POST', { email, code, password });
+};
+
+// Reset Password (local simulation backup)
 window.resetUserPassword = function(email, newPassword) {
     const db = window.getUserDatabase();
     const idx = db.findIndex(u => u.email.toLowerCase() === email.toLowerCase());
@@ -710,6 +760,9 @@ window.resetUserPassword = function(email, newPassword) {
 window.logoutUser = function() {
     localStorage.removeItem("heena_currentUser");
     localStorage.removeItem("heena_token");
+    localStorage.removeItem("heena_rememberMe");
+    sessionStorage.removeItem("heena_currentUser");
+    sessionStorage.removeItem("heena_token");
     // Redirect to home page
     const currentLoc = window.location.pathname;
     if (currentLoc.includes('auth/')) {
